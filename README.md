@@ -3,7 +3,7 @@
 ## Documentation
 This shared folder contains the documentation for the project. In it are the instructions and template for writing documentation.
 
-👉  [Documentation](https://sistemaupr-my.sharepoint.com/:f:/g/personal/ojani_figueroa_upr_edu/Eqlo9P4D4UZHg4bHjCxJs90BfMWxwdf-nHmwlT38ll9_Vw?e=iic9He)
+👉  [Documentation](https://sistemaupr-my.sharepoint.com/:f:/g/personal/ojani_figueroa_upr_edu/Eqlo9P4D4UZHg4bHjCxJs90BfMWxwdf-nHmwlT38ll9_Vw?e=xrcjdD)
 
 ## 1. Problem Background
 
