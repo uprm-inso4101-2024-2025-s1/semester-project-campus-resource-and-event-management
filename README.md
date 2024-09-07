@@ -1,5 +1,10 @@
 # Campus Resource and Event Management App
 
+## Documentation
+This shared folder contains the documentation for the project. In it are the instructions and template for writing documentation.
+
+👉  [Documentation](https://sistemaupr-my.sharepoint.com/:f:/g/personal/ojani_figueroa_upr_edu/Eqlo9P4D4UZHg4bHjCxJs90BfMWxwdf-nHmwlT38ll9_Vw?e=iic9He)
+
 ## 1. Problem Background
 
 Students and staff at the university encounter significant challenges when it comes to locating and utilizing campus resources, such as study spaces, computer labs, and faculty offices. The current system for discovering and managing campus events is fragmented, leading to missed opportunities and low engagement. The absence of a centralized platform for accessing both resources and events results in frustration, underutilization, and a disconnected campus experience.
