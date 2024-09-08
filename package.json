@@ -4,7 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev-svelte": "vite",
+    "dev-api": "flask --app ./api/main run -p 3451 --debug",
+    "devall": "vite & flask --app ./api/main run -p 3451 --debug",
     "build": "vite build",
     "preview": "vite preview"
   },
