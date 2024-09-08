@@ -10,17 +10,54 @@ This shared folder contains the documentation for the project. In it are the ins
 ### Node.js
 If you don't already have Node.js on your machine, [download it here](https://nodejs.org/en) before continuing with the next steps. You can check if you already have it by running `node --version` On your terminal.
 
-
 ### Cloning Repository
 If you haven't already, clone this repository, or make sure to do a `git pull` if you have it cloned already
 
-### Installing modules
+### Installing Node.js modules
 While inside the repository folder, run `npm install`. This will install all necessary dependencies.
 
-### Running the development server
-Now you can run `npm run dev`. This will spin up a local development server which serves
+### Running the frontend development server
+Now you can run `npm run dev-svelte`. This will spin up a local development server which serves
 the web page in the URL shown in the terminal after running the command. From here, any changhes you make will automatically reload the web page. For certain types of changes, it may not do so automatically, in which case you can do a manual refresh of the page.
 
+### Python
+If you don't already have python, [download it here](https://www.python.org/downloads/). Also [install
+Python's package manager](https://pip.pypa.io/en/stable/installation/) if you don't already have it.
+
+### Setting up Python environment and installing packages
+**macOS/Linux instructions**
+```
+$ cd ./api
+$ python3 -m venv .venv
+$ . .venv/bin/activate
+
+$ pip install Flask
+```
+
+**Windows Instructions**
+```
+> cd .\api
+> py -3 -m venv .venv
+> .venv\Scripts\activate
+
+> pip install Flask
+```
+
+### Running the backend development server
+By running `npm run dev-api`, you can get the python server up and running and you can now access
+the example page on the fontend and the **Get Data From Server** button should now work.
+
+## Running the frontend and backend development servers simultaneously
+To run them both at the same time, run the command `npm run devall`
+
+---
+---
+---
+---
+---
+---
+---
+---
 ---
 
 ## 1. Problem Background

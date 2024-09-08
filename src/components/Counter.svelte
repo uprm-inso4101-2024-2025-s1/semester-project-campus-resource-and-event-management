@@ -1,22 +1,19 @@
 <script>
+  import getServerData from '../lib/getTestServerData.js'
+
   let count = 0
   const increment = () => {
     count += 1
   }
 
   let serverData
-  const getServerData = async () => {
-    const response = await fetch('http://127.0.0.1:3451/api/')
-    const textResponse = await response.text()
-    serverData = textResponse
-  }
 </script>
 
 <button on:click={increment}>
   count is {count}
 </button>
 
-<button on:click={getServerData}>
+<button on:click={() => getServerData().then(data => serverData = data)}>
   Get Data From Server
 </button>
 
