@@ -1,5 +1,28 @@
 # Campus Resource and Event Management App
 
+## Documentation
+This shared folder contains the documentation for the project. In it are the instructions and template for writing documentation.
+
+👉  [Documentation](https://sistemaupr-my.sharepoint.com/:f:/g/personal/ojani_figueroa_upr_edu/Eqlo9P4D4UZHg4bHjCxJs90BfMWxwdf-nHmwlT38ll9_Vw?e=xrcjdD)
+
+## Setting up the development environment
+
+### Node.js
+If you don't already have Node.js on your machine, [download it here](https://nodejs.org/en) before continuing with the next steps. You can check if you already have it by running `node --version` On your terminal.
+
+
+### Cloning Repository
+If you haven't already, clone this repository, or make sure to do a `git pull` if you have it cloned already
+
+### Installing modules
+While inside the repository folder, run `npm install`. This will install all necessary dependencies.
+
+### Running the development server
+Now you can run `npm run dev`. This will spin up a local development server which serves
+the web page in the URL shown in the terminal after running the command. From here, any changhes you make will automatically reload the web page. For certain types of changes, it may not do so automatically, in which case you can do a manual refresh of the page.
+
+---
+
 ## 1. Problem Background
 
 Students and staff at the university encounter significant challenges when it comes to locating and utilizing campus resources, such as study spaces, computer labs, and faculty offices. The current system for discovering and managing campus events is fragmented, leading to missed opportunities and low engagement. The absence of a centralized platform for accessing both resources and events results in frustration, underutilization, and a disconnected campus experience.
@@ -35,20 +58,3 @@ These metrics will help assess whether the app meets the target increases in res
 ## 6. Action/Standardization
 
 If the app achieves its goals, it will be established as the university's standard platform for managing campus resources and events. Guidelines for continuous improvement will be created based on user feedback. The possibility of integrating additional features, such as academic calendars or campus news, will be explored to further enhance the app's functionality and user engagement.
-
-## 7. Recommended Team Structure
-
-- **Development Team (30-35 students)**:
-  - Frontend Developers
-  - Backend Developers
-  - Mobile App Developers
-
-- **UI/UX Design Team (6-8 students)**:
-  - Responsible for creating the app's visual elements and interactive tools for developers.
-
-- **Project Management Team (4-6 students)**:
-  - Scrum Masters/Project Managers to oversee the project.
-
-- **Data Management and Analytics Team (3-4 students)**:
-  - Ensuring data security, accessibility, and efficient organization.
-  - Analyzing user data to monitor app usage and other key metrics.
