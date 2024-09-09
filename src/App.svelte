@@ -5,13 +5,10 @@
   import LoginPage from "./components/LoginPage.svelte";
   import PageWrapper from "./components/PageWrapper.svelte";
 
-  import { onMount } from "svelte";
-  let currentPage = ''
-
-  onMount(() => (currentPage = window.location.pathname))
+  let currentPage
 </script>
 
-<PageWrapper>
+<PageWrapper bind:currentPage>
   <h2>Current Path: {currentPage}</h2>
   
   {#if currentPage == '/' || currentPage == '/home'}

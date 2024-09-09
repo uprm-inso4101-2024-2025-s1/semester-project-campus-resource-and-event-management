@@ -1,10 +1,17 @@
 <script>
-  // Since this is a single page application, doing this will prevent
-  // uncecessary refreshing of the page every time a nav link is clicked on
+  import { onMount } from "svelte";
+
+  export let currentPage
+
   function handleNavClick(e) {
+    // Since this is a single page application, doing this will prevent
+    // uncecessary refreshing of the page every time a nav link is clicked on
     e.preventDefault();
-    window.location.pathname = e.target.pathname;
+    window.history.replaceState(null, '', e.target.pathname);
+    currentPage = window.location.pathname
   }
+
+  onMount(() => (currentPage = window.location.pathname))
 </script>
 
 <nav>
