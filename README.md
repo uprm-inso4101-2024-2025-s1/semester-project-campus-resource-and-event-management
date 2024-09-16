@@ -18,7 +18,7 @@ While inside the repository folder, run `npm install`. This will install all nec
 
 ### Running the frontend development server
 Now you can run `npm run dev-svelte`. This will spin up a local development server which serves
-the web page in the URL shown in the terminal after running the command. From here, any changhes you make will automatically reload the web page. For certain types of changes, it may not do so automatically, in which case you can do a manual refresh of the page.
+the web page in the URL shown in the terminal after running the command. From here, any changes you make will automatically reload the web page. For certain types of changes, it may not do so automatically, in which case you can do a manual refresh of the page.
 
 ### Python
 If you don't already have python, [download it here](https://www.python.org/downloads/). Also [install
