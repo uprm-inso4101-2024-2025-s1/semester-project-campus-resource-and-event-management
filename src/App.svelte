@@ -8,9 +8,7 @@
   let currentPage
 </script>
 
-<PageWrapper bind:currentPage>
-  <h2>Current Path: {currentPage}</h2>
-  
+<PageWrapper>  
   {#if currentPage == '/' || currentPage == '/home'}
     <HomePage />
   {:else if currentPage == '/login'}
