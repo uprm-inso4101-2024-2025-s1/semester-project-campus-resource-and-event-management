@@ -30,7 +30,9 @@
 
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');    
     nav {
+      font-family: 'Roboto', sans-serif;
       font-weight: bold;
       justify-content: space-around;
       background: #EFEFEF;
