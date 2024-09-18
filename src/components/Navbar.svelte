@@ -16,9 +16,13 @@
       <img src="/images/1.png" alt="Logo" class="logo" />
       <span class="eventero-text">Eventero</span> 
     </a>
-    <a on:click={handleNavClick} href="/login">Login</a>
-    <a on:click={handleNavClick} href="/calendar">Calendar</a>
-    <a on:click={handleNavClick} href="/example">Example Page With Server Request</a>
+    
+    <a on:click={handleNavClick} href="/news"> News </a>
+    <a on:click={handleNavClick} href="/map"> Map </a>
+    <a on:click={handleNavClick} href="/calendar"> Your Calendar</a>
+    <a on:click={handleNavClick} href="/events"> Upcoming Events</a>
+    <a on:click={handleNavClick} href="/resources"> Resources</a>
+    <a on:click={handleNavClick} href="/login">Sign-Up</a>
 </nav>
 
 
@@ -37,15 +41,10 @@
   
     a {
     font-weight: 500;
-    color: #646cff;
+    color: #000000;
     text-decoration: inherit;
     margin: 0 10px;
   }
-  
-    a:hover {
-      color: #535bf2;
-    }
-
     .logo-link {
     display: flex;
     align-items: center;
@@ -63,11 +62,13 @@
   .eventero-text {
     font-weight: bold;
     font-size: 2.0em; 
-    color: #006b3f; 
+    color: #085E49;
+    ; 
     margin-top: -5px;
   }
 
   .logo-link:hover .eventero-text {
-    color: #004d2f; 
+    color: #053A2D;
+    ; 
   }
   </style>
