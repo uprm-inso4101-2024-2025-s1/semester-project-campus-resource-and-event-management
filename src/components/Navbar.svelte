@@ -31,6 +31,7 @@
 
 <style>
     nav {
+      font-weight: bold;
       justify-content: space-around;
       background: #EFEFEF;
       display: flex;
