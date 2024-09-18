@@ -16,7 +16,7 @@
 
 <nav>
     <a on:click={handleNavClick} href="/home" class="logo-link">
-      <img src="/images/1.png" alt="Logo" class="logo" />
+      <img src="/images/icon.png" alt="Logo" class="logo" />
       <span class="eventero-text">Eventero</span> 
     </a>
     
