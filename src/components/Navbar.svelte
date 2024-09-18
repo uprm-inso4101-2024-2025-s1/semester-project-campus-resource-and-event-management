@@ -1,13 +1,16 @@
 <script>
     import { onMount } from "svelte";
-    import Navbar from "./Navbar.svelte";
+    export let currentPage;
 
     function handleNavClick(e) {
       // Since this is a single page application, doing this will prevent
       // unnecessary refreshing of the page every time a nav link is clicked on
       e.preventDefault(); 
       window.history.replaceState(null, '', e.currentTarget.getAttribute('href'));
+      currentPage = window.location.pathname;
     }
+
+    onMount(() => (currentPage = window.location.pathname))
 
 </script>
 

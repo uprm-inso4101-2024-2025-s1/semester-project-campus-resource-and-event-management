@@ -12,7 +12,7 @@
   let currentPage
 </script>
 
-<PageWrapper>  
+<PageWrapper bind:currentPage>  
   {#if currentPage == '/' || currentPage == '/home'}
     <HomePage />
   {:else if currentPage == '/login'}
