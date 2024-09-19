@@ -2,9 +2,9 @@
     import { onMount } from "svelte";
     export let currentPage;
 
+    let searchQuery = "";
+
     function handleNavClick(e) {
-      // Since this is a single page application, doing this will prevent
-      // unnecessary refreshing of the page every time a nav link is clicked on
       e.preventDefault(); 
       window.history.replaceState(null, '', e.currentTarget.getAttribute('href'));
       currentPage = window.location.pathname;
@@ -12,7 +12,17 @@
 
     onMount(() => (currentPage = window.location.pathname))
 
+    function handleSearch(e) {
+  e.preventDefault();
+  // Assuming there's a page to handle search results
+  window.history.replaceState(null, '', `/search?query=${searchQuery}`);
+  currentPage = window.location.pathname;
+}
+
+
 </script>
+
+
 
 <nav>
     <a on:click={handleNavClick} href="/home" class="logo-link">
@@ -26,10 +36,14 @@
     <a on:click={handleNavClick} href="/events"> Upcoming Events</a>
     <a on:click={handleNavClick} href="/resources"> Resources</a>
     <a on:click={handleNavClick} href="/login">Sign-Up</a>
+
+    <!-- Search Bar -->
+    <form on:submit={handleSearch} class="search-bar">
+      <input type="text" bind:value={searchQuery} placeholder="Resources or events..." />
+      <button type="submit">Search</button>
+  </form>
+
 </nav>
-
-
-
 
 
 <style>
@@ -77,4 +91,35 @@
     color: #053A2D;
     ; 
   }
+  .search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-bar input {
+  padding: 6px;
+  border: 1px solid #053A2D; 
+  border-radius: 4px;
+  background-color: #004d40; 
+  color: white; 
+}
+
+.search-bar input::placeholder {
+  color: #ffffff; 
+}
+
+.search-bar button {
+  background-color: #004d40; 
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.search-bar button:hover {
+  background-color: #053A2D; 
+}
+
   </style>
