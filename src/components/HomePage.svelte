@@ -1,5 +1,5 @@
 
-<footer>
+<!-- <footer>
     <p>&copy; 2024 Eventero. All rights reserved.</p>
     <nav>
       <ul>
@@ -22,9 +22,9 @@
       </a>
     </div>
   
-</footer>
+</footer> -->
 
-<style>
+<!-- <style>
     footer {
     background-color: #053A2D;
     padding: 20px;
@@ -63,6 +63,13 @@
   .social-icons a {
     margin: 0 30px;
   }
-</style>
+</style> -->
 
 
+<script>
+  import Footer from "../components/Footer.svelte"
+</script>
+
+<body>
+  <Footer/> 
+</body>
