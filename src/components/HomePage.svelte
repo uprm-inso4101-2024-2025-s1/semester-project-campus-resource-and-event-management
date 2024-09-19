@@ -47,13 +47,19 @@
     height: auto;
     object-fit: contain;
   }
-
-  .social-icon-youtube {
-    width: 50px; 
-    height: auto;
-    transform: scale(2.5); 
-  }
-
+  @media (max-width: 480px) {
+    footer nav ul {
+        flex-direction: column; /* Stack the footer links vertically */
+        text-align: center;
+    }
+}
+.social-icon-youtube {
+    width: 80px; 
+    height: 40px;  
+    background-image: url('/images/YT_Logo_white.png'); 
+    background-position: center;  
+    background-size: 150%; 
+}
   .social-icons a {
     margin: 0 30px;
   }
