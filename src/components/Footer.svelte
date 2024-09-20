@@ -163,7 +163,7 @@
     <h3>Postal Address:</h3>
     <p id="footer-address">P.O Box 9000 University of Puerto Rico at Mayagüez Calle Post, Mayagüez, P.R. 00681-9000</p>
     <h3>Fisical Address:</h3>
-    <p id="footer-address">P.O Box 9000 University of Puerto Rico at Mayagüez Calle Post, Mayagüez, P.R. 00681-9000</p>
+    <p id="footer-address">6V66+C8C, Mayagüez, 00680</p>
     <h3>Main Telephone: (787) 832-4040</h3>
 
     <div class="footer-contactUs">
