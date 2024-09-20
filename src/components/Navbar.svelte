@@ -4,6 +4,7 @@
   let searchQuery = "";
   let searchResults = []
   let isMenuOpen = false;
+  let notifications = 5; // dummy notif count
 
   function handleNavClick(e) {
       e.preventDefault();
@@ -64,6 +65,14 @@
       <a on:click={handleNavClick} href="/resources"> Resources</a>
       <a on:click={handleNavClick} href="/login">Sign-Up</a>
 
+      <!-- Notification Bell Icon -->
+      <button type="button" class="notification-bell" on:click={() => alert("Redirect to notifications page!")}>
+        <img src="/images/bell.png" alt="Notifications" class="bell-image" />
+        {#if notifications > 0}
+          <div class="notification-count">{notifications}</div>
+        {/if}
+      </button>
+
       <!-- Search Bar -->
       <form on:submit={handleSearch} class="search-bar">
           <input type="text" bind:value={searchQuery} placeholder="Search for resources or events..." />
@@ -75,6 +84,32 @@
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap'); 
+
+.notification-bell {
+    position: relative;
+    cursor: pointer;
+    background: none; 
+    border: none;
+    padding: 0;
+  }
+
+  .bell-image {
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+    background-color: transparent; 
+  }
+
+  .notification-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: red;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+  }
 
   .navbar {
     font-family: 'Roboto', sans-serif;
