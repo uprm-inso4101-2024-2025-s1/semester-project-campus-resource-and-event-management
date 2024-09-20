@@ -4,7 +4,7 @@
   let searchQuery = "";
   let searchResults = []
   let isMenuOpen = false;
-  let notifications = 5; // dummy notif count
+  let notifications = 6; // dummy notif count
 
   function handleNavClick(e) {
       e.preventDefault();
