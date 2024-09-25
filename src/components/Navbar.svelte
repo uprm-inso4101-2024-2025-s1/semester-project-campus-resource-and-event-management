@@ -50,12 +50,10 @@
       &#9776;
   </div>
 
-  <div class="logo-link">
-      <a on:click={handleNavClick} href="/home">
-          <img src="/images/icon.png" alt="Logo" class="logo" />
-          <span class="eventero-text">Eventero</span> 
-      </a>
-  </div>
+  <a class="logo-link" on:click={handleNavClick} href="/home">
+      <img src="/images/icon.png" alt="Logo" class="logo" />
+      <span class="eventero-text">Eventero</span> 
+  </a>
 
   <div class={`nav-links ${isMenuOpen ? 'open' : ''}`}>
       <a on:click={handleNavClick} href="/news"> News </a>
