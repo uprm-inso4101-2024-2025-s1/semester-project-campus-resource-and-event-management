@@ -1,8 +1,8 @@
 <!-- footer -->
 <script>
-    import facebookLogo from '../assets/facebook.png';
-    import igLogo from '../assets/instagram.png';
-    import xLogo from '../assets/x.png';
+    let facebookLogo = "/images/white-facebook-logo.png";
+    let igLogo = "/images/white-insta-logo.png";
+    let xLogo = "/images/X_Logo.png";
 </script>
 
 
@@ -64,19 +64,22 @@
         margin: 40px 0px 9px 20px;
     } */
     .footer-socialMedia {
-        width: 100%; 
+        width: 100%;
+        text-align: center;
     }
     .footer-socialMedia h4 {
-        margin: 26px 0px 19px 18px;
+        margin: 0 0 20px 0; 
+        font-size: 20px; 
     }
     .footer-socialMedia-logos {
         display: flex;
         justify-content: center;
+        align-items: center;
         width: 100%;
         gap: 50px; 
     }
     .footer-logo {
-        width: 6rem;
+        width: 4rem;
         height: auto;
     }
 
@@ -84,12 +87,11 @@
         display: flex;
         width: 100%;
         justify-content: center;
-    }
-    .footer-termsLegal {
         margin: 20px 0 0 0;
         text-align: center;
         align-items: center;
     }
+        
     .footer-termsLegal a p {
         font-size: 25px;
     }
