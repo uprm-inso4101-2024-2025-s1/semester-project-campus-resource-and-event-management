@@ -4,19 +4,29 @@
   import HomePage from "./components/HomePage.svelte";
   import LoginPage from "./components/LoginPage.svelte";
   import PageWrapper from "./components/PageWrapper.svelte";
+  import EventsPage from "./components/EventsPage.svelte";
+  import MapPage from "./components/MapPage.svelte";
+  import NewsPage from "./components/NewsPage.svelte";
+  import ResourcesPage from "./components/ResourcesPage.svelte";
 
   let currentPage
 </script>
 
-<PageWrapper bind:currentPage>
-  <h2>Current Path: {currentPage}</h2>
-  
+<PageWrapper bind:currentPage>  
   {#if currentPage == '/' || currentPage == '/home'}
     <HomePage />
   {:else if currentPage == '/login'}
     <LoginPage />
   {:else if currentPage == '/calendar'}
     <CalendarPage />
+  {:else if currentPage == '/events'}
+    <EventsPage />
+  {:else if currentPage == '/map'}
+    <MapPage />
+  {:else if currentPage == '/news'}
+    <NewsPage />
+  {:else if currentPage == '/resources'}
+    <ResourcesPage />
   {:else}
     <ExamplePage />
   {/if}

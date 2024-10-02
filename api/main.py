@@ -19,3 +19,6 @@ def hello_world():
     # Setting CORS request headers
     resp.headers['Access-Control-Allow-Origin'] = '*'
     return resp
+
+if __name__ == "__main__":
+    app.run(port=3415)
