@@ -85,14 +85,14 @@
     }
 
     .daysOfTheMonth {
-        border: 0.12em solid rgb(175, 175, 175);
         grid-template-columns: repeat(7, 1fr);
         grid-template-rows: repeat(6, 1fr);
         background: rgb(175, 175, 175);
         box-sizing: border-box;
+        padding: 0.12rem;
         overflow: hidden;
         display: grid;
         flex-grow: 1;
-        gap: 0.12em;
+        gap: 0.12rem;
     }
 </style>
