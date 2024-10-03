@@ -1,17 +1,36 @@
 <script>
     import CalendarMonthView from "./CalendarMonthView.svelte";
+    import { getDaysInMonth, getMonthName } from "../lib/calendarTools";
     export const view = "month";
+
+    let currentMonth = new Date().getMonth();
+    let currentYear = new Date().getFullYear();
+    $: daysInMonth = getDaysInMonth(currentMonth, currentYear)
+
+    function addMonth(amt) {
+        var newMonth = currentMonth + amt;
+
+        if (newMonth < 1) {
+            currentYear -= 1;
+            newMonth = 12;
+        } else if (newMonth > 12) {
+            currentYear += 1;
+            newMonth = 1;
+        }
+
+        currentMonth = newMonth;
+    }
 </script>
 
 <div class="wrapper">
-    <h2>September 2024</h2>
+    <h2>{getMonthName(currentMonth)} {currentYear}</h2>
     <div class="arrows">
-        <span>&lsaquo;</span>
-        <span>&rsaquo;</span>
+        <button on:click={() => addMonth(-1)}>&lsaquo;</button>
+        <button on:click={() => addMonth(1)}>&rsaquo;</button>
     </div>
     <div class="calendarViewWrapper">
         {#if view == "month"}
-            <CalendarMonthView />
+            <CalendarMonthView {daysInMonth} />
         {/if}
     </div>
 </div>
@@ -48,12 +67,13 @@
         display: flex;
     }
 
-    .arrows span {
-      cursor: pointer;
+    .arrows button {
+        all: unset;
+        cursor: pointer;
     }
 
-    .arrows span:hover {
-      color: rgb(8, 94, 73);
+    .arrows button:hover {
+        color: rgb(8, 94, 73);
     }
 
     .calendarViewWrapper {

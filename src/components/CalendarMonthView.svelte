@@ -1,14 +1,14 @@
 <script>
-    import CalendarDay from "./CalendarDay.svelte";
-
-  export const days = []
-  export const month = 0 // january - december = 0 - 11
-
-  for(let i = 1; i < 31; i++) { days.push(i) }
+  import CalendarDay from "./CalendarDay.svelte";
+  export let daysInMonth = 31
+  let days = []
+  $: {
+    days = []
+    for(let i = 1; i < daysInMonth+1; i++) { days.push(i) }
+  }
 </script>
 
 <div class="wrapper">
-
   <div class="daysOfTheWeek">
     <p>SUN</p>
     <p>MON</p>
