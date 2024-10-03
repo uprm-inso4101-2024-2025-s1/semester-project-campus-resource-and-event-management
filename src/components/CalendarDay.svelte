@@ -2,9 +2,9 @@
     import CalendarEvent from "./CalendarEvent.svelte";
 
     export let day;
-    export const isCurrentDay = false;
-    export const isNotFromMonth = false;
-    export const events = [];
+    export let isCurrentDay = false;
+    export let isNotFromMonth = false;
+    export let events = [];
 </script>
 
 <div class="wrapper" class:isCurrentDay class:isNotFromMonth>
@@ -38,7 +38,7 @@
     }
 
     .isNotFromMonth {
-        background: rgb(225, 225, 225);
+        background: rgb(220, 220, 220);
     }
 
     .day {
