@@ -3,7 +3,7 @@
     import { getDaysInMonth, getMonthName } from "../lib/calendarTools";
     export const view = "month";
 
-    let currentMonth = new Date().getMonth();
+    let currentMonth = new Date().getMonth()+1;
     let currentYear = new Date().getFullYear();
     $: daysInMonth = getDaysInMonth(currentMonth, currentYear)
     $: dayOffset = new Date(currentYear, currentMonth-1, 1).getDay()
@@ -46,6 +46,7 @@
         border-radius: 1em;
         background: white;
         padding: 0 1.2em;
+        overflow: hidden;
         display: grid;
         height: 100%;
         width: 100%;
@@ -59,10 +60,9 @@
     }
 
     .arrows {
-        justify-content: space-between;
+        justify-content: center;
         grid-column: 10 / 11;
         user-select: none;
-        padding: 0 0.75em;
         grid-row: 2 / 3;
         font-size: 2em;
         line-height: 0;
@@ -71,6 +71,8 @@
 
     .arrows button {
         all: unset;
+        height: 0;
+        margin: 0 0.75em;
         cursor: pointer;
     }
 
