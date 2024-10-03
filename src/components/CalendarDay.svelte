@@ -7,23 +7,26 @@
     export let events = [];
 </script>
 
-<div class="wrapper" class:isCurrentDay class:isNotFromMonth>
+<div class="dayWrapper" class:isCurrentDay class:isNotFromMonth>
     <p class="day">{day}</p>
 
-    {#each events as event}
-        <CalendarEvent {event} />
-    {/each}
+    <div class="events">
+        {#each events as event}
+            <CalendarEvent {event} />
+        {/each}
+    </div>
 </div>
 
 <style>
-    .wrapper {
+    .dayWrapper {
         transition: background-color 0.125s;
         display: inline-block;
         background: white;
+        overflow-y: scroll;
         cursor: pointer;
     }
 
-    .wrapper:hover {
+    .dayWrapper:hover {
         background: rgb(222, 232, 230);
     }
 
@@ -41,8 +44,16 @@
     }
 
     .day {
+        margin: 0.5em 0 0 0.5em;
+        position: absolute;
         font-weight: 550;
         font-size: 1em;
-        margin: 0.5em;
+    }
+
+    .events {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        padding-top: 2em;
+        height: 100%;
     }
 </style>

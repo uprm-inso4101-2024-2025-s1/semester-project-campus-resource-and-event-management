@@ -4,6 +4,16 @@
     export let isTodaysMonth;
     export let daysInMonth;
     export let dayOffset;
+    
+    // HARDCODED dummy data for monthly events
+    const monthEvents = {
+      2: [{ eventName: 'Event 1' }],
+      6: [{ eventName: 'Event 1' }, { eventName: 'Event 2' }, { eventName: 'Event 3' }],
+      10: [{ eventName: 'Event 1' }],
+      17: [{ eventName: 'Event 1' }, { eventName: 'Event 2', noTagsInCommon: true }],
+      28: [{ eventName: 'Event 1' }, { eventName: 'Event 2' }, { eventName: 'Event 3' }, { eventName: 'Event 3' }]
+    }
+
     let prevDays = [];
     let days = [];
     let missingDays = [];
@@ -46,6 +56,7 @@
             <CalendarDay
                 {day}
                 isCurrentDay={isTodaysMonth && day == todaysDate}
+                events={monthEvents[day]}
             />
         {/each}
         {#each missingDays as day}
@@ -57,6 +68,7 @@
 <style>
     .wrapper {
         flex-direction: column;
+        overflow: hidden;
         display: flex;
         height: 100%;
     }
@@ -78,8 +90,9 @@
         grid-template-rows: repeat(6, 1fr);
         background: rgb(175, 175, 175);
         box-sizing: border-box;
+        overflow: hidden;
         display: grid;
-        height: 100%;
+        flex-grow: 1;
         gap: 0.12em;
     }
 </style>

@@ -16,6 +16,7 @@
     grid-template-columns: repeat(60, 1fr);
     grid-template-rows: repeat(60, 1fr);
     background: rgb(223, 223, 223);
+    overflow: hidden;
     display: grid;
     height: 100%;
   }
