@@ -1,11 +1,13 @@
 <script>
     import CalendarDay from "./CalendarDay.svelte";
     export let prevMonthDays;
+    export let isTodaysMonth;
     export let daysInMonth;
     export let dayOffset;
     let prevDays = [];
     let days = [];
     let missingDays = [];
+    let todaysDate = new Date().getDate();
     $: {
         prevDays = [];
         days = [];
@@ -41,7 +43,10 @@
             <CalendarDay isNotFromMonth={true} {day} />
         {/each}
         {#each days as day}
-            <CalendarDay {day} />
+            <CalendarDay
+                {day}
+                isCurrentDay={isTodaysMonth && day == todaysDate}
+            />
         {/each}
         {#each missingDays as day}
             <CalendarDay isNotFromMonth={true} {day} />

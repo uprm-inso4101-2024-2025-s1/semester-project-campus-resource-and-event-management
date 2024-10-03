@@ -8,6 +8,7 @@
     $: daysInMonth = getDaysInMonth(currentMonth, currentYear)
     $: dayOffset = new Date(currentYear, currentMonth-1, 1).getDay()
     $: prevMonthDays = getDaysInMonth(currentMonth-1, currentYear)
+    $: isTodaysMonth = currentMonth == new Date().getMonth()+1
 
     function addMonth(amt) {
         var newMonth = currentMonth + amt;
@@ -32,7 +33,7 @@
     </div>
     <div class="calendarViewWrapper">
         {#if view == "month"}
-            <CalendarMonthView {daysInMonth} {dayOffset} {prevMonthDays} />
+            <CalendarMonthView {daysInMonth} {dayOffset} {prevMonthDays} {isTodaysMonth} />
         {/if}
     </div>
 </div>

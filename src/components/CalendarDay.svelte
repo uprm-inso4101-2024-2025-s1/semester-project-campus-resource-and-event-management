@@ -28,9 +28,8 @@
     }
 
     .isCurrentDay {
-        outline: 0.2rem solid rgb(8, 94, 73);
+        outline: 0.12rem solid rgb(8, 94, 73);
         background: rgb(222, 232, 230);
-        outline-offset: -0.2rem;
     }
 
     .isCurrentDay .day {
