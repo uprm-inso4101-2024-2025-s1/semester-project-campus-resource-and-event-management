@@ -10,11 +10,13 @@
 <div class="dayWrapper" class:isCurrentDay class:isNotFromMonth>
     <p class="day">{day}</p>
 
-    <div class="events">
-        {#each events as event}
-            <CalendarEvent {event} />
-        {/each}
-    </div>
+    {#if events}
+        <div class="events">
+            {#each events as event}
+                <CalendarEvent {event} />
+            {/each}
+        </div>
+    {/if}
 </div>
 
 <style>
