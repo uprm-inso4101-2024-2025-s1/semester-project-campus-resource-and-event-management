@@ -70,6 +70,4 @@
   import Footer from "../components/Footer.svelte"
 </script>
 
-<body>
-  <Footer/> 
-</body>
+<Footer/> 
