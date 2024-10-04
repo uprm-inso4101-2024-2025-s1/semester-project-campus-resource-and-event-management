@@ -189,6 +189,7 @@
     padding: 0 20px;
     height: 57px;
     position: relative;
+    flex-shrink: 0;
   }
 
   .hamburger {

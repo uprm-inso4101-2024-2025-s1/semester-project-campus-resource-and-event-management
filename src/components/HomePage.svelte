@@ -77,11 +77,19 @@
 </section>
 
 
+<section class="title-section">
+  <h1>Campus Resource and Event Manager</h1>
+  <p>Your gateway to campus life.</p>
+</section>
+
+<div class="footerWrapper">
+  <Footer/>
+</div>
 
 <style>
 
   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-  body {
+  .footerWrapper {
       font-family: 'Roboto', sans-serif;
   }
 
@@ -110,7 +118,3 @@
   }
   
 </style>
-
-<body>
-  <Footer/> 
-</body>

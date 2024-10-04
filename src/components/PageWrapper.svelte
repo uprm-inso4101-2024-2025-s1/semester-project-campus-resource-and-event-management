@@ -4,6 +4,15 @@
 
 </script>
 
-<Navbar bind:currentPage />
+<main>
+    <Navbar bind:currentPage />
+    <slot />
+</main>
 
-<slot />
+<style>
+    main {
+        flex-direction: column;
+        height: 100vh;
+        display: flex;
+    }
+</style>
