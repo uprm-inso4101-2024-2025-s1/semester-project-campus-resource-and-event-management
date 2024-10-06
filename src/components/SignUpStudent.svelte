@@ -1,31 +1,72 @@
+
+<script>
+    let studentId = '';
+    let email = '';
+    let password = '';
+    let confirmPassword = '';
+
+    async function handleStudentSignup() {
+        // Basic password matching validation
+        if (password !== confirmPassword) {
+            alert('Passwords do not match');
+            return;
+        }
+
+        const response = await fetch('/signup/student', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                student_id: studentId,
+                email: email,
+                password: password,
+            }),
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            alert(data.message);  // Show success message
+            // Optionally, redirect to another page or clear the form
+        } else {
+            alert(data.message);  // Show error message
+        }
+    }
+</script>
+
+
+
+
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  </head>
-  
-  
-  <div class="container">
-      <div id="center"> 
-          <div id="create"> Create a student account </div>
-          <div id="already"> Already have an account? </div>
-          <div id="login">
-              <a href="login" id="loginlink">Log in</a>
-          </div>        
-          <div id="id"> Student ID </div>
-          <input id="idinput" type="text">
-          <div id="email"> Email Address </div>
-          <input id="emailinput" type="text">
-          <div id="psswd"> Password </div>
-          <div id="psswdd"> Confirm your password </div>
-          <input id="psswdinput" type="password">
-          <input id="psswddinput" type="password">
-          <span class="toggle-password" onclick="togglePassword()">
-              <i class="fas fa-eye"></i>
-          </span>
-          <div id="characters"> Use 8 or more characters with a mix of letter and symbols </div>
-          <div id="showpsswd"> Show password </div>
-          <div id="match"> Passwords do not match </div>
-          <div id="instead"> Log in instead </div>
+</head>
+
+
+<div class="container">
+    <div id="center"> 
+        <div id="create"> Create a student account </div>
+        <div id="already"> Already have an account? </div>
+        <div id="login">
+            <a href="login" id="loginlink">Log in</a>
+        </div>        
+        <div id="id"> Student ID </div>
+        <input id="idinput" type="text" bind:value={studentId}>
+        <div id="email"> Email Address </div>
+        <input id="emailinput" type="text" bind:value={email}>
+        <div id="psswd"> Password </div>
+        <div id="psswdd"> Confirm your password </div>
+        <input id="psswdinput" type="password" bind:value={password}>
+        <input id="psswddinput" type="password" bind:value={confirmPassword}>
+        <span class="toggle-password" onclick="togglePassword()">
+            <i class="fas fa-eye"></i>
+        </span>
+        <div id="characters"> Use 8 or more characters with a mix of letter and symbols </div>
+        <div id="showpsswd"> Show password </div>
+        <div id="match"> Passwords do not match </div>
+        <div id="instead"> Log in instead </div>
           <div id="createbutton"> Create account </div>
+        <!-- <div id="createbutton" on:click={handleStudentSignup}> Create account </div> -->
+
       </div>
       <script>
           function togglePassword() {

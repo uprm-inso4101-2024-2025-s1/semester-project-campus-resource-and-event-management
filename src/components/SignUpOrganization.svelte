@@ -1,3 +1,46 @@
+
+<script>
+    let organizationName = "";
+    let email = "";
+    let password = "";
+    let confirmPassword = "";
+
+    async function handleOrganizationSignup() {
+        if (password !== confirmPassword) {
+            alert('Passwords do not match');
+            return;
+        }
+  
+        const response = await fetch("/signup/organization", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            organization_name: organizationName,
+            email: email,
+            password: password,
+          }),
+        });
+  
+        const data = await response.json();
+        if (response.ok) {
+          // Handle successful sign-up (e.g., redirect to login)
+          console.log("Organization account created:", data);
+        } else {
+          // Handle errors (e.g., show error message)
+          console.error("Error creating account:", data);
+        }
+      }
+    
+  
+
+  </script>
+
+
+
+
+
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   </head>
@@ -10,13 +53,13 @@
               <a href="login" id="loginlink">Log in</a>
           </div>        
           <div id="name"> Organization name </div>
-          <input id="nameinput" type="text">
+          <input id="nameinput" type="text" bind:value={organizationName}>
           <div id="email2"> Email Address </div>
-          <input id="emailinput2" type="text">
+          <input id="emailinput2" type="text" bind:value={email}>
           <div id="psswd2"> Password </div>
           <div id="psswdd2"> Confirm your password </div>
-          <input id="psswdinput2" type="password">
-          <input id="psswddinput2" type="password">
+          <input id="psswdinput2" type="password" bind:value={password}>
+          <input id="psswddinput2" type="password" bind:value={confirmPassword}>
           <span class="toggle-password" onclick="togglePassword()">
               <i class="fas fa-eye"></i>
           </span>
@@ -24,7 +67,9 @@
           <div id="showpsswd2"> Show password </div>
           <div id="match2"> Passwords do not match </div>
           <div id="instead2"> Log in instead </div>
-          <div id="createbutton2"> Create account </div>
+            <div id="createbutton2"> Create account </div>
+        <!-- <div id="createbutton2" on:click={handleOrganizationSignup}> Create account </div> -->
+
       </div>
       <script>
           function togglePassword() {
