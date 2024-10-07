@@ -13,7 +13,7 @@
         }
 
         .outer-box {
-            width: 1440px;
+            width: 1700px;
             height: 900px;
             background-color: rgb(12, 123, 96, 1); 
             position: absolute;
