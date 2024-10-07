@@ -13,9 +13,9 @@
         }
 
         .outer-box {
-            width: 600px;
-            height: 600px;
-            background-color: rgb(12, 123, 96); 
+            width: 1440px;
+            height: 900px;
+            background-color: rgb(12, 123, 96, 1); 
             position: absolute;
             top: 50%;
             left: 50%;
@@ -26,11 +26,11 @@
         }
 
         .inner-box {
-            width: 500px;
-            height: 400px;
+            width: 1207px;
+            height: 541px;
             background-color: rgb(217,217,217); 
             padding: 20px; 
-            border-radius: 5px; 
+            border-radius: 20px; 
             text-align: center; 
             color: black;
             font-family: 'Roboto';
@@ -39,8 +39,8 @@
         }
 
         .bottom-box{
-            width: 500px;
-            height: 70px;
+            width: 1207px;
+            height: 135px;
             background-color: white;
             position: absolute; /* Position it absolutely within the inner box */
             bottom: 0; /* Align it to the bottom */
@@ -50,37 +50,58 @@
             align-items: center;
         }
         
+        
         h2 {
             margin-top: 12px;
-            font-size: 22px;
+            font-size: 48px;
+            font-weight: 500;
+        
         }
 
         p {
-            font-size: 10px;
-            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: 500;
         }
 
         .faculties {
+            width: 251px;
+            height: 44px;
             text-align: left; 
-            margin-left: 20px; 
-            font-size: 12px;
+            margin-top: 20px;
+            margin-left: 100px; 
+            font-size: 24px;
         }
 
         .button {
             display: inline-block;
-            padding: 10px 15px;
+            padding: 6px 16px 6px 12px; /* Top, Right, Bottom, Left */
+            width: 232px; /* Fixed width */
+            height: 60px; /* Fixed height */
+            min-width: 64px; /* Minimum width */
             background-color: rgb(8, 94, 73);
             color: white;
-            margin: 10px;
-            margin-right: 10px;
+            margin: 8px; /* Margin around the button */
+            margin-right: 8px; /* To control gap between buttons */
+            border-radius: 20px;
+            border: 2px solid transparent;
             cursor: pointer;
-            font-size: 10px; 
+            font-size: 12px; 
             transition: background-color 0.3s;
         }
 
         .button:hover {
-            background-color: rgb(10, 100, 80);
+            background-color: black; /* Change the background color on hover */
+            border-color: white; /* Optionally change the border color on hover */
         }
+
+        .pick-button{
+            background-color: rgb(8, 94, 73);
+            width: 996px;
+            height: 87px;
+            font-size: 32px;
+        }
+
+        
     </style>
 </head>
 <body>
@@ -94,7 +115,7 @@
             <button class="button">ADMINISTRACIÓN DE EMPRESAS</button>
             <button class="button">INGENIERÍA</button>
             <div class = "bottom-box">
-                <button class="button">Pick 5 or more</button>
+                <button class="button pick-button">Pick 5 or more</button>
             </div>
         </div>
     </div>
