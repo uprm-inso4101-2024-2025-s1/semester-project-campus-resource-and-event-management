@@ -73,6 +73,8 @@
     </div>
   {/if}
 
+  <!-- /* TODO: Move to the right the hamburger */ -->
+
   <a class="logo-link" on:click={handleNavClick} href="/home">
     <img src="/images/icon.png" alt="Logo" class="logo" />
     <span class="eventero-text">Eventero</span>

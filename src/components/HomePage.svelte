@@ -76,12 +76,6 @@
   <p>Your gateway to campus life.</p>
 </section>
 
-
-<section class="title-section">
-  <h1>Campus Resource and Event Manager</h1>
-  <p>Your gateway to campus life.</p>
-</section>
-
 <div class="footerWrapper">
   <Footer/>
 </div>
