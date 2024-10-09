@@ -10,11 +10,7 @@
 
   function handleNavClick(e) {
     e.preventDefault();
-    window.history.replaceState(
-      null,
-      '',
-      e.currentTarget.getAttribute('href')
-    );
+    window.history.replaceState(null, "", e.currentTarget.getAttribute("href"));
     currentPage = window.location.pathname;
     isMenuOpen = false;
   }
@@ -26,7 +22,7 @@
       return;
     }
     fetchSearchResults(searchQuery);
-    window.history.replaceState(null, '', `/search?query=${searchQuery}`);
+    window.history.replaceState(null, "", `/search?query=${searchQuery}`);
     currentPage = window.location.pathname;
   }
 
@@ -55,15 +51,23 @@
   onMount(() => {
     currentPage = window.location.pathname;
     updateIsDesktop();
-    window.addEventListener('resize', updateIsDesktop);
+    window.addEventListener("resize", updateIsDesktop);
   });
 
   onDestroy(() => {
-    window.removeEventListener('resize', updateIsDesktop);
+    window.removeEventListener("resize", updateIsDesktop);
   });
 </script>
 
 <nav class="navbar">
+
+
+  <a class="logo-link" on:click={handleNavClick} href="/home">
+    <img src="/images/icon.png" alt="Logo" class="logo" />
+    <span class="eventero-text">Eventero</span>
+  </a>
+
+
   <!-- Hamburger Icon -->
   {#if !isDesktop}
     <div class={`hamburger ${isMenuOpen ? 'open' : ''}`} on:click={toggleMenu}>
@@ -73,12 +77,6 @@
     </div>
   {/if}
 
-  <!-- /* TODO: Move to the right the hamburger */ -->
-
-  <a class="logo-link" on:click={handleNavClick} href="/home">
-    <img src="/images/icon.png" alt="Logo" class="logo" />
-    <span class="eventero-text">Eventero</span>
-  </a>
 
   <!-- Desktop Navigation Links -->
   {#if isDesktop}
@@ -117,7 +115,7 @@
 
 <!-- Mobile Navigation Menu -->
 {#if !isDesktop && isMenuOpen}
-  <div class="nav-links" transition:slide={{ duration: 300 }}>
+  <div class="nav-links right-side" transition:slide={{ duration: 300 }}>
     <a on:click={handleNavClick} href="/news"> News </a>
     <a on:click={handleNavClick} href="/map"> Map </a>
     <a on:click={handleNavClick} href="/calendar"> Your Calendar</a>
@@ -151,8 +149,9 @@
   <div class="menu-overlay" on:click={toggleMenu}></div>
 {/if}
 
+
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+  @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
   .notification-bell {
     position: relative;
@@ -182,10 +181,10 @@
   }
 
   .navbar {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-weight: bold;
     justify-content: space-between;
-    background: #EFEFEF;
+    background: #efefef;
     display: flex;
     align-items: center;
     padding: 0 20px;
@@ -202,7 +201,7 @@
     position: relative;
     width: 30px;
     height: 30px;
-    z-index: 1001; 
+    z-index: 1001;
   }
 
   .hamburger div {
@@ -239,6 +238,26 @@
     transform: rotate(-45deg);
   }
 
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .nav-links.right-side {
+    position: fixed;
+    top: 57px;
+    right: 0; /* Align to the right side */
+    width: 80%;
+    max-width: 300px;
+    height: calc(100vh - 57px); /* Adjust height */
+    flex-direction: column;
+    background-color: #efefef;
+    padding: 20px;
+    z-index: 1000;
+    overflow-y: auto;
+  }
+
   .logo-link {
     display: flex;
     align-items: center;
@@ -250,14 +269,13 @@
   .logo {
     max-height: 40px;
     width: auto;
-    margin-right: 10px;
     object-fit: contain;
   }
 
   .eventero-text {
     font-weight: bold;
     font-size: 1.8rem;
-    color: #085E49;
+    color: #085e49;
     margin: 0;
     line-height: 1;
     white-space: nowrap;
@@ -311,7 +329,7 @@
 
   .search-bar input {
     padding: 6px;
-    border: 1px solid #053A2D;
+    border: 1px solid #053a2d;
     border-radius: 4px;
     background-color: #004d40; /* Green background */
     color: white; /* White text */
@@ -331,7 +349,7 @@
   }
 
   .search-bar button:hover {
-    background-color: #053A2D;
+    background-color: #053a2d;
   }
 
   /* Mobile Styles */
@@ -347,7 +365,7 @@
       left: 0;
       width: 100%;
       z-index: 1001;
-      background: #EFEFEF;
+      background: #efefef;
     }
 
     .hamburger {
@@ -364,10 +382,15 @@
       max-width: 300px;
       height: calc(100vh - 57px); /* Adjust height */
       flex-direction: column;
-      background-color: #EFEFEF;
+      background-color: #efefef;
       padding: 20px;
       z-index: 1000;
       overflow-y: auto;
+    }
+
+    .nav-links.right-side {
+      right: 0; /* Sidebar opens from the right */
+      left: auto; /* Remove left alignment */
     }
 
     .nav-links a {
