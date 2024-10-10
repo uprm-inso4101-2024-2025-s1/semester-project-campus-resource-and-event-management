@@ -1,7 +1,7 @@
 <script>
     import CalendarMonthView from "./CalendarMonthView.svelte";
     import { getDaysInMonth, getMonthName } from "../lib/calendarTools";
-    export const view = "month";
+    export let view = "month";
 
     let currentMonth = new Date().getMonth()+1;
     let currentYear = new Date().getFullYear();
