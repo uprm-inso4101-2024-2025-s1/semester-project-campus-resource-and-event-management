@@ -94,7 +94,7 @@
         class="notification-bell"
         on:click={() => alert("Redirect to notifications page!")}
       >
-        <img src="/images/bell.png" alt="Notifications" class="bell-image" />
+        <img src="bell.svg" alt="Notifications" class="bell-image" />
         {#if notifications > 0}
           <div class="notification-count">{notifications}</div>
         {/if}
@@ -129,7 +129,7 @@
       class="notification-bell"
       on:click={() => alert("Redirect to notifications page!")}
     >
-      <img src="/images/bell.png" alt="Notifications" class="bell-image" />
+      <img src="bell.svg" alt="Notifications" class="bell-image" />
       {#if notifications > 0}
         <div class="notification-count">{notifications}</div>
       {/if}
@@ -166,11 +166,23 @@
   }
 
   .bell-image {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     object-fit: cover;
     background-color: transparent;
+    transition: 0.2s ease;
   }
+
+/* Hover effect */
+.bell-image:hover {
+    transform: scale(1.1);
+    transition: all 0.1s ease;
+}
+
+/* Active (click) effect */
+.bell-image:active {
+    transform: scale(0.9);
+}
 
   .notification-count {
     position: absolute;
@@ -269,8 +281,8 @@
   }
 
   .nav-links a:active {
-    background-color: #00796b; /* Lighter green on click */
-    transition: background-color 0.1s ease; /* Fast transition when clicked */
+    background-color: #00796b; 
+    transition: background-color 0.1s ease;
   }
 
   /* Add separation lines between sidebar links */
