@@ -62,6 +62,8 @@
       <a on:click={handleNavClick} href="/events"> Upcoming Events</a>
       <a on:click={handleNavClick} href="/resources"> Resources</a>
       <a on:click={handleNavClick} href="/login">Sign-Up</a>
+      <a on:click={handleNavClick} href="/tags"> Tags </a> 
+
 
       <!-- Notification Bell Icon -->
       <button type="button" class="notification-bell" on:click={() => alert("Redirect to notifications page!")}>
