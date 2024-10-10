@@ -60,23 +60,23 @@
 </script>
 
 <nav class="navbar">
-
-
   <a class="logo-link" on:click={handleNavClick} href="/home">
     <img src="/images/icon.png" alt="Logo" class="logo" />
     <span class="eventero-text">Eventero</span>
   </a>
 
-
   <!-- Hamburger Icon -->
   {#if !isDesktop}
-    <div class={`hamburger ${isMenuOpen ? 'open' : ''}`} on:click={toggleMenu}>
+    <div
+      class={`hamburger ${isMenuOpen ? "open" : ""}`}
+      on:click={toggleMenu}
+      aria-label="Toggle menu"
+    >
       <div></div>
       <div></div>
       <div></div>
     </div>
   {/if}
-
 
   <!-- Desktop Navigation Links -->
   {#if isDesktop}
@@ -146,9 +146,13 @@
     </form>
   </div>
   <!-- Menu Overlay -->
-  <div class="menu-overlay" on:click={toggleMenu}></div>
+  <button
+    class="menu-overlay"
+    on:click={toggleMenu}
+    on:keydown={(e) => e.key === "Enter" && toggleMenu()}
+    aria-label="Close menu"
+  ></button>
 {/if}
-
 
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
@@ -244,13 +248,72 @@
     gap: 20px;
   }
 
+  /* Navigation Links */
+  .nav-links a {
+    font-weight: 500;
+    color: #000000;
+    text-decoration: none;
+    transition:
+      color 0.6s ease,
+      background-color 0.6s ease;
+    padding: 5px;
+    border-radius: 4px;
+  }
+
+  .nav-links a:hover {
+    color: #ffffff;
+    background-color: #004d40;
+    transition:
+      color 0.3s ease,
+      background-color 0.3s ease;
+  }
+
+  .nav-links a:active {
+    background-color: #00796b; /* Lighter green on click */
+    transition: background-color 0.1s ease; /* Fast transition when clicked */
+  }
+
+  /* Add separation lines between sidebar links */
+  .nav-links.right-side a {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    position: relative;
+    padding: 8px 0;
+    padding-left: 8px;
+    padding-right: 8px;
+    text-decoration: none;
+    font-size: 1.3em;
+  }
+
+  .nav-links.right-side a:not(:last-child):after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #ccc;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+
+  /* For sidebar links (when in mobile view) */
+  .nav-links.right-side a:hover {
+    color: #ffffff;
+    background-color: #004d40;
+  }
+
+  .nav-links.right-side a:active {
+    background-color: #00796b;
+    transition: background-color 0.1s ease;
+  }
+
   .nav-links.right-side {
     position: fixed;
     top: 57px;
-    right: 0; /* Align to the right side */
+    right: 0;
     width: 80%;
     max-width: 300px;
-    height: calc(100vh - 57px); /* Adjust height */
+    height: calc(100vh - 57px);
     flex-direction: column;
     background-color: #efefef;
     padding: 20px;
@@ -279,7 +342,15 @@
     margin: 0;
     line-height: 1;
     white-space: nowrap;
+    transition: text-shadow 0.5s ease;
     vertical-align: middle;
+  }
+
+  .eventero-text:hover {
+    text-shadow:
+      0 0 15px rgba(0, 0, 0, 0.2),
+      0 0 15px rgba(0, 0, 0, 0.2);
+    transition: text-shadow 0.5s ease;
   }
 
   /* Hide the Eventero text between 208px and 1045px */
@@ -352,12 +423,13 @@
     background-color: #053a2d;
   }
 
+  .search-bar button:active {
+    background-color: #00796b;
+    transition: background-color 0.1s ease;
+  }
+
   /* Mobile Styles */
   @media (max-width: 768px) {
-    /* Adjust body padding to account for fixed navbar */
-    body {
-      padding-top: 57px;
-    }
 
     .navbar {
       position: fixed;
@@ -389,8 +461,8 @@
     }
 
     .nav-links.right-side {
-      right: 0; /* Sidebar opens from the right */
-      left: auto; /* Remove left alignment */
+      right: 0;
+      left: auto;
     }
 
     .nav-links a {
