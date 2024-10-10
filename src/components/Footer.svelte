@@ -15,12 +15,8 @@
 
 <footer>
   <div class="footer-container">
-    <dialog
-      bind:this={dialog}
-      on:close={() => (showContacts = false)}
-      on:click|self={() => dialog.close()}
-    >
-      <div on:click|stopPropagation>
+    <dialog bind:this={dialog} on:close={() => (showContacts = false)}>
+      <div role="document">
         <slot name="header" class="dialog-content">
           <h3>Postal Address:</h3>
           <p id="footer-address">
@@ -32,13 +28,17 @@
             P.O Box 9000 University of Puerto Rico at Mayagüez Calle Post,
             Mayagüez, P.R. 00681-9000
           </p>
-          <h3>Main Telephone: (787) 832-4040</h3>
+
+          <div class="contact-info">
+            <h3>Main Telephone:</h3>
+            <p>(787) 832-4040</p>
+          </div>
 
           <div class="footer-contactUs">
             <div class="footer-contactUs-categorias">
               <h4>Students Services:</h4>
               <div>
-                <p>Admissions x2400,X2412</p>
+                <p>Admissions x2400, X2412</p>
                 <p>Dean of Students x3862,3250</p>
                 <p>Registrar's Office x3813, x3284</p>
                 <p>Clinic, Medical Services x3722 Emergency x2323</p>
@@ -82,7 +82,10 @@
             </div>
           </div>
         </slot>
-        <button autofocus on:click={() => dialog.close()}>Close</button>
+        <button
+          on:click={() => dialog.close()}
+          on:keydown={(e) => e.key === "Enter" && dialog.close()}>Close</button
+        >
       </div>
     </dialog>
     <div class="footer-page-info">
@@ -179,22 +182,21 @@
 <style>
   dialog {
     width: 100%;
-    height: auto;
     max-width: 65rem;
-    height: 20rem;
+    height: auto;
     border-radius: 20px;
     border: none;
     padding: 1.3rem;
     background-color: white;
-    top: 30%;
-    left: 4rem;
-    bottom: 11rem;
+    position: fixed;
+    bottom: 0;
+    margin-top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 10;
     overflow: auto;
-    flex-direction: column;
-    animation: zoom-in 0.3s ease-out;
-    position: absolute;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    animation: zoom-in 0.3s ease-out;
   }
 
   dialog button {
@@ -209,6 +211,15 @@
     height: 100%;
     width: 90%;
     position: fixed;
+  }
+
+  .contact-info {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .footer-contactUs-categorias p {
+    font-size: 0.92rem; 
   }
   dialog::backdrop {
     background: transparent;
@@ -541,14 +552,14 @@
     }
 
     .contact-button {
-    display: inline-block; 
-    position: absolute; 
-    right: 101px; 
-    margin: 0 auto;
-    top: 54rem; 
-    font-weight: bold;
-    text-align: center;
-}
+      display: inline-block;
+      position: absolute;
+      right: 101px;
+      margin: 0 auto;
+      top: 54rem;
+      font-weight: bold;
+      text-align: center;
+    }
 
     .contact-button button {
       align-self: center;
@@ -568,28 +579,27 @@
       display: flex;
       justify-content: center;
       gap: 2rem;
-      margin-top: 2rem; 
+      margin-top: 2rem;
     }
 
     dialog {
-      width: 23.7rem;
-      height: 37rem;
+      width: 100%;
+      max-width: 65rem;
+      height: auto;
       border-radius: 20px;
       border: none;
       padding: 1.3rem;
       background-color: white;
       position: fixed;
-      top: 20rem;
-      left: 1rem;
-      bottom: 11rem;
+      bottom: 0; 
+      left: 50%; 
+      transform: translateX(-50%); 
       z-index: 10;
       overflow: auto;
-      flex-direction: column;
-      animation: zoom-in 0.3s ease-out;
-      position: absolute;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-      overflow-x: hidden;
+      animation: zoom-in 0.3s ease-out;
     }
+
     .footer-contactUs {
       display: grid;
       grid-template-columns: 1fr 1fr;
