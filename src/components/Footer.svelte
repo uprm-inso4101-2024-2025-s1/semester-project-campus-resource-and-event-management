@@ -3,8 +3,13 @@
     let facebookLogo = "/images/white-facebook-logo.png";
     let igLogo = "/images/white-insta-logo.png";
     let xLogo = "/images/X_Logo.png";
+
+    // Imported "BackToTop" Button Here.
+	import GotoTop from "../components/BackToTop.svelte"
 </script>
 
+<!-- Added this so "BackToTop" button would appear as soon as user scrolls down the page. -->
+<GotoTop showAtPixel={0} />
 
 <style>
     footer {
