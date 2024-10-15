@@ -50,6 +50,7 @@
     }
 
     .day {
+        color: #444;
         margin: 0.5em 0 0 0.5em;
         position: absolute;
         font-weight: 550;
