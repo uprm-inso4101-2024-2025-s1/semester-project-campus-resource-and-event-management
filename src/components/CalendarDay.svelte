@@ -45,12 +45,17 @@
         background: rgb(220, 220, 220);
     }
 
+    .isNotFromMonth .day {
+        color: rgb(129, 125, 125);
+    }
+
     .day {
         color: #444;
         margin: 0.5em 0 0 0.5em;
         position: absolute;
         font-weight: 550;
         font-size: 1em;
+        color: rgb(51, 51, 51);
     }
 
     .events {

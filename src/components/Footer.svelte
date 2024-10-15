@@ -11,7 +11,13 @@
     dialog.showModal();
     dialog.scrollTo(0, 0);
   }
+
+    // Imported "BackToTop" Button Here.
+	import GotoTop from "../components/BackToTop.svelte"
 </script>
+
+<!-- Added this so "BackToTop" button would appear as soon as user scrolls down the page. -->
+<GotoTop showAtPixel={0} />
 
 <footer>
   <div class="footer-container">
@@ -613,8 +619,10 @@
       width: auto;
       margin: 0;
     }
-    footer {
-      height: 1200px;
+  footer {
+        height: 1200px;
     }
   }
+ 
+
 </style>

@@ -58,6 +58,7 @@
         grid-row: 2 / 3;
         font-weight: 800;
         line-height: 0;
+        color: rgb(51, 51, 51);
     }
 
     .arrows {
@@ -75,6 +76,7 @@
         height: 0;
         margin: 0 0.75em;
         cursor: pointer;
+        color:rgb(51, 51, 51);
     }
 
     .arrows button:hover {

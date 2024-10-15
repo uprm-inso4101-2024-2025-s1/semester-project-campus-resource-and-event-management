@@ -87,6 +87,8 @@
       <a on:click={handleNavClick} href="/events"> Upcoming Events</a>
       <a on:click={handleNavClick} href="/resources"> Resources</a>
       <a on:click={handleNavClick} href="/login">Sign-Up</a>
+      <a on:click={handleNavClick} href="/tags"> Tags </a> 
+
 
       <!-- Notification Bell Icon -->
       <button
@@ -100,6 +102,9 @@
         {/if}
       </button>
 
+    <!-- Added Search Bar and Profile Icon Container for easier formatting. -->
+    <div class="search-profile-container">
+
       <!-- Search Bar -->
       <form on:submit={handleSearch} class="search-bar">
         <input
@@ -109,7 +114,15 @@
         />
         <button type="submit">Search</button>
       </form>
+  
+      <!-- Added Profile Icon Here. -->
+      <a href="/profile" class="profile-icon">
+        <img src="/images/profile_icon.png" alt="Profile" class="profile-image" />
+      </a>
+
     </div>
+
+  </div>
   {/if}
 </nav>
 
@@ -156,6 +169,30 @@
 
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+/* Profile Icon Styles Added Here. */
+.profile-icon {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 15px;
+}
+
+.profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: transparent;
+}
+
+/* Container for Search Bar and Profile Icon Added Here. */
+.search-profile-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* This Adjusts the spacing between search bar and profile icon. */
+}
 
   .notification-bell {
     position: relative;

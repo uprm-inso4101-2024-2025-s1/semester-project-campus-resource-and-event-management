@@ -78,6 +78,7 @@
         font-weight: 600;
         display: flex;
         margin: 0.5em;
+        color: rgb(51, 51, 51);
     }
 
     p {
