@@ -1,4 +1,5 @@
-# Campus Resource and Event Management App
+# [Eventero.org](https://eventero.org)
+Every 5 minutes, the server checks for updates to the main branch. If there are any, it will pull them and make them available immediately after.
 
 ## Documentation
 This shared folder contains the documentation for the project. In it are the instructions and template for writing documentation.

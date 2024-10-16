@@ -1,73 +1,134 @@
-
-<!-- <footer>
-    <p>&copy; 2024 Eventero. All rights reserved.</p>
-    <nav>
-      <ul>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Terms of Service</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-      </ul>
-    </nav>
-
-    <div class="social-icons">
-      <a href="https://www.facebook.com/RecintoUniversitariodeMayaguez" target="_blank">
-        <img src="/images/FB_Logo_white.png" alt="Facebook" class="social-icon" />
-      </a>
-      <a href="https://www.youtube.com/user/videocolegio" target="_blank">
-        <img src="/images/YT_Logo_white.png" alt="YouTube" class="social-icon-youtube" />
-      </a>
-      <a href="https://twitter.com/PrensaRUM" target="_blank">
-        <img src="/images/X_Logo.png" alt="X" class="social-icon" />
-      </a>
-    </div>
-  
-</footer> -->
-
-<!-- <style>
-    footer {
-    background-color: #053A2D;
-    padding: 20px;
-    text-align: center;
-  }
-
-
-  footer nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    font-weight: 500;
-    color: #000000;
-    text-decoration: inherit;
-    margin: 0 10px;
-  }
-
-  .social-icon {
-    width: 50px;
-    height: auto;
-    object-fit: contain;
-  }
-  @media (max-width: 480px) {
-    footer nav ul {
-        flex-direction: column; /* Stack the footer links vertically */
-        text-align: center;
-    }
-}
-.social-icon-youtube {
-    width: 80px; 
-    height: 40px;  
-    background-image: url('/images/YT_Logo_white.png'); 
-    background-position: center;  
-    background-size: 150%; 
-}
-  .social-icons a {
-    margin: 0 30px;
-  }
-</style> -->
-
-
 <script>
   import Footer from "../components/Footer.svelte"
+  import Hero from "../components/Hero.svelte"
 </script>
 
-<Footer/> 
+<section class="title-section">
+  <div class="title-container">
+    <h1>Campus Resource and Event Manager</h1>
+    <p>Your gateway to campus life.</p>
+  </div>
+</section>
+
+<div class="mission-vision-container">
+
+  <div class="card">
+    <h3>Mission Statement</h3>
+    <p>To simplify event and resource management at UPRM, enhancing student engagement and campus connectivity through an intuitive platform.</p>
+  </div>
+
+  <div class="card">
+    <h3>Vision Statement</h3>
+    <p>To become UPRM's go-to hub for discovering events and resources, fostering a more connected and active student community.</p>
+  </div>
+  
+</div>
+
+<div>
+  <Hero/>
+</div>
+
+<div class="footerWrapper">
+  <Footer/>
+</div>
+
+<style>
+
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
+
+  .footerWrapper {
+      font-family: 'Roboto', sans-serif;
+  }
+
+  .title-section {
+    background-color:#D9D9D9;
+    padding: 60px 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .title-container {
+    margin-left: 200px;
+    max-width: 700px;
+  }
+
+  .title-section h1 {
+    font-family: 'League Spartan', sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 80px;
+    color: #085e49;
+    margin-bottom: 10px;
+  }
+
+  .title-section p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 80px;
+    color:#085E49;
+  }
+
+  .mission-vision-container {
+    background-color: #D9D9D9;
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 150px;
+    gap: 40px;
+    position: relative;
+  }
+
+  .card {
+    background-color:#D9D9D9;
+    border: 2px solid #085e49;
+    border-radius: 12px; 
+    padding: 30px;
+    width: 500px;
+    height: 225px; 
+    text-align: left;
+  }
+
+  .card h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    color: #085e49;
+    margin-bottom: 10px;
+  }
+
+  .card p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color: #000;
+  }
+
+  @media (max-width: 767px) {
+    .title-container {
+      margin-left: 20px;
+    }
+
+    .mission-vision-container {
+      flex-direction: column;
+      padding: 40px 50px;
+      align-items: center;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 500px;
+    }
+  }
+
+  @media (max-width: 533px) {
+    .title-section h1 {
+      font-size: 48px;
+      line-height: 60px;
+    }
+
+    .title-section p {
+      font-size: 20px;
+    }
+  }
+</style>
