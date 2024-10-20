@@ -1,12 +1,12 @@
 class user():
-    def __init__(self, userID, username, email, password, userRole, responsibleRooms, tags):
+    def __init__(self, userID, username, email, password, userRole):
         self.__userID = userID
         self.__username = username
         self.__email = email
         self.__password = password
         self.__userRole = userRole
-        self.__responsibleRooms = responsibleRooms
-        self.__tags = tags
+        self.__responsibleRooms = set()
+        self.__tags = set()
     
     # Setter Methods
     def setUserID(self, userID):
