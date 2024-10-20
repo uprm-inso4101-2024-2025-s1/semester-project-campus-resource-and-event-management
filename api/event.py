@@ -1,5 +1,5 @@
 class event():
-    def __init__(self, eventID, name, roomID, organizer, date, duration, status, capacity, description, tags):
+    def __init__(self, eventID, name, roomID, organizer, date, duration, status, capacity, description,):
         self.__event_id = eventID
         self.__name = name
         self.__roomID = roomID
