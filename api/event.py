@@ -97,3 +97,7 @@ class event():
     def isFull(self):
         return len(self.__attendees) >= self.__capacity
     
+    # Check if 2 events start at the same time
+    def checkConflict(self, event):
+        return self.__date == event.getDate()
+    
