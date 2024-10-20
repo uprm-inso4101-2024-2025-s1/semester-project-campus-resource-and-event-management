@@ -1,10 +1,10 @@
 class event():
-    def __init__(self, eventID, name, roomID, organizer, attendees, date, duration, status, capacity, description, tags):
+    def __init__(self, eventID, name, roomID, organizer, date, duration, status, capacity, description, tags):
         self.__event_id = eventID
         self.__name = name
         self.__roomID = roomID
         self.__organizer = organizer
-        self.__attendees = attendees
+        self.__attendees = set()
         self.__date = date
         self.__duration = duration
         self.__status = status
@@ -79,3 +79,9 @@ class event():
     
     def getTags(self):
         return self.__tags
+    
+    # Behaviors
+    # Adds list of attendees to event
+    def addAttendees(self, users):
+        for user in users:
+            self.__attendees.add(user)
