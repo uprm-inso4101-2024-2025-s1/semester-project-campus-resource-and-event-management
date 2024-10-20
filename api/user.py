@@ -61,3 +61,11 @@ class user():
     def removeResponsibleRooms(self, room):
         self.__responsibleRooms.remove(room)
 
+    # Adds a tag to the set of a user
+    def addTag(self, tag):
+        self.__tags.add(tag)
+
+    # Adds a tag from the set of a user
+    def removeTag(self, tag):
+        self.__tags.remove(tag)
+
