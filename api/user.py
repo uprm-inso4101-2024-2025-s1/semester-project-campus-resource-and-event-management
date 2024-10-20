@@ -51,4 +51,13 @@ class user():
 
     def getTags(self):
         return self.__tags
+    
+    # Methods
+    # Adds a room to the set of responsible rooms of a user
+    def addResponsibleRooms(self, room):
+        self.__responsibleRooms.add(room)
+
+    # Removes a room from the set of responsible rooms of a user
+    def removeResponsibleRooms(self, room):
+        self.__responsibleRooms.remove(room)
 
