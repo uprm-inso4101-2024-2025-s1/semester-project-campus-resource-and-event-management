@@ -80,7 +80,7 @@ class event():
     def getTags(self):
         return self.__tags
     
-    # Behaviors
+    # Methods
     # Adds user to attendees set to event
     def addAttendee(self, user):
         self.__attendees.add(user)
@@ -92,4 +92,8 @@ class event():
     # Get remaining capacity
     def remainingCapacity(self):
         return self.__capacity - len(self.__attendees)
+    
+    # Returns true if event is over capacity
+    def isFull(self):
+        return len(self.__attendees) >= self.__capacity
     
