@@ -10,7 +10,7 @@ class event():
         self.__status = status
         self.__capacity = capacity
         self.__description = description
-        self.__tags = tags
+        self.__tags = set()
 
     # Setter Methods
     def setEventID(self, eventID):
@@ -100,4 +100,12 @@ class event():
     # Check if 2 events start at the same time
     def checkConflict(self, event):
         return self.__date == event.getDate()
+    
+    # Adds a tag to the set of an event
+    def addTag(self, tag):
+        self.__tags.add(tag)
+
+    # Removes a tag from the set of an event
+    def removeTag(self, tag):
+        self.__tags.remove(tag)
     
