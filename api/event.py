@@ -82,10 +82,10 @@ class event():
     
     # Behaviors
     # Adds user to attendees set to event
-    def addAttendees(self, user):
+    def addAttendee(self, user):
         self.__attendees.add(user)
 
     # Removes user from attendees set to event
-    def removeAttendees(self, user):
+    def removeAttendee(self, user):
         self.__attendees.remove(user)
     
