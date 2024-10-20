@@ -15,24 +15,34 @@ class event():
     # Setter Methods
     def setEventID(self, eventID):
         self.__event_id = eventID
+
     def setName(self, name):
         self.__name = name
+
     def setRoomID(self, roomID):
         self.__roomID = roomID
+
     def setOrganizer(self, organizer):
         self.__organizer = organizer
+
     def setAttendees(self, attendees):
         self.__attendees = attendees
-    def setData(self, data):
+
+    def setDate(self, date):
         self.__date = date
+
     def setDuration(self, duration):
         self.__duration = duration
+
     def setStatus(self, status):
         self.__status = status
+
     def setCapacity(self, capacity):
         self.__capacity = capacity
+
     def setDescription(self, description):
         self.__description = description
+        
     def setTags(self, tags):
         self.__tags = tags
 
