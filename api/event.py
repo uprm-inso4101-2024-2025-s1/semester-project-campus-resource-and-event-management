@@ -42,7 +42,40 @@ class event():
 
     def setDescription(self, description):
         self.__description = description
-        
+
     def setTags(self, tags):
         self.__tags = tags
 
+    # Getter Methods
+    def getEventID(self):
+        return self.__event_id
+    
+    def getName(self):
+        return self.__name
+    
+    def getRoomID(self):
+        return self.__roomID
+    
+    def getOrganizer(self):
+        return self.__organizer
+    
+    def getAttendees(self):
+        return self.__attendees
+    
+    def getDate(self):
+        return self.__date
+    
+    def getDuration(self):
+        return self.__duration
+
+    def getStatus(self):
+        return self.__status
+    
+    def getCapacity(self):
+        return self.__capacity
+    
+    def getDescription(self):
+        return self.__description
+    
+    def getTags(self):
+        return self.__tags
