@@ -81,7 +81,11 @@ class event():
         return self.__tags
     
     # Behaviors
-    # Adds list of attendees to event
+    # Adds user to attendees set to event
     def addAttendees(self, user):
         self.__attendees.add(user)
+
+    # Removes user from attendees set to event
+    def removeAttendees(self, user):
+        self.__attendees.remove(user)
     
