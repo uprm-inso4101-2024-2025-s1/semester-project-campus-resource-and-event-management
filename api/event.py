@@ -88,4 +88,8 @@ class event():
     # Removes user from attendees set to event
     def removeAttendee(self, user):
         self.__attendees.remove(user)
+
+    # Get remaining capacity
+    def remainingCapacity(self):
+        return self.__capacity - len(self.__attendees)
     
