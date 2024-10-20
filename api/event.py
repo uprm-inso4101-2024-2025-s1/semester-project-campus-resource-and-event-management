@@ -82,6 +82,6 @@ class event():
     
     # Behaviors
     # Adds list of attendees to event
-    def addAttendees(self, users):
-        for user in users:
-            self.__attendees.add(user)
+    def addAttendees(self, user):
+        self.__attendees.add(user)
+    
