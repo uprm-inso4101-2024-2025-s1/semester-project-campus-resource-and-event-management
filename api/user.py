@@ -1,12 +1,12 @@
 class user():
-    def __init__(self, userID, username, email, password, userRole, responsibleRooms, tags):
+    def __init__(self, userID, username, email, password, userRole):
         self.__userID = userID
         self.__username = username
         self.__email = email
         self.__password = password
         self.__userRole = userRole
-        self.__responsibleRooms = responsibleRooms
-        self.__tags = tags
+        self.__responsibleRooms = set()
+        self.__tags = set()
     
     # Setter Methods
     def setUserID(self, userID):
@@ -51,4 +51,21 @@ class user():
 
     def getTags(self):
         return self.__tags
+    
+    # Methods
+    # Adds a room to the set of responsible rooms of a user
+    def addResponsibleRooms(self, room):
+        self.__responsibleRooms.add(room)
+
+    # Removes a room from the set of responsible rooms of a user
+    def removeResponsibleRooms(self, room):
+        self.__responsibleRooms.remove(room)
+
+    # Adds a tag to the set of a user
+    def addTag(self, tag):
+        self.__tags.add(tag)
+
+    # Adds a tag from the set of a user
+    def removeTag(self, tag):
+        self.__tags.remove(tag)
 
