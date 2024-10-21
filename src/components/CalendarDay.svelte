@@ -59,9 +59,12 @@
     }
 
     .events {
-        overflow-x: hidden;
-        overflow-y: scroll;
+        overflow: hidden;
         padding-top: 2em;
         height: 100%;
+    }
+
+    .events:hover {
+        overflow-y: auto;
     }
 </style>
