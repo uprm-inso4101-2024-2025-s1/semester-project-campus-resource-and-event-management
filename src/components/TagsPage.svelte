@@ -22,6 +22,7 @@
             transform: translate(-50%, -50%);
             display: flex; 
             justify-content: center; 
+            flex-direction: column;
             align-items: center; 
         }
 
@@ -35,7 +36,7 @@
             color: black;
             font-family: 'Roboto';
             position: relative; /* Added to position child elements absolutely */
-            overflow: hidden; /* Ensures child elements don't overflow */
+            overflow-y: auto; /* Ensures child elements don't overflow */
         }
 
         .bottom-box{
@@ -43,11 +44,12 @@
             height: 135px;
             background-color: white;
             position: absolute; /* Position it absolutely within the inner box */
-            bottom: 0; /* Align it to the bottom */
-            left: 0;
+            bottom: 60px; /* Align it to the bottom */
+            left: 130;
             display: flex;
             justify-content: center;
             align-items: center;
+            border-radius: 0 0 20px 20px; 
         }
         
         
@@ -114,10 +116,34 @@
             <button class="button">CIENCIAS AGRÍCOLAS</button>
             <button class="button">ADMINISTRACIÓN DE EMPRESAS</button>
             <button class="button">INGENIERÍA</button>
-            <div class = "bottom-box">
-                <button class="button pick-button">Pick 5 or more</button>
+            <button class="button">ARTES Y CIENCIAS</button>
+            <button class="button">CIENCIAS AGRÍCOLAS</button>
+            <button class="button">ADMINISTRACIÓN DE EMPRESAS</button>
+            <button class="button">INGENIERÍA</button>
+            <button class="button">ARTES Y CIENCIAS</button>
+            <button class="button">CIENCIAS AGRÍCOLAS</button>
+            <button class="button">ADMINISTRACIÓN DE EMPRESAS</button>
+            <button class="button">INGENIERÍA</button>
+            <button class="button">ARTES Y CIENCIAS</button>
+            <button class="button">CIENCIAS AGRÍCOLAS</button>
+            <button class="button">ADMINISTRACIÓN DE EMPRESAS</button>
+            <button class="button">INGENIERÍA</button>
+            <button class="button">ARTES Y CIENCIAS</button>
+            <button class="button">CIENCIAS AGRÍCOLAS</button>
+            <button class="button">ADMINISTRACIÓN DE EMPRESAS</button>
+            <button class="button">INGENIERÍA</button>
+            <button class="button">ARTES Y CIENCIAS</button>
+            <button class="button">CIENCIAS AGRÍCOLAS</button>
+            <button class="button">ADMINISTRACIÓN DE EMPRESAS</button>
+            <button class="button">INGENIERÍA</button>
+            <button class="button">ARTES Y CIENCIAS</button>
+            <button class="button">CIENCIAS AGRÍCOLAS</button>
+            <button class="button">ADMINISTRACIÓN DE EMPRESAS</button>
+            <button class="button">INGENIERÍA</button>
             </div>
+        <div class = "bottom-box">
+             <button class="button pick-button">Pick 5 or more</button>
         </div>
-    </div>
+     </div>
 </body>
 </html>
