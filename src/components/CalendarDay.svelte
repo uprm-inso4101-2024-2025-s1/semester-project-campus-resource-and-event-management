@@ -24,7 +24,7 @@
         transition: background-color 0.125s;
         display: inline-block;
         background: white;
-        overflow-y: scroll;
+        overflow-y: hidden;
         cursor: pointer;
     }
 
