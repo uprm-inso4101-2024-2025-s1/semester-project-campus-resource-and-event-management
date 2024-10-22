@@ -1,9 +1,22 @@
 <html lang="en">
+    <script>
+        let tagarray = [];
+        export let addtag();
+       const addtag = (tag) => {
+        if(tag=="ARTES Y CIENCIAS"){
+            tagarray = [,tag]; 
+        }
+       }
+    </script>
+    <script>
+        export let addtag();
+    </script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <title>Centered Box with Inner Content</title>
+    
     <style>
         body {
             margin: 0;
@@ -105,14 +118,17 @@
 
         
     </style>
+    
 </head>
+
 <body>
+    
     <div class="outer-box">
         <div class="inner-box">
             <h2>What tags would you like to see?</h2>
             <p>These tags will be the tagged events you'll be recommended.</p>
             <p class="faculties">Faculties</p>
-            <button class="button">ARTES Y CIENCIAS</button>
+            <button class="button" on:click={() => addtag("ARTES Y CIENCIAS")}>ARTES Y CIENCIAS</button>
             <button class="button">CIENCIAS AGRÍCOLAS</button>
             <button class="button">ADMINISTRACIÓN DE EMPRESAS</button>
             <button class="button">INGENIERÍA</button>
