@@ -1,12 +1,26 @@
 
     <script>
     
-        let tagarray = [];
-        const addtag = (tag) => {
-        if(tag=="ARTES Y CIENCIAS"){
-            tagarray = [tag]; 
-        }
+        let selectedFaculty = "";
+
+        //dictionary for storing tags according to faculty
+       const facultyMajors = {
+
+        "ARTS AND SCIENCES" : ["COMPARATIVE LITERATURE", "ECONOMICS", "ENGLISH", "HISTORY", "FRENCH LANGUAGE AND LITERATURE", "HISPANIC STUDIES", "PHILOSOPHY", "PHYSICAL EDUCATION - TEACHING", 
+        "PHYSICAL EDUCATION - TRAINING AND OFFICIATING", "VISUAL ARTS", "POLITICAL SCIENCE", "PSYCHOLOGY", "SOCIAL SCIENCES", "SOCIOLOGY", "ART THEORY", "BIOLOGY",
+        "INDUSTRIAL BIOTECHNOLOGY", "CHEMISTRY", "GEOLOGY", "MATHEMATICS - PURE MATHEMATICS", "MATHEMATICS - COMPUTER SCIENCE", "MATHEMATICS EDUCATION", "NURSING", "PHYSICS", "PHYSICAL SCIENCES", ],
+
+        "AGRICULTURAL SCIENCES" : ["AGRICULTURAL SCIENCES", "AGRONOMY", "AGRICULTURAL ECONOMICS", "FOOD SCIENCE", "HORTICULTURE", "ANIMAL SCIENCE",
+        "CROP PROTECTION", "AGRIBUSINESS", "AGRICULTURAL EDUCATION", "AGRICULTURAL EXTENSION", "SOIL SCIENCE", "AGRICULTURAL AND ENVIRONMENTAL SYSTEMS", "PRE-VETERINARY (NON-DEGREE PROGRAM)",],
+
+        "BUSINESS ADMINISTRATION" : ["ACCOUNTING", "FINANCE", "HUMAN RESOURCES", "MARKETING", "OPERATIONS MANAGER", "MARKETING", "OPERATIONS MANAGEMENT",
+        "COMPUTERIZED INFORMATION SYSTEMS", "OFFICE ADMINISTRATION"],
+
+        "ENGINEERING" : ["CHEMICAL ENGINEERING", "CIVIL ENGINEERING", "COMPUTER ENGINEERING", "COMPUTER SCIENCE AND ENGINEERING", "ELECTRICAL ENGINEERING", "INDUSTRIAL ENGINEERING",
+        "MECHANICAL ENGINEERING", "SOFTWARE ENGINEERING", "SURVEYING AND TOPOGRAPHY"]
+        
        };
+
     </script>
 <head>
     <meta charset="UTF-8">
@@ -54,7 +68,7 @@
             height: 135px;
             background-color: white;
             position: absolute; /* Position it absolutely within the inner box */
-            bottom: 0px; /* Align it to the bottom */
+            bottom: -30px; /* Align it to the bottom */
             left: 130;
             display: flex;
             justify-content: center;
@@ -75,7 +89,7 @@
             font-weight: 500;
         }
 
-        .faculties {
+        .section-header {
             width: 251px;
             height: 44px;
             text-align: left; 
@@ -124,35 +138,21 @@
         <div class="inner-box">
             <h2>What tags would you like to see?</h2>
             <p>These tags will be the tagged events you'll be recommended.</p>
-            <p class="faculties">Faculties</p>
-            <button class="button" on:click={() => addtag("ARTES Y CIENCIAS")}>ARTES Y CIENCIAS</button>
-            <button class="button">CIENCIAS AGRÍCOLAS</button>
-            <button class="button">ADMINISTRACIÓN DE EMPRESAS</button>
-            <button class="button">INGENIERÍA</button>
-            <button class="button">ARTES Y CIENCIAS</button>
-            <button class="button">CIENCIAS AGRÍCOLAS</button>
-            <button class="button">ADMINISTRACIÓN DE EMPRESAS</button>
-            <button class="button">INGENIERÍA</button>
-            <button class="button">ARTES Y CIENCIAS</button>
-            <button class="button">CIENCIAS AGRÍCOLAS</button>
-            <button class="button">ADMINISTRACIÓN DE EMPRESAS</button>
-            <button class="button">INGENIERÍA</button>
-            <button class="button">ARTES Y CIENCIAS</button>
-            <button class="button">CIENCIAS AGRÍCOLAS</button>
-            <button class="button">ADMINISTRACIÓN DE EMPRESAS</button>
-            <button class="button">INGENIERÍA</button>
-            <button class="button">ARTES Y CIENCIAS</button>
-            <button class="button">CIENCIAS AGRÍCOLAS</button>
-            <button class="button">ADMINISTRACIÓN DE EMPRESAS</button>
-            <button class="button">INGENIERÍA</button>
-            <button class="button">ARTES Y CIENCIAS</button>
-            <button class="button">CIENCIAS AGRÍCOLAS</button>
-            <button class="button">ADMINISTRACIÓN DE EMPRESAS</button>
-            <button class="button">INGENIERÍA</button>
-            <button class="button">ARTES Y CIENCIAS</button>
-            <button class="button">CIENCIAS AGRÍCOLAS</button>
-            <button class="button">ADMINISTRACIÓN DE EMPRESAS</button>
-            <button class="button">INGENIERÍA</button>
+            <p class="section-header">Faculties</p>
+            <button class="button" on:click={() => selectedFaculty = "ARTS AND SCIENCES"}>ARTS AND SCIENCES</button>
+            <button class="button" on:click={() => selectedFaculty = "AGRICULTURAL SCIENCES"}>AGRICULTURAL SCIENCES</button>
+            <button class="button" on:click={() => selectedFaculty = "BUSINESS ADMINISTRATION"}>BUSINESS ADMINISTRATION</button>
+            <button class="button" on:click={() => selectedFaculty = "ENGINEERING"}>ENGINEERING</button>
+
+            {#if selectedFaculty}
+                <p class = "section-header">Majors</p>
+                <ul>
+                    {#each facultyMajors[selectedFaculty] as tag}
+                        <button class = "button">{tag}</button>
+                    {/each}
+                </ul>
+            {/if}
+
             </div>
         <div class = "bottom-box">
              <button class="button pick-button">Pick 5 or more</button>
