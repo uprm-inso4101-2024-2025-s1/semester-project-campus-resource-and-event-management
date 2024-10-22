@@ -1,15 +1,12 @@
-<html lang="en">
+
     <script>
+    
         let tagarray = [];
-        export let addtag();
-       const addtag = (tag) => {
+        const addtag = (tag) => {
         if(tag=="ARTES Y CIENCIAS"){
-            tagarray = [,tag]; 
+            tagarray = [tag]; 
         }
-       }
-    </script>
-    <script>
-        export let addtag();
+       };
     </script>
 <head>
     <meta charset="UTF-8">
@@ -27,7 +24,7 @@
 
         .outer-box {
             width: 1700px;
-            height: 900px;
+            height: 700px;
             background-color: rgb(12, 123, 96, 1); 
             position: absolute;
             top: 50%;
@@ -57,7 +54,7 @@
             height: 135px;
             background-color: white;
             position: absolute; /* Position it absolutely within the inner box */
-            bottom: 60px; /* Align it to the bottom */
+            bottom: 0px; /* Align it to the bottom */
             left: 130;
             display: flex;
             justify-content: center;
@@ -162,4 +159,3 @@
         </div>
      </div>
 </body>
-</html>
