@@ -1,39 +1,26 @@
 <script>
     import CalendarMonthView from "./CalendarMonthView.svelte";
-    import { getDaysInMonth, getMonthName } from "../lib/calendarTools";
+    import CalendarWeekView from "./CalendarWeekView.svelte";
     export let view = "month";
-
+    
     let currentMonth = new Date().getMonth()+1;
     let currentYear = new Date().getFullYear();
-    $: daysInMonth = getDaysInMonth(currentMonth, currentYear)
-    $: dayOffset = new Date(currentYear, currentMonth-1, 1).getDay()
-    $: prevMonthDays = getDaysInMonth(currentMonth-1, currentYear)
-    $: isTodaysMonth = currentMonth == new Date().getMonth()+1
 
-    function addMonth(amt) {
-        var newMonth = currentMonth + amt;
-
-        if (newMonth < 1) {
-            currentYear -= 1;
-            newMonth = 12;
-        } else if (newMonth > 12) {
-            currentYear += 1;
-            newMonth = 1;
-        }
-
-        currentMonth = newMonth;
-    }
+    let scrollCalendar
+    let calendarTitle
 </script>
 
 <div class="wrapper">
-    <h2>{getMonthName(currentMonth)} {currentYear}</h2>
+    <h2>{calendarTitle}</h2>
     <div class="arrows">
-        <button on:click={() => addMonth(-1)}>&lsaquo;</button>
-        <button on:click={() => addMonth(1)}>&rsaquo;</button>
+        <button on:click={() => scrollCalendar(-1)}>&lsaquo;</button>
+        <button on:click={() => scrollCalendar(1)}>&rsaquo;</button>
     </div>
     <div class="calendarViewWrapper">
         {#if view == "month"}
-            <CalendarMonthView {daysInMonth} {dayOffset} {prevMonthDays} {isTodaysMonth} />
+            <CalendarMonthView bind:scrollCalendar bind:calendarTitle bind:currentMonth bind:currentYear />
+        {:else if view == "week"}
+            <CalendarWeekView bind:scrollCalendar bind:calendarTitle />
         {/if}
     </div>
 </div>
