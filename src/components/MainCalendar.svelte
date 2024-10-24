@@ -2,6 +2,8 @@
     import CalendarMonthView from "./CalendarMonthView.svelte";
     import { getDaysInMonth, getMonthName } from "../lib/calendarTools";
     export let view = "month";
+    let todaysDate = new Date().getDate();
+
 
     let currentMonth = new Date().getMonth()+1;
     let currentYear = new Date().getFullYear();
@@ -35,10 +37,44 @@
         {#if view == "month"}
             <CalendarMonthView {daysInMonth} {dayOffset} {prevMonthDays} {isTodaysMonth} />
         {/if}
+        {#if view == "day"}
+            <p> October 28</p>
+            <div class="day-event">
+                <div>
+                    <p>Event 1</p>
+                </div>
+                <div>
+                    <p>Event 2</p>
+                </div>
+                <div>
+                    <p>Event 3</p>
+                </div>
+                <div>
+                    <p>Event 4</p>
+                </div>
+            </div>
+        {/if}
     </div>
 </div>
 
 <style>
+    .day-event {
+        width: 80%;
+        height: 50%;
+        border-radius: 1px;
+        background-color: rgb(210, 208, 206);
+    }
+
+    .day-event div {
+        margin-bottom: 30px;
+        width: 15%;
+        border-style: solid;
+        border-radius: 20px;
+        background-color: rgb(0, 120, 232);
+    }
+    .wrapper p {
+        color: rgb(0, 0, 0);
+    }
     .wrapper {
         box-shadow: 0 0.2em 0.25em rgba(0, 0, 0, 0.8);
         grid-template-columns: repeat(10, 1fr);
@@ -58,6 +94,7 @@
         grid-row: 2 / 3;
         font-weight: 800;
         line-height: 0;
+        color: rgb(51, 51, 51);
     }
 
     .arrows {
@@ -75,6 +112,7 @@
         height: 0;
         margin: 0 0.75em;
         cursor: pointer;
+        color:rgb(51, 51, 51);
     }
 
     .arrows button:hover {
