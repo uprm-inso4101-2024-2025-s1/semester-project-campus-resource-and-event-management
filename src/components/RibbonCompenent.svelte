@@ -4,13 +4,19 @@
     import calendar_Img from "../assets/calendar.png"
 </script>
 
+
+
 <div class="Menu_bar">
-    <button class="create_event" on:click={() => mainCalendarView = 'create_event'} class:currentView={mainCalendarView === 'create_event'}>CREATE EVENT</button>
+    <button class="create_event" on:click={() => alert('create event')}>CREATE EVENT</button>
     <button on:click={() => mainCalendarView = 'day'} class:currentView={mainCalendarView == 'day'}>Day</button>
     <button on:click={() => mainCalendarView = 'week'} class:currentView={mainCalendarView == 'week'}>Week</button>
     <button on:click={() => mainCalendarView = 'month'} class:currentView={mainCalendarView == 'month'} class="Calendar_Selection">Month</button>
-    <img src={calendar_Img} alt="">
+
+    <div class="icon_container">
+        <img src="/src/assets/ribbon_calendar_icon.png" alt="Calendar Icon" class="icon_image">
+    </div>
 </div>
+
 
 <style>
     .Menu_bar{
@@ -28,8 +34,7 @@
 
     .create_event{
         color: rgb(8, 94, 73);
-        /* height: 75%; */
-        margin-right: 51rem;
+        position: absolute;
         border-radius: 30px;
         border-color: rgb(8, 94, 73);
         border-style: solid;
@@ -37,18 +42,23 @@
         box-sizing: border-box;
         display: flex;
         font-size: small;
-        /* border-color:; */
-    
-        /* border-radius: ; */
+        transition: 0.2s;
+        left: 0.5em;
+    }
+
+    .create_event:hover {
+        background-color: rgb(8, 94, 73); /* Green background on hover */
+        color: white; /* White text on hover */
+    }
+
+    .icon_container {
+        height: 100%;
     }
     
     .Menu_bar img{
-        height: 40px;
+        height: 100%;
     }
 
-    /* .Calendar_Selection{
-        margin-right: 80px;
-    } */
     button {
         all: unset;
         font-weight: bolder;
@@ -59,5 +69,7 @@
     .currentView, button:hover{
         color: rgb(8, 94, 73);
     }
+
+    
 
 </style>
