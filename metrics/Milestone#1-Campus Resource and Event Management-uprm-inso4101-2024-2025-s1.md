@@ -1,6 +1,6 @@
 # Milestone Data
 
-## Date Generated: 2024-10-23
+## Date Generated: 2024-10-25
 | Developer | Points Closed | Percent Contribution | Projected Grade | Lecture Topic Tasks |
 | --------- | ------------- | -------------------- | --------------- | ------------------- |
 | Ojani | 0.0 | 0.0% | 0.0% | 0 |
@@ -8,8 +8,6 @@
 | marymarmaldonado | 0.0 | 0.0% | 0.0% | 0 |
 | cseba11 | 0.0 | 0.0% | 0.0% | 0 |
 | Ingrid1089 | 0.0 | 0.0% | 0.0% | 0 |
-| AngelUPR | 0.0 | 0.0% | 0.0% | 0 |
-| SaucyRexy | 0.0 | 0.0% | 0.0% | 0 |
 | JeanSanchezFelix | 0.0 | 0.0% | 0.0% | 0 |
 | AlejandroClaudio | 0.0 | 0.0% | 0.0% | 0 |
 | MiguelGibo | 0.0 | 0.0% | 0.0% | 0 |
@@ -39,8 +37,6 @@
 | marymarmaldonado | 0/1 | 0/1 |
 | cseba11 | 0/1 | 0/1 |
 | Ingrid1089 | 0/1 | 0/1 |
-| AngelUPR | 0/1 | 0/1 |
-| SaucyRexy | 0/1 | 0/1 |
 | JeanSanchezFelix | 0/1 | 0/1 |
 | AlejandroClaudio | 0/1 | 0/1 |
 | MiguelGibo | 0/1 | 0/1 |
@@ -70,6 +66,8 @@
 | WARNING: [Issue #197](https://github.com/uprm-inso4101-2024-2025-s1/semester-project-campus-resource-and-event-management/issues/197) is not associated with a milestone. |
 | WARNING: [Issue #225](https://github.com/uprm-inso4101-2024-2025-s1/semester-project-campus-resource-and-event-management/issues/225) is not associated with a milestone. |
 | WARNING: [Issue #254](https://github.com/uprm-inso4101-2024-2025-s1/semester-project-campus-resource-and-event-management/issues/254) is not associated with a milestone. |
+| WARNING: [Issue #136](https://github.com/uprm-inso4101-2024-2025-s1/semester-project-campus-resource-and-event-management/issues/136) is not associated with a milestone. |
+| WARNING: [Issue #137](https://github.com/uprm-inso4101-2024-2025-s1/semester-project-campus-resource-and-event-management/issues/137) is not associated with a milestone. |
 | WARNING: Ojani hasn't completed the minimum 1 task(s) required for sprint 2024/08/30-2024/09/09 |
 | WARNING: Ojani hasn't completed the minimum 1 task(s) required for sprint 2024/09/09-2024/09/20 |
 | WARNING: ggonza28 hasn't completed the minimum 1 task(s) required for sprint 2024/08/30-2024/09/09 |
@@ -80,10 +78,6 @@
 | WARNING: cseba11 hasn't completed the minimum 1 task(s) required for sprint 2024/09/09-2024/09/20 |
 | WARNING: Ingrid1089 hasn't completed the minimum 1 task(s) required for sprint 2024/08/30-2024/09/09 |
 | WARNING: Ingrid1089 hasn't completed the minimum 1 task(s) required for sprint 2024/09/09-2024/09/20 |
-| WARNING: AngelUPR hasn't completed the minimum 1 task(s) required for sprint 2024/08/30-2024/09/09 |
-| WARNING: AngelUPR hasn't completed the minimum 1 task(s) required for sprint 2024/09/09-2024/09/20 |
-| WARNING: SaucyRexy hasn't completed the minimum 1 task(s) required for sprint 2024/08/30-2024/09/09 |
-| WARNING: SaucyRexy hasn't completed the minimum 1 task(s) required for sprint 2024/09/09-2024/09/20 |
 | WARNING: JeanSanchezFelix hasn't completed the minimum 1 task(s) required for sprint 2024/08/30-2024/09/09 |
 | WARNING: JeanSanchezFelix hasn't completed the minimum 1 task(s) required for sprint 2024/09/09-2024/09/20 |
 | WARNING: AlejandroClaudio hasn't completed the minimum 1 task(s) required for sprint 2024/08/30-2024/09/09 |
