@@ -21,19 +21,21 @@
         "MECHANICAL ENGINEERING", "SOFTWARE ENGINEERING", "SURVEYING AND TOPOGRAPHY"]
        };
        const MajorAsociations = {
-        "ARTS AND SCIENCES" : ["Orquesta de Cuerdas"],
-        "AGRICULTURAL SCIENCES" : ["Institute of Food Technology Student Association - Puerto RiconChapter"],
+        "ARTS AND SCIENCES" : ["Orquesta de Cuerdas", "Asociación de estudiantes de Biología", "Asociación de Estudiantes de Ciencias Políticas", "Comite Universitario de Lideres", "Asociación de Estudiantes de Psicología", "Asociación Estudiantil de Biotecnología Industrial", "Asociación de Estudiantes de Historia", 
+        "Círculo de Pre-Médicos UPRM"],
+        "AGRICULTURAL SCIENCES" : ["Institute of Food Technology Student Association - Puerto RiconChapter", "Asociación Estudiantil de Ciencia Animal", "Asociación de Estudiantes de Agronomía y Suelos", "Asociación de Estudiantes de Protección de Cultivos", "Asociacion Estudiantil de Horticultura", "Círculo de Pre-Veterinaria", "Club 4-H Colegial", "Asociación de Economía Agrícola y Agronegocios",
+            "Asociación de Estudiantes de Sistemas Agroambientales"],
         "BUSINESS ADMINISTRATION" : ["Association for Computing Machinery"],
         "ENGINEERING" : ["American Institute of Chemical Engineers", "American Society of Civil Engineers", "American Society for Quality", "Asociacion General de Contratistas",
             "College Robotics for Manufacturing Engineers", " Grupo de Apostolado Católico", "Society of Automotive Engineers", " Circuits and Systems Society", "IEEE Power and Energy Society UPRM",
             "Society of Women Engineers", "Institute of Industrial and Systems Engineers", "IEEE Engineering in Medicine and Biology Society", "IEEE Women in Engineering", "IEEE Eta Kappa Nu", "Institute of electrical and electronics engineers", 
             "IEEE Robotics & Automation Society", "Sociedad de Honor de Ingeniería Industrial Alpha Pi Mu", "American Society of Mechanical Engineers", "Tau Beta Pi", "Asociación de Estudiantes Graduados de Ingeniería Química", "UPRM Moonbuggy Engineering Team",
             "Cru Puerto Rico", "Material Advantage UPRM Chapter", "UPRM Aero Design", "Rotaract Mayaguez Universidad de Puerto Rico", "Human Powered Vehicle Challenge", "Colegio Racing Engineering", "American Society for Engineering Education", "Global Brigades",
-            "CAHSI UPRM Student Association", "RUM Racing Baja", "Student Design Competition", "UPRM Roboboat Team", "Cokí Racing Team", "Alpha Astrum", ""
+            "CAHSI UPRM Student Association", "RUM Racing Baja", "Student Design Competition", "UPRM Roboboat Team", "Cokí Racing Team", "Alpha Astrum"
         ],
        }
         const Universal = {
-            "Universal" : ["PHI ETA MU"],
+            "Universal" : ["Fraternidad Alpha Beta Chi Capítulo Beta", "Sororidad Mu Alpha Phi Capítulo Beta","Fraternidad Phi Eta Mu Capítulo Beta", "Fraternidad Nu Sigma Beta", "Coro de Cámara Internacional", "Ride a Bike", "Asociación Estudiantil de Comunicación y Periodismo Científico", "Asociación de Capitanes UPRM", "Asociación Estudiantil de Banda y Orquesta"],
         }
 
         $: combinedAssociations = [
