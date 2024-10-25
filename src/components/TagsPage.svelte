@@ -2,6 +2,7 @@
     <script>
     
         let selectedFaculty = "";
+        let showassociation = false;
 
         //dictionary for storing tags according to faculty
        const facultyMajors = {
@@ -18,8 +19,27 @@
 
         "ENGINEERING" : ["CHEMICAL ENGINEERING", "CIVIL ENGINEERING", "COMPUTER ENGINEERING", "COMPUTER SCIENCE AND ENGINEERING", "ELECTRICAL ENGINEERING", "INDUSTRIAL ENGINEERING",
         "MECHANICAL ENGINEERING", "SOFTWARE ENGINEERING", "SURVEYING AND TOPOGRAPHY"]
-        
        };
+       const MajorAsociations = {
+        "ARTS AND SCIENCES" : ["Orquesta de Cuerdas"],
+        "AGRICULTURAL SCIENCES" : ["Institute of Food Technology Student Association - Puerto RiconChapter"],
+        "BUSINESS ADMINISTRATION" : ["Association for Computing Machinery"],
+        "ENGINEERING" : ["American Institute of Chemical Engineers", "American Society of Civil Engineers", "American Society for Quality", "Asociacion General de Contratistas",
+            "College Robotics for Manufacturing Engineers", " Grupo de Apostolado Católico", "Society of Automotive Engineers", " Circuits and Systems Society", "IEEE Power and Energy Society UPRM",
+            "Society of Women Engineers", "Institute of Industrial and Systems Engineers", "IEEE Engineering in Medicine and Biology Society", "IEEE Women in Engineering", "IEEE Eta Kappa Nu", "Institute of electrical and electronics engineers", 
+            "IEEE Robotics & Automation Society", "Sociedad de Honor de Ingeniería Industrial Alpha Pi Mu", "American Society of Mechanical Engineers", "Tau Beta Pi", "Asociación de Estudiantes Graduados de Ingeniería Química", "UPRM Moonbuggy Engineering Team",
+            "Cru Puerto Rico", "Material Advantage UPRM Chapter", "UPRM Aero Design", "Rotaract Mayaguez Universidad de Puerto Rico", "Human Powered Vehicle Challenge", "Colegio Racing Engineering", "American Society for Engineering Education", "Global Brigades",
+            "CAHSI UPRM Student Association", "RUM Racing Baja", "Student Design Competition", "UPRM Roboboat Team", "Cokí Racing Team", "Alpha Astrum", ""
+        ],
+       }
+        const Universal = {
+            "Universal" : ["PHI ETA MU"],
+        }
+
+        $: combinedAssociations = [
+        ...(MajorAsociations[selectedFaculty] || []),
+        ...(Universal.Universal || [])
+        ];
 
     </script>
 <head>
@@ -148,7 +168,15 @@
                 <p class = "section-header">Majors</p>
                 <ul>
                     {#each facultyMajors[selectedFaculty] as tag}
-                        <button class = "button">{tag}</button>
+                        <button class = "button" on:click={() => showassociation = true}>{tag}</button>
+                    {/each}
+                </ul>
+            {/if}
+            {#if showassociation}
+                <p class="section-header">Associations</p>
+                <ul>
+                    {#each combinedAssociations as tag}
+                    <button class="button">{tag}</button>
                     {/each}
                 </ul>
             {/if}
