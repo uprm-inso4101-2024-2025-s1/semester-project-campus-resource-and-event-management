@@ -4,6 +4,7 @@
     export let day;
     export let isCurrentDay = false;
     export let isNotFromMonth = false;
+    export let isWeek = false;
     export let events = [];
 </script>
 

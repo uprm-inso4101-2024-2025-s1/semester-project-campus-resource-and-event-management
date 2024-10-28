@@ -1,10 +1,12 @@
 <script>
+    // import { getWeek } from "../lib/calendarTools";
     import CalendarMonthView from "./CalendarMonthView.svelte";
     import CalendarWeekView from "./CalendarWeekView.svelte";
     export let view = "month";
     
-    let currentMonth = new Date().getMonth()+1;
-    let currentYear = new Date().getFullYear();
+    let currentDate = new Date();
+    $: currentMonth = currentDate.getMonth()
+    $: currentYear = currentDate.getFullYear()
 
     let scrollCalendar
     let calendarTitle
@@ -18,9 +20,9 @@
     </div>
     <div class="calendarViewWrapper">
         {#if view == "month"}
-            <CalendarMonthView bind:scrollCalendar bind:calendarTitle bind:currentMonth bind:currentYear />
+            <CalendarMonthView bind:scrollCalendar bind:calendarTitle bind:currentDate {currentMonth} {currentYear} />
         {:else if view == "week"}
-            <CalendarWeekView bind:scrollCalendar bind:calendarTitle />
+            <CalendarWeekView bind:scrollCalendar bind:calendarTitle bind:currentDate {currentMonth} {currentYear} />
         {/if}
     </div>
 </div>
