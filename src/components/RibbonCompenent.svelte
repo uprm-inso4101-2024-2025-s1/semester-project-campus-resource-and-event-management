@@ -23,7 +23,7 @@
         background-color: white;
         position: relative;
         width: 100%;
-        height: 50px;
+        height: 100%;
         display:flex; 
         align-items: center;
         justify-content:flex-end;
@@ -38,10 +38,12 @@
         border-radius: 30px;
         border-color: rgb(8, 94, 73);
         border-style: solid;
-        padding: 8px;
+        padding: 0 8px;
+        height: 80%;
         box-sizing: border-box;
         display: flex;
         font-size: small;
+        align-items: center;
         transition: 0.2s;
         left: 0.5em;
     }
