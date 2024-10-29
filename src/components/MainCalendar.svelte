@@ -15,6 +15,7 @@
 <div class="wrapper">
     <h2>{calendarTitle}</h2>
     <div class="arrows">
+        <button on:click={() => currentDate = new Date()} class="todayBtn">TODAY</button>
         <button on:click={() => scrollCalendar(-1)}>&lsaquo;</button>
         <button on:click={() => scrollCalendar(1)}>&rsaquo;</button>
     </div>
@@ -60,7 +61,7 @@
         display: flex;
     }
 
-    .arrows button {
+    .arrows button:not(.todayBtn) {
         all: unset;
         height: 0;
         margin: 0 0.75em;
@@ -70,6 +71,19 @@
 
     .arrows button:hover {
         color: rgb(8, 94, 73);
+    }
+
+    .todayBtn {
+        all: unset;
+        border: 1.25px solid currentColor;
+        margin: -1.25em 0.75em 0 0;
+        border-radius: 5em;
+        font-weight: bold;
+        user-select: none;
+        font-size: 0.8rem;
+        cursor: pointer;
+        padding: 0 1.5em;
+        height: 2.8em;
     }
 
     .calendarViewWrapper {
