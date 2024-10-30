@@ -1,10 +1,11 @@
 <!-- footer -->
 <script>
+  import specialThanksImage from "/images/sp.png";
   let facebookLogo = "/images/white-facebook-logo.png";
   let igLogo = "/images/white-insta-logo.png";
   let xLogo = "/images/X_Logo.png";
   let whiteLogo = "/images/eventero-white-logo.png";
-  let specialthanks = "/assets/specialthanks.png";
+  let specialthanks = "/images/specialthanks.png";
   import { onMount } from "svelte";
   let showContacts = false;
   let showSpecialThanks = false;
@@ -109,7 +110,7 @@
     >
       <div role="document" class="special-thanks-popup">
         <!-- svelte-ignore a11y-img-redundant-alt -->
-        <img src={specialthanks} alt="Special Thanks Image" />
+        <img src={specialThanksImage} alt="Special Thanks Image" />
         <button
           class="close-button"
           on:click={() => specialThanksDialog.close()}>X</button
@@ -665,12 +666,37 @@
     position: relative;
     text-align: center;
   }
-
-  .special-thanks-image {
-    max-width: 100%;
+  .special-thanks-popup {
+    max-width: 90%;
     height: auto;
-    border-radius: 10px;
+    overflow: visible;
   }
+
+  .special-thanks-popup img {
+    width: 100%;
+    height: auto;
+    max-width: 900px;
+    display: block;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .special-thanks-popup img {
+  width: 100%; 
+  height: 100%;
+  object-fit: cover; 
+  display: block;
+}
+
+
+.special-thanks-popup img {
+  width: calc(100% - 20px); 
+  height: 100%; 
+  object-fit: cover; 
+  display: block;
+  padding-left: 20px; 
+  box-sizing: border-box; 
+}
 
   .close-button {
     position: fixed;
