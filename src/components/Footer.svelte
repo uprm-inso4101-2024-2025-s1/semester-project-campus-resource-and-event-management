@@ -20,8 +20,8 @@
     specialThanksDialog.scrollTo(0, 0);
   }
 
-    // Imported "BackToTop" Button Here.
-	import GotoTop from "../components/BackToTop.svelte"
+  // Imported "BackToTop" Button Here.
+  import GotoTop from "../components/BackToTop.svelte";
 </script>
 
 <!-- Added this so "BackToTop" button would appear as soon as user scrolls down the page. -->
@@ -103,11 +103,17 @@
       </div>
     </dialog>
 
-    <dialog bind:this={specialThanksDialog} on:close={() => (showSpecialThanks = false)}>
+    <dialog
+      bind:this={specialThanksDialog}
+      on:close={() => (showSpecialThanks = false)}
+    >
       <div role="document" class="special-thanks-popup">
         <!-- svelte-ignore a11y-img-redundant-alt -->
         <img src={specialthanks} alt="Special Thanks Image" />
-        <button class="close-button" on:click={() => specialThanksDialog.close()}>X</button>
+        <button
+          class="close-button"
+          on:click={() => specialThanksDialog.close()}>X</button
+        >
       </div>
     </dialog>
 
@@ -160,7 +166,10 @@
     </div>
     <div class="contact-button">
       <button on:click={() => (showContacts = true)}>CONTACT US</button>
-      <button on:click={() => (showSpecialThanks = true)}>SPECIAL THANKS</button>
+    </div>
+    <div class="special-thanks-button">
+      <button on:click={() => (showSpecialThanks = true)}>SPECIAL THANKS</button
+      >
     </div>
     <div class="quick-links">
       <div class="footer-column">
@@ -243,7 +252,7 @@
   }
 
   .footer-contactUs-categorias p {
-    font-size: 0.92rem; 
+    font-size: 0.92rem;
   }
   dialog::backdrop {
     background: transparent;
@@ -586,13 +595,13 @@
     }
 
     .contact-button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding-top: 1rem;
-    margin-top: 2rem;
-  }
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding-top: 1rem;
+      margin-top: 2rem;
+    }
 
     .contact-button button {
       align-self: center;
@@ -624,9 +633,9 @@
       padding: 1.3rem;
       background-color: white;
       position: fixed;
-      bottom: 0; 
-      left: 50%; 
-      transform: translateX(-50%); 
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
       z-index: 10;
       overflow: auto;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -646,12 +655,13 @@
       width: auto;
       margin: 0;
     }
-  footer {
-        height: 1200px;
+    footer {
+      height: 1200px;
     }
   }
- /* Special Thanks Pop-up styling */
- .special-thanks-popup {
+
+  /* Special Thanks Pop-up styling */
+  .special-thanks-popup {
     position: relative;
     text-align: center;
   }
@@ -663,7 +673,7 @@
   }
 
   .close-button {
-    position: absolute;
+    position: fixed;
     top: 10px;
     right: 10px;
     background-color: transparent;
@@ -692,9 +702,41 @@
     display: block;
   }
 
-  .contact-button button:hover {
+  .special-thanks-button button:hover {
     background-color: #17c299;
     color: black;
+  }
+
+  .contact-button,
+  .special-thanks-button {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .special-thanks-button button {
+    position: relative;
+    margin-top: -3rem;
+    padding: 15px 50px;
+    font-size: 1.1rem;
+    border: 2px solid #17c299;
+    background-color: transparent;
+    color: white;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    left: -38.5px;
+  }
+
+  .quick-links {
+    display: flex;
+    gap: 2rem;
+    flex: 1;
+    position: absolute;
+    top: 18rem;
+    left: 77%;
+    transform: translateX(-50%);
   }
 
   /* Footer styling */
@@ -707,5 +749,4 @@
     color: white;
     min-height: 400px;
   }
-
 </style>
