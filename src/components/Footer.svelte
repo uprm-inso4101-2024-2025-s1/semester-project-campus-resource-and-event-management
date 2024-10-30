@@ -1,11 +1,11 @@
 <!-- footer -->
 <script>
-  import specialThanksImage from "/images/sp.png";
+  import specialThanksImage from "/images/sp1.png";
   let facebookLogo = "/images/white-facebook-logo.png";
   let igLogo = "/images/white-insta-logo.png";
   let xLogo = "/images/X_Logo.png";
   let whiteLogo = "/images/eventero-white-logo.png";
-  let specialthanks = "/images/specialthanks.png";
+  let specialthanks = "/images/specialthanks1.png";
   import { onMount } from "svelte";
   let showContacts = false;
   let showSpecialThanks = false;
