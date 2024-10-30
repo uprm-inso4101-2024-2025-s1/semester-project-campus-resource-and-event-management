@@ -104,19 +104,17 @@
       </div>
     </dialog>
 
-    <dialog
-      bind:this={specialThanksDialog}
-      on:close={() => (showSpecialThanks = false)}
-    >
-      <div role="document" class="special-thanks-popup">
-        <!-- svelte-ignore a11y-img-redundant-alt -->
-        <img src={specialThanksImage} alt="Special Thanks Image" />
-        <button
-          class="close-button"
-          on:click={() => specialThanksDialog.close()}>X</button
-        >
-      </div>
-    </dialog>
+    <!-- Special Thanks Pop-up -->
+<dialog
+bind:this={specialThanksDialog}
+on:close={() => (showSpecialThanks = false)}
+>
+<img src={specialThanksImage} alt="Special Thanks Image" class="full-popup-image" />
+<button
+  class="close-button"
+  on:click={() => specialThanksDialog.close()}>X</button>
+</dialog>
+
 
     <div class="footer-page-info">
       <div class="footer-top">
@@ -661,57 +659,43 @@
     }
   }
 
-  /* Special Thanks Pop-up styling */
-  .special-thanks-popup {
-    position: relative;
-    text-align: center;
-  }
-  .special-thanks-popup {
-    max-width: 90%;
-    height: auto;
-    overflow: visible;
-  }
-
-  .special-thanks-popup img {
-    width: 100%;
-    height: auto;
-    max-width: 900px;
-    display: block;
-    justify-content: center;
-    margin: 0 auto;
-  }
-
-  .special-thanks-popup img {
-  width: 100%; 
+/* Styling for Special Thanks Pop-up */
+.full-popup-image {
+  width: 100%;
   height: 100%;
-  object-fit: cover; 
+  object-fit: cover;
   display: block;
 }
-
 
 .special-thanks-popup img {
-  width: calc(100% - 20px); 
-  height: 100%; 
-  object-fit: cover; 
-  display: block;
-  padding-left: 20px; 
-  box-sizing: border-box; 
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-  .close-button {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    background-color: transparent;
-    color: #17c299;
-    font-size: 1.2rem;
-    border: none;
-    cursor: pointer;
-  }
+.special-thanks-popup {
+  width: 90%;
+  max-width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .close-button:hover {
-    color: #138e79;
-  }
+.close-button {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  color: #17c299;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #138e79;
+}
 
   /* Button styles for "Contact Us" and "Special Thanks" */
   .contact-button button {
