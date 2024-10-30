@@ -4,12 +4,20 @@
   let igLogo = "/images/white-insta-logo.png";
   let xLogo = "/images/X_Logo.png";
   let whiteLogo = "/images/eventero-white-logo.png";
+  let specialthanks = "/assets/specialthanks.png";
   import { onMount } from "svelte";
   let showContacts = false;
+  let showSpecialThanks = false;
   let dialog;
+  let specialThanksDialog;
   $: if (dialog && showContacts) {
     dialog.showModal();
     dialog.scrollTo(0, 0);
+  }
+
+  $: if (specialThanksDialog && showSpecialThanks) {
+    specialThanksDialog.showModal();
+    specialThanksDialog.scrollTo(0, 0);
   }
 
     // Imported "BackToTop" Button Here.
@@ -94,6 +102,15 @@
         >
       </div>
     </dialog>
+
+    <dialog bind:this={specialThanksDialog} on:close={() => (showSpecialThanks = false)}>
+      <div role="document" class="special-thanks-popup">
+        <!-- svelte-ignore a11y-img-redundant-alt -->
+        <img src={specialthanks} alt="Special Thanks Image" />
+        <button class="close-button" on:click={() => specialThanksDialog.close()}>X</button>
+      </div>
+    </dialog>
+
     <div class="footer-page-info">
       <div class="footer-top">
         <h2>Campus Event Life Enhancement</h2>
@@ -143,6 +160,7 @@
     </div>
     <div class="contact-button">
       <button on:click={() => (showContacts = true)}>CONTACT US</button>
+      <button on:click={() => (showSpecialThanks = true)}>SPECIAL THANKS</button>
     </div>
     <div class="quick-links">
       <div class="footer-column">
@@ -567,6 +585,15 @@
       text-align: center;
     }
 
+    .contact-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-top: 1rem;
+    margin-top: 2rem;
+  }
+
     .contact-button button {
       align-self: center;
       margin: 0 auto;
@@ -623,6 +650,62 @@
         height: 1200px;
     }
   }
- 
+ /* Special Thanks Pop-up styling */
+ .special-thanks-popup {
+    position: relative;
+    text-align: center;
+  }
+
+  .special-thanks-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    color: #17c299;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+  }
+
+  .close-button:hover {
+    color: #138e79;
+  }
+
+  /* Button styles for "Contact Us" and "Special Thanks" */
+  .contact-button button {
+    background-color: transparent;
+    border: 2px solid #17c299;
+    color: white;
+    border-radius: 20px;
+    font-weight: bold;
+    padding: 20px 50px;
+    margin: 0.5rem 0;
+    cursor: pointer;
+    outline: none;
+    font-size: 1.2rem;
+    display: block;
+  }
+
+  .contact-button button:hover {
+    background-color: #17c299;
+    color: black;
+  }
+
+  /* Footer styling */
+  footer {
+    position: relative;
+    font-family: "Roboto", sans-serif;
+    width: 100%;
+    background-color: #053a2d;
+    padding: 10rem 0 7rem 0;
+    color: white;
+    min-height: 400px;
+  }
 
 </style>
