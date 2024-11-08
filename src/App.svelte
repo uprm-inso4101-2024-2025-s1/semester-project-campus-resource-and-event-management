@@ -9,6 +9,9 @@
   import NewsPage from "./components/NewsPage.svelte";
   import ResourcesPage from "./components/ResourcesPage.svelte";
   import TagsPage from "./components/TagsPage.svelte";
+  import SignUpPage from "./components/SignUpPage.svelte";
+    import SignUpStudent from "./components/SignUpStudent.svelte";
+    import SignUpOrganization from "./components/SignUpOrganization.svelte";
 
   let currentPage
 </script>
@@ -16,8 +19,8 @@
 <PageWrapper bind:currentPage>  
   {#if currentPage == '/' || currentPage == '/home'}
     <HomePage />
-  {:else if currentPage == '/login'}
-    <LoginPage />
+  {:else if currentPage == '/signup'}
+    <SignUpPage />
   {:else if currentPage == '/calendar'}
     <CalendarPage />
   {:else if currentPage == '/events'}
@@ -30,6 +33,10 @@
     <ResourcesPage />
   {:else if currentPage == '/tags'}
     <TagsPage />
+  {:else if currentPage == '/signupstudent'}
+    <SignUpStudent />
+  {:else if currentPage == '/signuporganization'}
+    <SignUpOrganization />
   {:else}
     <ExamplePage />
   {/if}

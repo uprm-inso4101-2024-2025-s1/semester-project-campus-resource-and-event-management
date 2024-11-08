@@ -86,7 +86,7 @@
       <a on:click={handleNavClick} href="/calendar"> Your Calendar</a>
       <a on:click={handleNavClick} href="/events"> Upcoming Events</a>
       <a on:click={handleNavClick} href="/resources"> Resources</a>
-      <a on:click={handleNavClick} href="/login">Sign-Up</a>
+      <a on:click={handleNavClick} href="/signup">Sign-Up</a>
       <a on:click={handleNavClick} href="/tags"> Tags </a> 
 
 
