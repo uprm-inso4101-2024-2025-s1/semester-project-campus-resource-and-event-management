@@ -20,7 +20,9 @@
     /* ------------  Student CSS ------------ */
     .container {
         display: flex;
-        justify-content: center; /* this was centered */
+        justify-content: center; 
+        align-items: center; 
+        height: 100vh; 
     }
 
     #center {
@@ -34,8 +36,8 @@
     #create {
         position: relative;
         top: 35px;
-        left: 230px; 
-        width: 205px;
+        left: 240px; 
+        width: 210px;
         padding: 10px;
         border-radius: 10px;
         font-family: 'Roboto', sans-serif;  
@@ -48,8 +50,8 @@
     #createstudent {
         position: relative;
         top: 90px;
-        left: 50px;
-        width: 230px;
+        left: 70px;
+        width: 235px;
         padding: 10px;
         border-style: solid;
         border-width: 1.5px;
@@ -80,8 +82,18 @@
         text-decoration: none;
     }
 
+    #studentlink:hover {
+        color: rgba(0,180,80,100);
+        text-decoration: none;
+    }
+
     #organizationlink {
         color: rgba(11,93,71,255);
+        text-decoration: none;
+    }
+
+    #organizationlink:hover {
+        color: rgba(0,180,80,100);
         text-decoration: none;
     }
 
@@ -89,7 +101,7 @@
         position: relative;
         width: 150px;
         top: 110px;
-        left: 220px;
+        left: 245px;
         font-family: 'Roboto', sans-serif;  
         font-weight: 550; /* Bold */    
         font-size: 12px;
@@ -101,7 +113,7 @@
         position: relative;
         width: 40px;
         top: 93px;
-        left: 375px;
+        left: 390px;
         font-family: 'Roboto', sans-serif;  
         font-weight: 550; /* Bold */ 
         font-size: 12px;
@@ -109,6 +121,11 @@
 
     #loginlink {
         color: rgba(11,93,71,255);
+        text-decoration: none;
+    }
+
+    #loginlink:hover {
+        color: rgba(0,180,80,100);
         text-decoration: none;
     }
     

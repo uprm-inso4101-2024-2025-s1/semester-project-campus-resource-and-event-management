@@ -24,8 +24,12 @@
           <div id="characters"> Use 8 or more characters with a mix of letter and symbols </div>
           <div id="showpsswd"> Show password </div>
           <div id="match"> Passwords do not match </div>
-          <div id="instead"> Log in instead </div>
-          <div id="createbutton"> Create account </div>
+          <div id="instead">
+              <a href="login" id="loginlink"> Log in instead </a>
+          </div>    
+          <div id="createbutton">
+              <a href="login" id="homelink"> Create account </a>
+          </div>   
       </div>
       <script>
           function togglePassword() {
@@ -106,11 +110,13 @@
   <style>
       .container {
           display: flex;
-          justify-content: center; /* this was centered */
+          justify-content: center; 
+          align-items: center; 
+          height: 100vh; 
       }
   
       #center {
-          width: 360px;
+          width: 340px;
           height: 420px;
           border-radius: 10px;
           color: rgb(0,0,0);
@@ -142,7 +148,7 @@
           position: relative;
           width: 40px;
           top: 13px;
-          left: 175px;
+          left: 165px;
           font-family: 'Roboto', sans-serif;  
           font-weight: 550; /* Bold */ 
           font-size: 12px;
@@ -152,6 +158,11 @@
       #loginlink {
           color: rgba(11,93,71,255);
           text-decoration: none;
+      }
+
+      #loginlink:hover {
+        color: rgba(0,180,80,100);
+        text-decoration: none;
       }
   
       #id {
@@ -230,7 +241,7 @@
   
       #psswdinput {
           position: relative;
-          width: 142px;
+          width: 153px;
           padding: 10px;
           border-radius: 10px;
           border-width: 1px;
@@ -245,7 +256,7 @@
   
       #psswddinput{
           position: relative;
-          width: 142px;
+          width: 153px;
           padding: 10px;
           border-radius: 10px;
           border-width: 1px;
@@ -261,7 +272,7 @@
       .toggle-password {
           position: relative;
           top: 95px;
-          left: -320px;
+          left: -300px;
       }
   
       #characters {
@@ -314,16 +325,25 @@
       #createbutton {
           position: relative;
           background: rgba(11,93,71,255);
-          width: 140px;
+          width: 145px;
           top: 50px;
           left: 170px;
           padding: 10px;
           border-radius: 10px;
-          font-family: 'Roboto', sans-serif;  
-          font-weight: 700; /* Bold */ 
-          font-size: 18px;
-          color: rgb(255,255,255);
       }
+
+      #homelink {
+        text-decoration: none;
+        font-family: 'Roboto', sans-serif;  
+        font-weight: 700; /* Bold */ 
+        font-size: 18px;
+        color: rgb(255,255,255);
+      }
+
+      #homelink:hover {
+        font-weight: 100; /* Bold */ 
+      }
+
   </style>
    
       
