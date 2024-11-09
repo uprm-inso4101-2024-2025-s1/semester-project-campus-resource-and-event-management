@@ -72,6 +72,7 @@
       on:click={toggleMenu}
       aria-label="Toggle menu"
     >
+    
       <div></div>
       <div></div>
       <div></div>
@@ -86,9 +87,7 @@
       <a on:click={handleNavClick} href="/calendar"> Your Calendar</a>
       <a on:click={handleNavClick} href="/events"> Upcoming Events</a>
       <a on:click={handleNavClick} href="/resources"> Resources</a>
-      <a on:click={handleNavClick} href="/login">Sign-Up</a>
-      <a on:click={handleNavClick} href="/tags"> Tags </a> 
-
+      <a on:click={handleNavClick} href="/tags"> Tags </a>
 
       <!-- Notification Bell Icon -->
       <button
@@ -102,27 +101,28 @@
         {/if}
       </button>
 
-    <!-- Added Search Bar and Profile Icon Container for easier formatting. -->
-    <div class="search-profile-container">
+      <!-- Added Search Bar and Profile Icon Container for easier formatting. -->
+      <div class="search-profile-container">
+        <!-- Search Bar -->
+        <form on:submit={handleSearch} class="search-bar">
+          <input
+            type="text"
+            bind:value={searchQuery}
+            placeholder="Search for resources or events..."
+          />
+          <button type="submit">Search</button>
+        </form>
 
-      <!-- Search Bar -->
-      <form on:submit={handleSearch} class="search-bar">
-        <input
-          type="text"
-          bind:value={searchQuery}
-          placeholder="Search for resources or events..."
-        />
-        <button type="submit">Search</button>
-      </form>
-  
-      <!-- Added Profile Icon Here. -->
-      <a href="/profile" class="profile-icon">
-        <img src="/images/profile_icon.png" alt="Profile" class="profile-image" />
-      </a>
-
+        <!-- Added Profile Icon Here. -->
+        <a href="/profile" class="profile-icon">
+          <img
+            src="/images/profile_icon.png"
+            alt="Profile"
+            class="profile-image"
+          />
+        </a>
+      </div>
     </div>
-
-  </div>
   {/if}
 </nav>
 
@@ -170,29 +170,32 @@
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
-/* Profile Icon Styles Added Here. */
-.profile-icon {
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0;
-  margin-left: 15px;
-}
+  /* Profile Icon Styles Added Here. */
+  .profile-icon {
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: 15px;
+    white-space: nowrap;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+  }
 
-.profile-image {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  background-color: transparent;
-}
+  .profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: transparent;
+  }
 
-/* Container for Search Bar and Profile Icon Added Here. */
-.search-profile-container {
-  display: flex;
-  align-items: center;
-  gap: 10px; /* This Adjusts the spacing between search bar and profile icon. */
-}
+  /* Container for Search Bar and Profile Icon Added Here. */
+  .search-profile-container {
+    display: flex;
+    align-items: center;
+  }
 
   .notification-bell {
     position: relative;
@@ -207,19 +210,24 @@
     height: 28px;
     object-fit: cover;
     background-color: transparent;
-    transition: 0.2s ease;
+    transition: 0.2s;
   }
 
-/* Hover effect */
-.bell-image:hover {
+  /* Hover effect */
+  .profile-icon:hover {
     transform: scale(1.1);
-    transition: all 0.1s ease;
-}
+  }
 
-/* Active (click) effect */
-.bell-image:active {
+  .bell-image:hover {
+    transform: scale(1.1);
+  }
+  /* Active (click) effect */
+  .profile-icon:active {
     transform: scale(0.9);
-}
+  }
+  .bell-image:active {
+    transform: scale(0.9);
+  }
 
   .notification-count {
     position: absolute;
@@ -302,14 +310,12 @@
     font-weight: 500;
     color: #000000;
     text-decoration: none;
-    transition:
-      color 0.6s ease,
-      background-color 0.6s ease;
+    transition: 0.6s;
     padding: 5px;
     border-radius: 4px;
   }
 
-  .nav-links a:hover {
+  .nav-links a:hover:not(.profile-icon) {
     color: #ffffff;
     background-color: #004d40;
     transition:
@@ -318,7 +324,7 @@
   }
 
   .nav-links a:active {
-    background-color: #00796b; 
+    background-color: #00796b;
     transition: background-color 0.1s ease;
   }
 
@@ -479,7 +485,6 @@
 
   /* Mobile Styles */
   @media (max-width: 768px) {
-
     .navbar {
       position: fixed;
       top: 0;

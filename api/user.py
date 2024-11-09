@@ -64,8 +64,19 @@ class user():
     # Adds a tag to the set of a user
     def addTag(self, tag):
         self.__tags.add(tag)
+        self.checkTagRequirement()
 
     # Adds a tag from the set of a user
     def removeTag(self, tag):
         self.__tags.remove(tag)
+        self.checkTagRequirement()
+
+    # New method to check if the user has selected at least 5 tags
+    def checkTagRequirement(self):
+        if len(self.__tags) < 5:
+            print("You must select at least 5 tags (faculty, majors, associations).")
+            return False
+        return True
+
+    
 

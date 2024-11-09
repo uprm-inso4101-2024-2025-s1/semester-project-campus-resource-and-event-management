@@ -24,6 +24,8 @@
             <CalendarMonthView bind:scrollCalendar bind:calendarTitle bind:currentDate {currentMonth} {currentYear} />
         {:else if view == "week"}
             <CalendarWeekView bind:scrollCalendar bind:calendarTitle bind:currentDate {currentMonth} {currentYear} />
+        {:else if view == "day"}
+            
         {/if}
     </div>
 </div>

@@ -8,6 +8,7 @@
     <h1>Campus Resource and Event Manager</h1>
     <p>Your gateway to campus life.</p>
   </div>
+  <img src="/images/arrows.png" alt="Decorative arrows" class="arrows">
 </section>
 
 <div class="mission-vision-container">
@@ -69,6 +70,14 @@
     font-weight: 700;
     line-height: 80px;
     color:#085E49;
+  }
+
+  .arrows {
+    position: absolute;
+    top: 113px;
+    left: 963px;
+    width: 300px; 
+    height: 300px;
   }
 
   .mission-vision-container {
