@@ -1,6 +1,18 @@
 <!-- Temp Map Page -->
 <script>
     import edificios from "../assets/edificio_2.png";
+
+    let areas = [
+        {
+            id: 1,
+            label: "hello",
+            left: "30%",
+            top: "40%",
+            width: '10%',
+            height: '10%',
+            showLabel: false
+        }
+        ];
 </script>
 
 <style>
@@ -28,11 +40,57 @@
         object-fit: cover; 
         border-radius: 20px; 
     }
+
+    .hover-area {
+        position: absolute;
+        background: rgba(255, 0, 0, 0.2);
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .label {
+        position: absolute;
+        color: #000;
+        background: #ffffff;
+        padding: 5px;
+        border: 1px solid #000;
+        white-space: nowrap;
+        z-index: 20;
+        border-radius: 5px;
+        font-size: 0.9em;
+    }
 </style>
 
 <body>
     <div class="full-image">
         <img src={edificios} alt="UPRM edificios" />
         <h1 class="title">UPRM edificios</h1>
+
+        {#each areas as area (area.id)}
+            <button
+                class="hover-area"
+                style=
+                    "left: {area.left};
+                    top: {area.top};
+                    width: {area.width};
+                    height: {area.height};"
+                    on:mouseover={() => area.showLabel = true}
+                    on:mouseout={() => area.showLabel = false}
+                    on:focus={() => area.showLabel = true}
+                    on:blur={() => area.showLabel = false}
+                    aria-label="{area.label}"
+            ></button>
+            {#if area.showLabel}
+                <div
+                    class="label"
+                    style=
+                        "left: {area.left};
+                        top: calc({area.top} - 30px);"
+                >
+
+                    {area.label}
+                </div>
+            {/if}
+        {/each}
     </div>
 </body>
