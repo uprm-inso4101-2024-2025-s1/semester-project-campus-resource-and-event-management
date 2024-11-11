@@ -25,8 +25,71 @@
         {
             id: 3,
             label: "3. Almacén del CID",
-            left: "23.2%",
-            top: "18.2%",
+            left: "83%",
+            top: "27.8%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 4,
+            label: "4. Almacén Obras de MuSA",
+            left: "60%",
+            top: "82.6%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 5,
+            label: "5. Antiguo Centro Nuclear (varios programas incluyendo Sea Grant)",
+            left: "77.9%",
+            top: "26.3%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 6,
+            label: "6. Antigua Pista Atlética",
+            left: "85.5%",
+            top: "87.2%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 7,
+            label: "7. Banda y Orquesta",
+            left: "80.5%",
+            top: "79.6%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 8,
+            label: "8. Biblioteca general",
+            left: "56.2%",
+            top: "61.5%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 9,
+            label: "9. Edificio de Biología [B]",
+            left: "63.9%",
+            top: "26.3%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 10,
+            label: "10. Centro de Cuido Diurno",
+            left: "8%",
+            top: "40.1%",
             width: '0.5%',
             height: '0.5%',
             showLabel: false
