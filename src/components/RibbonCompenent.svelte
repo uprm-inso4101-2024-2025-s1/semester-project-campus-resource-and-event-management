@@ -1,5 +1,4 @@
 <script>
-    import App from "../App.svelte";
     export let mainCalendarView = 'month'
     import calendar_Img from "../assets/calendar.png"
 </script>
@@ -13,7 +12,7 @@
     <button on:click={() => mainCalendarView = 'month'} class:currentView={mainCalendarView == 'month'} class="Calendar_Selection">Month</button>
 
     <div class="icon_container">
-        <img src="/src/assets/ribbon_calendar_icon.png" alt="Calendar Icon" class="icon_image">
+        <img src={calendar_Img} alt="Calendar Icon" class="icon_image">
     </div>
 </div>
 
