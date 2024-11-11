@@ -177,9 +177,99 @@
         },
         {
             id: 20,
-            label: "20. Edificio Sánchez Hidalgo (DECEP/PpMES/Economía)",
+            label: "20. Edificio Sánchez Hidalgo (DECEP/PpMES/Economía) [SH]",
             left: "60.8%",
-            top: "46%",
+            top: "46.1%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 21,
+            label: "21. Edificio A (Dormitorio de Atletas)",
+            left: "6.5%",
+            top: "30.1%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 22,
+            label: "22. Edificio B (Adm. Pequeños Negocios/Ofic. Adem)",
+            left: "10.4%",
+            top: "30.1%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 23,
+            label: "23. Edificio C (Oficina de Extensión Agrícola)",
+            left: "5.1%",
+            top: "34.2%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 24,
+            label: "24. Edificio D",
+            left: "8.1%",
+            top: "32%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 25,
+            label: "25. Edificio Chardón (Estudios Generales) [CH]",
+            left: "71.4%",
+            top: "60.5%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 26,
+            label: "26. Edificio Jesús T. Piñero (Ciencias Agrícolas) [P]",
+            left: "50.4%",
+            top: "82.6%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 27,
+            label: "27. Edificio José de Diego",
+            left: "69.4%",
+            top: "75.1%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 28,
+            label: "28. Edificio Luis de Celis (Admisiones-Celis 101/Registro/Decanato de Arte y Ciencias/Estudios Graduados) [C]",
+            left: "72.1%",
+            top: "66.5%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 29,
+            label: "29. Edificio Luis Monzón [M]",
+            left: "64.8%",
+            top: "74.3%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 30,
+            label: "30. Edificio Luis Stefani",
+            left: "77.1%",
+            top: "59.2%",
             width: '0.5%',
             height: '0.5%',
             showLabel: false
