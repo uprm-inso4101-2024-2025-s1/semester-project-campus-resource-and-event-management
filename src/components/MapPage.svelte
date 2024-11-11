@@ -88,8 +88,53 @@
         {
             id: 10,
             label: "10. Centro de Cuido Diurno",
-            left: "8%",
-            top: "40.1%",
+            left: "7.5%",
+            top: "40.4%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 11,
+            label: "11. Centro de Estudiantes",
+            left: "64.7%",
+            top: "63.5%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 12,
+            label: "12. Central Telefónica",
+            left: "43.8%",
+            top: "52%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 13,
+            label: "13. CISA",
+            left: "78.5%",
+            top: "21%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 14,
+            label: "14. Coliseo Rafael A. Mangual [CM]",
+            left: "34.1%",
+            top: "61.8%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 15,
+            label: "15. Complejo de Tennis 2010",
+            left: "10.9%",
+            top: "41.9%",
             width: '0.5%',
             height: '0.5%',
             showLabel: false
