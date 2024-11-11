@@ -138,6 +138,51 @@
             width: '0.5%',
             height: '0.5%',
             showLabel: false
+        },
+        {
+            id: 16,
+            label: "16. Cuarto Limpio [CID]",
+            left: "83.9%",
+            top: "30.9%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 17,
+            label: "17. Natatorio 2010",
+            left: "17.5%",
+            top: "35.8%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 18,
+            label: "18. Decanato de Estudiantes (Asistencia Económica/Calidad de Vida/Dept. de Consejería y Servicios Sicológicos)",
+            left: "74.6%",
+            top: "78%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 19,
+            label: "19. Departamento de Edificios y Terrenos",
+            left: "33%",
+            top: "28%",
+            width: '6%',
+            height: '15%',
+            showLabel: false
+        },
+        {
+            id: 20,
+            label: "20. Edificio Sánchez Hidalgo (DECEP/PpMES/Economía)",
+            left: "60.8%",
+            top: "46%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
         }
         ];
 </script>
