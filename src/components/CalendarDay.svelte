@@ -1,6 +1,7 @@
 <script>
     import CalendarEvent from "./CalendarEvent.svelte";
 
+    export let isDay = false;
     export let day;
     export let isCurrentDay = false;
     export let isNotFromMonth = false;
@@ -8,7 +9,7 @@
     export let events = [];
 </script>
 
-<div class="dayWrapper" class:isCurrentDay class:isNotFromMonth>
+<div class="dayWrapper" class:isCurrentDay class:isNotFromMonth class:isDay>
     <p class="day">{day}</p>
 
     {#if timed}
@@ -38,17 +39,21 @@
         cursor: pointer;
     }
 
-    .dayWrapper:hover {
+    .dayWrapper:not(.isDay):hover {
         background: rgb(222, 232, 230);
     }
 
-    .isCurrentDay {
+    .isCurrentDay:not(.isDay) {
         outline: 0.12rem solid rgb(8, 94, 73);
         background: rgb(222, 232, 230);
     }
 
     .isCurrentDay .day {
         color: rgb(8, 94, 73);
+    }
+
+    .isCurrentDay.isDay .day {
+        text-decoration: underline;
     }
 
     .isNotFromMonth {
@@ -100,4 +105,9 @@
     .isCurrentDay .timeDivision {
         background: #C0C0C0;
     }
+    :hover .timeDivision {
+        background: #D0D0D0;
+        transition: 0.125s;
+    }
+    
 </style>

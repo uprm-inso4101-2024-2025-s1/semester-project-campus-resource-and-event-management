@@ -4,7 +4,7 @@
   let { noTagsInCommon, eventName } = event
 </script>
 
-<div class:timed class:noTagsInCommon class="eventWrapper" style={`grid-row: ${event.startTime}/${event.startTime + event.duration}`}>
+<div class:timed class:noTagsInCommon class="eventWrapper" style={`grid-row: ${event.startTime + 1}/${event.startTime + event.duration + 1}`}>
   <span class="plusIcon">+</span>
   <span class="eventName">{eventName}</span>
 </div>

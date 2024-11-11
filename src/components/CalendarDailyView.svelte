@@ -1,6 +1,7 @@
 <script>
     import { getMonthName } from "../lib/calendarTools";
     import CalendarDay from "./CalendarDay.svelte";
+    import CalendarHourMarkers from "./CalendarHourMarkers.svelte";
 
     export let currentDate
     export let currentMonth = currentDate.getMonth()
@@ -26,7 +27,10 @@
 </script>
 
 <div class="wrapper">
+  <CalendarHourMarkers />
+
   <CalendarDay
+    isDay={true}
     timed={true}
     {day}
     isCurrentDay={isTodaysMonth && isTodaysYear && day == todaysDate}
@@ -36,8 +40,8 @@
 
 <style>
     .wrapper {
-      display: none;
       grid-template: 1fr;
+      position: relative;
       display: grid;
       height: 100%;
       width: 100%;

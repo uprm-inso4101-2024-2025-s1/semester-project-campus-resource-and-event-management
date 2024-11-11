@@ -1,6 +1,7 @@
 <script>
     import CalendarDay from "./CalendarDay.svelte";
     import { getMonthName } from "../lib/calendarTools";
+    import CalendarHourMarkers from "./CalendarHourMarkers.svelte";
 
     export let currentDate
     export let currentMonth = currentDate.getMonth()
@@ -65,16 +66,15 @@
       <p>SAT</p>
   </div>
   <div class="days">
+      <CalendarHourMarkers />
+
       {#each days as day}
-      {#key days}
-        
-      <CalendarDay
-        timed={true}
-        {day}
-        isCurrentDay={isTodaysMonth && isTodaysYear && day == todaysDate}
-        events={events[day]}
-      />
-      {/key}
+        <CalendarDay
+          timed={true}
+          {day}
+          isCurrentDay={isTodaysMonth && isTodaysYear && day == todaysDate}
+          events={events[day]}
+        />
       {/each}
   </div>
 </div>
@@ -82,17 +82,16 @@
 <style>
   .wrapper {
       flex-direction: column;
-      overflow: hidden;
       display: flex;
       height: 100%;
   }
 
   .daysOfTheWeek {
       justify-content: space-around;
+      color: rgb(51, 51, 51);
       font-weight: 600;
       display: flex;
       margin: 0.5em;
-      color: rgb(51, 51, 51);
   }
 
   p {
@@ -103,8 +102,8 @@
       grid-template-columns: repeat(7, 1fr);
       background: rgb(175, 175, 175);
       box-sizing: border-box;
+      position: relative;
       padding: 0.12rem;
-      overflow: hidden;
       display: grid;
       flex-grow: 1;
       gap: 0.12rem;
