@@ -1,7 +1,7 @@
 <script>
-    // import { getWeek } from "../lib/calendarTools";
     import CalendarMonthView from "./CalendarMonthView.svelte";
     import CalendarWeekView from "./CalendarWeekView.svelte";
+    import CalendarDailyView from "./CalendarDailyView.svelte";
     export let view = "month";
     
     let currentDate = new Date();
@@ -10,6 +10,15 @@
 
     let scrollCalendar
     let calendarTitle
+
+    // HARDCODED dummy data for events
+    const events = {
+      2: [{ eventName: 'Event 1', startTime: 0, duration: 3*60 }],
+      6: [{ eventName: 'Event 1', startTime: 11*60, duration: 3*60 }, { eventName: 'Event 2', startTime: 12*60, duration: 3*60 }, { eventName: 'Event 3', startTime: 13*60, duration: 3*60 }],
+      10: [{ eventName: 'Event 1', startTime: 11*60, duration: 3*60 }],
+      17: [{ eventName: 'Event 1', startTime: 11*60, duration: 3*60 }, { eventName: 'Event 2', startTime: 11*60, duration: 3*60, noTagsInCommon: true }],
+      28: [{ eventName: 'Event 1', startTime: 11*60, duration: 3*60 }, { eventName: 'Event 2', startTime: 11*60, duration: 3*60 }, { eventName: 'Event 3', startTime: 11*60, duration: 3*60 }, { eventName: 'Event 3', startTime: 11*60, duration: 3*60 }]
+    }
 </script>
 
 <div class="wrapper">
@@ -21,11 +30,11 @@
     </div>
     <div class="calendarViewWrapper">
         {#if view == "month"}
-            <CalendarMonthView bind:scrollCalendar bind:calendarTitle bind:currentDate {currentMonth} {currentYear} />
+            <CalendarMonthView bind:scrollCalendar bind:calendarTitle bind:currentDate {currentMonth} {currentYear} {events} />
         {:else if view == "week"}
-            <CalendarWeekView bind:scrollCalendar bind:calendarTitle bind:currentDate {currentMonth} {currentYear} />
+            <CalendarWeekView bind:scrollCalendar bind:calendarTitle bind:currentDate {currentMonth} {currentYear} {events} />
         {:else if view == "day"}
-            
+            <CalendarDailyView bind:scrollCalendar bind:calendarTitle bind:currentDate {currentMonth} {currentYear} {events} />
         {/if}
     </div>
 </div>

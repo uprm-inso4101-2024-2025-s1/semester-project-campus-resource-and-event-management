@@ -5,6 +5,7 @@
     export let currentDate
     export let currentMonth = currentDate.getMonth()
     export let currentYear = currentDate.getFullYear()
+    export let events
 
     $: daysInMonth = getDaysInMonth(currentMonth, currentYear)
     $: dayOffset = new Date(currentYear, currentMonth, 1).getDay()
@@ -20,15 +21,6 @@
         currentDate.setMonth(currentDate.getMonth()+amt)
         currentDate = currentDate
     } 
-    
-    // HARDCODED dummy data for monthly events
-    const monthEvents = {
-      2: [{ eventName: 'Event 1' }],
-      6: [{ eventName: 'Event 1' }, { eventName: 'Event 2' }, { eventName: 'Event 3' }],
-      10: [{ eventName: 'Event 1' }],
-      17: [{ eventName: 'Event 1' }, { eventName: 'Event 2', noTagsInCommon: true }],
-      28: [{ eventName: 'Event 1' }, { eventName: 'Event 2' }, { eventName: 'Event 3' }, { eventName: 'Event 3' }]
-    }
 
     let prevDays = [];
     let days = [];
@@ -72,7 +64,7 @@
             <CalendarDay
                 {day}
                 isCurrentDay={isTodaysYear && isTodaysMonth && day == todaysDate}
-                events={monthEvents[day]}
+                events={events[day]}
             />
         {/each}
         {#each missingDays as day}

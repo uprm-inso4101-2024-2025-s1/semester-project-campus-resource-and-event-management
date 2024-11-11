@@ -1,10 +1,11 @@
 <script>
     import CalendarDay from "./CalendarDay.svelte";
-    import { getDayOfTheWeekName, getMonthName } from "../lib/calendarTools";
+    import { getMonthName } from "../lib/calendarTools";
 
     export let currentDate
     export let currentMonth = currentDate.getMonth()
     export let currentYear = currentDate.getFullYear()
+    export let events
   
     export let calendarTitle 
     $: sixDaysLater = new Date(currentDate)
@@ -14,20 +15,11 @@
     $: isTodaysMonth = currentMonth == new Date().getMonth()
     $: dayOfTheWeek = currentDate.getDay()
 
-    // Scrolling the months
+    // Scrolling the weeks
     export const scrollCalendar = (amt) => {
         currentDate.setDate(currentDate.getDate() + 7*amt) // skipping 7 days
         currentDate = currentDate
     } 
-  
-  // HARDCODED dummy data for monthly events
-  const monthEvents = {
-    2: [{ eventName: 'Event 1', startTime: 11, endTime: 13 }],
-    6: [{ eventName: 'Event 1', startTime: 11, endTime: 13 }, { eventName: 'Event 2', startTime: 11, endTime: 13 }, { eventName: 'Event 3', startTime: 11, endTime: 13 }],
-    10: [{ eventName: 'Event 1', startTime: 11, endTime: 13 }],
-    17: [{ eventName: 'Event 1', startTime: 11, endTime: 13 }, { eventName: 'Event 2', startTime: 11, endTime: 13, noTagsInCommon: true }],
-    28: [{ eventName: 'Event 1', startTime: 11, endTime: 13 }, { eventName: 'Event 2', startTime: 11, endTime: 13 }, { eventName: 'Event 3', startTime: 11, endTime: 13 }, { eventName: 'Event 3', startTime: 11, endTime: 13 }]
-  }
 
   let days = Array(7)
 
@@ -77,11 +69,10 @@
       {#key days}
         
       <CalendarDay
-      isWeek={true}
-      isNotFromMonth={false}
-      {day}
-      isCurrentDay={isTodaysMonth && isTodaysYear && day == todaysDate}
-      events={monthEvents[day]}
+        timed={true}
+        {day}
+        isCurrentDay={isTodaysMonth && isTodaysYear && day == todaysDate}
+        events={events[day]}
       />
       {/key}
       {/each}

@@ -4,17 +4,25 @@
     export let day;
     export let isCurrentDay = false;
     export let isNotFromMonth = false;
-    export let isWeek = false;
+    export let timed = false;
     export let events = [];
 </script>
 
 <div class="dayWrapper" class:isCurrentDay class:isNotFromMonth>
     <p class="day">{day}</p>
 
+    {#if timed}
+        <div class="timeSlotsWrapper">
+            {#each [...Array(24).keys()] as h}
+                <div class="timeDivision" style={`grid-row: ${h};`}></div>
+            {/each}
+        </div>
+    {/if}
+
     {#if events}
-        <div class="events">
+        <div class="events" class:timed>
             {#each events as event}
-                <CalendarEvent {event} />
+                <CalendarEvent {event} {timed} />
             {/each}
         </div>
     {/if}
@@ -25,6 +33,7 @@
         transition: background-color 0.125s;
         display: inline-block;
         background: white;
+        position: relative;
         overflow-y: hidden;
         cursor: pointer;
     }
@@ -67,5 +76,28 @@
 
     .events:hover {
         overflow-y: auto;
+    }
+
+    .timed {
+        grid-template-rows: repeat(1440, 1fr);
+        display: grid;
+    }
+
+    .timeSlotsWrapper {
+        grid-template-rows: repeat(24, 1fr);
+        position: absolute;
+        padding-top: 2em;
+        display: grid;
+        height: 100%;
+        width: 100%
+    }
+
+    .timeDivision {
+        background: #E2E2E2;
+        height: 1px;
+    }
+
+    .isCurrentDay .timeDivision {
+        background: #C0C0C0;
     }
 </style>
