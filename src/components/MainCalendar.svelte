@@ -1,80 +1,45 @@
 <script>
     import CalendarMonthView from "./CalendarMonthView.svelte";
-    import { getDaysInMonth, getMonthName } from "../lib/calendarTools";
+    import CalendarWeekView from "./CalendarWeekView.svelte";
+    import CalendarDailyView from "./CalendarDailyView.svelte";
     export let view = "month";
-    let todaysDate = new Date().getDate();
+    
+    let currentDate = new Date();
+    $: currentMonth = currentDate.getMonth()
+    $: currentYear = currentDate.getFullYear()
 
+    let scrollCalendar
+    let calendarTitle
 
-    let currentMonth = new Date().getMonth()+1;
-    let currentYear = new Date().getFullYear();
-    $: daysInMonth = getDaysInMonth(currentMonth, currentYear)
-    $: dayOffset = new Date(currentYear, currentMonth-1, 1).getDay()
-    $: prevMonthDays = getDaysInMonth(currentMonth-1, currentYear)
-    $: isTodaysMonth = currentMonth == new Date().getMonth()+1
-
-    function addMonth(amt) {
-        var newMonth = currentMonth + amt;
-
-        if (newMonth < 1) {
-            currentYear -= 1;
-            newMonth = 12;
-        } else if (newMonth > 12) {
-            currentYear += 1;
-            newMonth = 1;
-        }
-
-        currentMonth = newMonth;
+    // HARDCODED dummy data for events
+    const events = {
+      2: [{ eventName: 'Event 1', startTime: 0, duration: 3*60 }],
+      6: [{ eventName: 'Event 1', startTime: 11*60, duration: 3*60 }, { eventName: 'Event 2', startTime: 12*60, duration: 3*60 }, { eventName: 'Event 3', startTime: 13*60, duration: 3*60 }],
+      10: [{ eventName: 'Event 1', startTime: 11*60, duration: 3*60 }],
+      17: [{ eventName: 'Event 1', startTime: 11*60, duration: 3*60 }, { eventName: 'Event 2', startTime: 11*60, duration: 3*60, noTagsInCommon: true }],
+      28: [{ eventName: 'Event 1', startTime: 11*60, duration: 3*60 }, { eventName: 'Event 2', startTime: 11*60, duration: 3*60 }, { eventName: 'Event 3', startTime: 11*60, duration: 3*60 }, { eventName: 'Event 3', startTime: 11*60, duration: 3*60 }]
     }
 </script>
 
 <div class="wrapper">
-    <h2>{getMonthName(currentMonth)} {currentYear}</h2>
+    <h2>{calendarTitle}</h2>
     <div class="arrows">
-        <button on:click={() => addMonth(-1)}>&lsaquo;</button>
-        <button on:click={() => addMonth(1)}>&rsaquo;</button>
+        <button on:click={() => currentDate = new Date()} class="todayBtn">TODAY</button>
+        <button on:click={() => scrollCalendar(-1)}>&lsaquo;</button>
+        <button on:click={() => scrollCalendar(1)}>&rsaquo;</button>
     </div>
     <div class="calendarViewWrapper">
         {#if view == "month"}
-            <CalendarMonthView {daysInMonth} {dayOffset} {prevMonthDays} {isTodaysMonth} />
-        {/if}
-        {#if view == "day"}
-            <p> October 28</p>
-            <div class="day-event">
-                <div>
-                    <p>Event 1</p>
-                </div>
-                <div>
-                    <p>Event 2</p>
-                </div>
-                <div>
-                    <p>Event 3</p>
-                </div>
-                <div>
-                    <p>Event 4</p>
-                </div>
-            </div>
+            <CalendarMonthView bind:scrollCalendar bind:calendarTitle bind:currentDate {currentMonth} {currentYear} {events} />
+        {:else if view == "week"}
+            <CalendarWeekView bind:scrollCalendar bind:calendarTitle bind:currentDate {currentMonth} {currentYear} {events} />
+        {:else if view == "day"}
+            <CalendarDailyView bind:scrollCalendar bind:calendarTitle bind:currentDate {currentMonth} {currentYear} {events} />
         {/if}
     </div>
 </div>
 
 <style>
-    .day-event {
-        width: 80%;
-        height: 50%;
-        border-radius: 1px;
-        background-color: rgb(210, 208, 206);
-    }
-
-    .day-event div {
-        margin-bottom: 30px;
-        width: 15%;
-        border-style: solid;
-        border-radius: 20px;
-        background-color: rgb(0, 120, 232);
-    }
-    .wrapper p {
-        color: rgb(0, 0, 0);
-    }
     .wrapper {
         box-shadow: 0 0.2em 0.25em rgba(0, 0, 0, 0.8);
         grid-template-columns: repeat(10, 1fr);
@@ -107,7 +72,7 @@
         display: flex;
     }
 
-    .arrows button {
+    .arrows button:not(.todayBtn) {
         all: unset;
         height: 0;
         margin: 0 0.75em;
@@ -117,6 +82,19 @@
 
     .arrows button:hover {
         color: rgb(8, 94, 73);
+    }
+
+    .todayBtn {
+        all: unset;
+        border: 1.25px solid currentColor;
+        margin: -1.25em 0.75em 0 0;
+        border-radius: 5em;
+        font-weight: bold;
+        user-select: none;
+        font-size: 0.8rem;
+        cursor: pointer;
+        padding: 0 1.5em;
+        height: 2.8em;
     }
 
     .calendarViewWrapper {

@@ -8,7 +8,7 @@
     <h1>Campus Resource and Event Manager</h1>
     <p>Your gateway to campus life.</p>
   </div>
-  <img src="src/assets/arrows.png" alt="Decorative arrows" class="arrows">
+  <img src="/images/arrows.png" alt="Decorative arrows" class="arrows">
 </section>
 
 <div class="mission-vision-container">
