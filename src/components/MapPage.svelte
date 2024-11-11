@@ -1,15 +1,34 @@
 <!-- Temp Map Page -->
 <script>
-    import edificios from "../assets/edificio_2.png";
+    // import edificios from "../assets/edificio_2.png";
+    import edificios from "../assets/mapa-y-edificios.jpg";
 
     let areas = [
         {
             id: 1,
-            label: "hello",
-            left: "30%",
-            top: "40%",
-            width: '10%',
-            height: '10%',
+            label: "1. Taller de Arte en Remodelación",
+            left: "43.8%",
+            top: "44.7%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 2,
+            label: "2. Administración de Empresas [AE]",
+            left: "23.2%",
+            top: "18.2%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 3,
+            label: "3. Almacén del CID",
+            left: "23.2%",
+            top: "18.2%",
+            width: '0.5%',
+            height: '0.5%',
             showLabel: false
         }
         ];
@@ -44,6 +63,7 @@
     .hover-area {
         position: absolute;
         background: rgba(255, 0, 0, 0.2);
+        /* background: #ff606000; */
         cursor: pointer;
         border-radius: 5px;
     }
