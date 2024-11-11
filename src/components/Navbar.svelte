@@ -1,6 +1,8 @@
 <script>
   import { onMount, onDestroy } from "svelte";
   import { slide } from "svelte/transition";
+  import profileIcon from "/images/profile_icon.png";
+  import icon from "/images/icon.png";
   export let currentPage;
   let searchQuery = "";
   let searchResults = [];
@@ -61,7 +63,7 @@
 
 <nav class="navbar">
   <a class="logo-link" on:click={handleNavClick} href="/home">
-    <img src="/images/icon.png" alt="Logo" class="logo" />
+    <img src={icon} alt="Logo" class="logo" />
     <span class="eventero-text">Eventero</span>
   </a>
 
@@ -116,7 +118,7 @@
         <!-- Added Profile Icon Here. -->
         <a href="/profile" class="profile-icon">
           <img
-            src="/images/profile_icon.png"
+            src={profileIcon}
             alt="Profile"
             class="profile-image"
           />

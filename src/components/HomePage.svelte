@@ -1,6 +1,7 @@
 <script>
   import Footer from "../components/Footer.svelte"
   import Hero from "../components/Hero.svelte"
+  import arrowsImg from '/images/arrows.png'
 </script>
 
 <section class="title-section">
@@ -8,7 +9,7 @@
     <h1>Campus Resource and Event Manager</h1>
     <p>Your gateway to campus life.</p>
   </div>
-  <img src="/images/arrows.png" alt="Decorative arrows" class="arrows">
+  <img src={arrowsImg} alt="Decorative arrows" class="arrows">
 </section>
 
 <div class="mission-vision-container">

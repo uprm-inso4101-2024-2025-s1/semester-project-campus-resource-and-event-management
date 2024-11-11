@@ -5,8 +5,6 @@
   let igLogo = "/images/white-insta-logo.png";
   let xLogo = "/images/X_Logo.png";
   let whiteLogo = "/images/eventero-white-logo.png";
-  let specialthanks = "/images/specialthanks1.png";
-  import { onMount } from "svelte";
   let showContacts = false;
   let showSpecialThanks = false;
   let dialog;
