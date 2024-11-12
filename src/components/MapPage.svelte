@@ -363,6 +363,96 @@
             width: '0.5%',
             height: '0.5%',
             showLabel: false
+        },
+        {
+            id: 41,
+            label: "41. Edificio de Ingeniería Civil [CI]",
+            left: "50.5%",
+            top: "17.4%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 42,
+            label: "42. Edificio de Ingeniería Industrial [II]",
+            left: "71%",
+            top: "50.3%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 43,
+            label: "43. Edificio Antonio Luchetti (Ingeniería Mecánica) [L]",
+            left: "80.6%",
+            top: "70%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 44,
+            label: "44. Edificio de Ingeniería Química [IQ]",
+            left: "45.9%",
+            top: "24.5%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 45,
+            label: "45. Museo de Vehículos Solares",
+            left: "75.5%",
+            top: "22%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 46,
+            label: "46. Laboratorio Ingeniería Agrícola",
+            left: "40.3%",
+            top: "39%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 47,
+            label: "47. Laboratorio de Vehículos Solares",
+            left: "76.6%",
+            top: "18%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 48,
+            label: "48. Centro Interdiciplinario de Estudios del Litoral",
+            left: "71.2%",
+            top: "22%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 49,
+            label: "49. MuSA (Museo y Senado Académico)",
+            left: "57.8%",
+            top: "76.8%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 50,
+            label: "50. Nueva Pista Atlética",
+            left: "27.8%",
+            top: "48%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
         }
         ];
 </script>
