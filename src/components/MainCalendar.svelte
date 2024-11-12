@@ -95,6 +95,7 @@
         cursor: pointer;
         padding: 0 1.5em;
         height: 2.8em;
+        color: rgb(8, 94, 73);
     }
 
     .calendarViewWrapper {
