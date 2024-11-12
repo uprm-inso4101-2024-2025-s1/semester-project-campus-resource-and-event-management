@@ -543,6 +543,42 @@
             width: '0.5%',
             height: '0.5%',
             showLabel: false
+        },
+        {
+            id: 61,
+            label: "61. Taller de Artes Gráficas",
+            left: "45.3%",
+            top: "42%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 62,
+            label: "62. Instalaciones Temporeras Guardia Universitaria",
+            left: "42.9%",
+            top: "47%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 63,
+            label: "63. Salón Mezzanine",
+            left: "7.5%",
+            top: "45.4%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 64,
+            label: "31. Edificio Oficinas de Facultad",
+            left: "7.2%",
+            top: "63.2%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
         }
         ];
 </script>
