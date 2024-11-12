@@ -267,9 +267,99 @@
         },
         {
             id: 30,
-            label: "30. Edificio Luis Stefani",
+            label: "30. Edificio Luis Stefani [S]",
             left: "77.1%",
             top: "59.2%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 31,
+            label: "31. Edificio Oficinas de Facultad",
+            left: "56.3%",
+            top: "49.7%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 32,
+            label: "32. Edificio Ramírez de Arellano y Rosell",
+            left: "2.5%",
+            top: "43.6%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 33,
+            label: "33. Edificio Josefina Torres Torres (Enfermería) [EE]",
+            left: "47.8%",
+            top: "52%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 34,
+            label: "34. Canchas de Racquetball 2010",
+            left: "13.3%",
+            top: "25.8%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 35,
+            label: "35. Edificio Terrats (Finanzas y Pagaduría) [T]",
+            left: "74.5%",
+            top: "49.5%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 36,
+            label: "36. Finca Alzamora [AZ]",
+            left: "0.5%",
+            top: "35.4%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 37,
+            label: "37. Física, Geología y Ciencias Marinas [F]",
+            left: "71.5%",
+            top: "42.8%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 38,
+            label: "38. Gimnasio Ángel F. Espada [GE]",
+            left: "43.2%",
+            top: "64.6%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 39,
+            label: "39. Ofic. en Remodelación Guardia Universitaria",
+            left: "73.7%",
+            top: "47.8%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 40,
+            label: "40. Imprenta y Artes Plásticas",
+            left: "13.6%",
+            top: "17.8%",
             width: '0.5%',
             height: '0.5%',
             showLabel: false
