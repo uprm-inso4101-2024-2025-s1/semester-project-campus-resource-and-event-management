@@ -611,8 +611,8 @@
 
     .hover-area {
         position: absolute;
-        background: rgba(255, 0, 0, 0.2);
-        /* background: #ff606000; */
+        /* background: rgba(255, 0, 0, 0.2); */
+        background: #ff606000;
         cursor: pointer;
         border-radius: 5px;
     }
