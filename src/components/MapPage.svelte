@@ -453,6 +453,96 @@
             width: '0.5%',
             height: '0.5%',
             showLabel: false
+        },
+        {
+            id: 51,
+            label: "51. CID (Oficina Administrativa)",
+            left: "79.5%",
+            top: "33.3%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 52,
+            label: "52. Ofic. Campus Verde (Casa Solar 2005)",
+            left: "74%",
+            top: "27.3%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 53,
+            label: "53. Programa de Rehabilitación Vocacional",
+            left: "60.2%",
+            top: "38.5%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 54,
+            label: "54. OMCA",
+            left: "63.4%",
+            top: "40.8%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 55,
+            label: "55. Edificio de Química [Q]",
+            left: "52.3%",
+            top: "42%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 56,
+            label: "56. Red Sísmica",
+            left: "66%",
+            top: "40%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 57,
+            label: "57. Residencia del Rector",
+            left: "62.6%",
+            top: "83.5%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 58,
+            label: "58. R.O.T.C. [SA]",
+            left: "79.3%",
+            top: "63.5%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 59,
+            label: "59. Sendero de los ejercicios",
+            left: "23.7%",
+            top: "78.2%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
+        },
+        {
+            id: 60,
+            label: "60. Servicios Médicos y Sala de Emergencia",
+            left: "57.8%",
+            top: "69.7%",
+            width: '0.5%',
+            height: '0.5%',
+            showLabel: false
         }
         ];
 </script>
