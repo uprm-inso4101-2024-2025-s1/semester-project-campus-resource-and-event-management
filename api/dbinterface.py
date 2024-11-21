@@ -1,4 +1,15 @@
 import sqlite3
+from flask import Flask
+from flask_socketio import SocketIO, emit
+
+app = Flask(__name__)
+socketio = SocketIO(app)
+
+# Event type constants
+EVENT_REMINDER = "reminder"
+EVENT_UPDATE = "update"
+CANCELLATION = "cancellation"
+
 
 def connect_db():
     conn = sqlite3.connect('.venv/database.db')  #  database file
@@ -25,6 +36,40 @@ def create_tables():
                 password TEXT NOT NULL
             )
         ''')
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS user_event_preferences (
+             id INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id INTEGER NOT NULL,
+                event_id INTEGER NOT NULL,
+                preference_type TEXT NOT NULL CHECK(preference_type IN ('RSVP', 'Favorite')),
+                FOREIGN KEY (user_id) REFERENCES students(id),
+                FOREIGN KEY (event_id) REFERENCES events(id)
+            )
+        ''')
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS events (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            date TEXT NOT NULL,
+            location TEXT NOT NULL,
+            description TEXT NOT NULL,
+            category TEXT NOT NULL,
+            created_by TEXT NOT NULL
+        );
+    """)
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS notifications (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                event_id INTEGER NOT NULL,
+                notification_type TEXT NOT NULL,
+                message TEXT NOT NULL,
+                timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+            )
+        ''')
+        conn.commit()
+        print("Tables created successfully")
+
+    
     except sqlite3.Error as e:
         print(f"An error occurred: {e}")
     finally:
@@ -49,14 +94,12 @@ def get_student_by_id(student_id):
         conn = connect_db()
         cursor = conn.cursor()
         cursor.execute('SELECT * FROM students WHERE student_id = ?', (student_id,))
-        conn.commit()
     except sqlite3.Error as e:
         print(f"An error occurred: {e}")
     finally:
         student = cursor.fetchone()
         conn.close()
         return student
-
 
 def update_student(student_id, new_email, new_password):
     try:
@@ -71,7 +114,6 @@ def update_student(student_id, new_email, new_password):
     finally:
             conn.close()
 
-
 def delete_student(student_id):
     try:
         conn = connect_db()
@@ -82,7 +124,6 @@ def delete_student(student_id):
             print(f"An error occurred: {e}")
     finally:
             conn.close()
-
 
 # Function to insert a new organization
 def insert_organization(organization_name, email, password):
@@ -98,21 +139,17 @@ def insert_organization(organization_name, email, password):
     finally:
             conn.close()
 
-
-
 def get_organization_by_name(organization_name):
     try:
         conn = connect_db()
         cursor = conn.cursor()
         cursor.execute('SELECT * FROM organizations WHERE organization_name = ?', (organization_name,))
-        conn.commit()
     except sqlite3.Error as e:
             print(f"An error occurred: {e}")
     finally:
             organization = cursor.fetchone()
             conn.close()
             return organization
-
 
 def update_organization(organization_name, new_email, new_password):
     try:
@@ -127,8 +164,6 @@ def update_organization(organization_name, new_email, new_password):
     finally:
             conn.close()
 
-
-
 def delete_organization(organization_name):
     try:
         conn = connect_db()
@@ -140,9 +175,6 @@ def delete_organization(organization_name):
     finally:
             conn.close()
 
-
-
-
 # Function to clear existing tables
 def clear_tables():
     try:
@@ -150,16 +182,13 @@ def clear_tables():
         cursor = conn.cursor()
         cursor.execute('DROP TABLE IF EXISTS students')
         cursor.execute('DROP TABLE IF EXISTS organizations')
+        cursor.execute('DROP TABLE IF EXISTS user_event_preferences')
+        cursor.execute('DROP TABLE IF EXISTS events')
         conn.commit()
     except sqlite3.Error as e:
             print(f"An error occurred: {e}")
     finally:
             conn.close()
-    
-#clear_tables()
-
-# Call this function once to create the tables
-create_tables()
 
 # Function to query and display all students
 def fetch_students():
@@ -168,7 +197,6 @@ def fetch_students():
         cursor = conn.cursor()
         cursor.execute('SELECT * FROM students')
         #cursor.execute('SELECT student_id, email, password FROM students')
-        conn.commit()
     except sqlite3.Error as e:
             print(f"An error occurred: {e}")
     finally:
@@ -183,7 +211,6 @@ def fetch_organizations():
         cursor = conn.cursor()
         cursor.execute('SELECT * FROM organizations')
         #cursor.execute('SELECT organization_name, email, password FROM organizations')
-        conn.commit()
     except sqlite3.Error as e:
             print(f"An error occurred: {e}")
     finally:
@@ -191,5 +218,20 @@ def fetch_organizations():
             conn.close()
             return rows
 
+def add_user_event_preference(user_id, event_id, preference_type):
+    try:
+        conn = connect_db()
+        cursor = conn.cursor()
+        cursor.execute('''
+            INSERT INTO user_event_preferences (user_id, event_id, preference_type) 
+            VALUES (?, ?, ?)
+        ''', (user_id, event_id, preference_type))
+        conn.commit()
+    except sqlite3.Error as e:
+        print(f"An error occurred: {e}")
+    finally:
+        conn.close()
 
-
+# Run the server with SocketIO
+if __name__ == '__main__':
+    socketio.run(app, port=5173,debug=True)

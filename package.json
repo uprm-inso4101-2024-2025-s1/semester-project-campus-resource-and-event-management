@@ -12,7 +12,11 @@
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^3.1.1",
+    "@types/socket.io-client": "^1.4.36",
     "svelte": "^4.2.18",
     "vite": "^5.4.8"
+  },
+  "dependencies": {
+    "socket.io-client": "^4.8.1"
   }
 }
