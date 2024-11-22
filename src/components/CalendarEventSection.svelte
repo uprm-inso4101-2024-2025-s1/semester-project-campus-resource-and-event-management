@@ -23,7 +23,7 @@
         width: 100%;
         position: relative;
     }
-
+    
     .addEventButton,
     .calendarTextBlock,
     .myEventsButton,
@@ -33,7 +33,7 @@
         font-size: 16px;
         border-color: rgb(255, 255, 255);
         outline: 0.12rem solid rgb(255, 255, 255);
-        background: white; 
+        background: rgba(175, 175, 175, 0.464); 
         color: black; 
         cursor: pointer;
         position: absolute; 
@@ -48,6 +48,7 @@
     .calendarTextBlock {
         top: 100px; 
         cursor: default;
+        background: #ffffff9b;
     }
 
     .myEventsButton{
