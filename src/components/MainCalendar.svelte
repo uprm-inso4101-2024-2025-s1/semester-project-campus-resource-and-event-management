@@ -10,6 +10,7 @@
 
     let scrollCalendar
     let calendarTitle
+    let createEvent = false; // When active pop up for event creation will be displayed.
 
     // HARDCODED dummy data for events
     const events = {
