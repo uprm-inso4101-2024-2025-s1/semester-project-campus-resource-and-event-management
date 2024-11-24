@@ -7,7 +7,7 @@
 
 
 <div class="Menu_bar">
-    <button class="create_event" on:click={() => createEvent = true}>CREATE EVENT</button> 
+    <!-- <button class="create_event" on:click={() => createEvent = true}>CREATE EVENT</button>  -->
     <button on:click={() => mainCalendarView = 'day'} class:currentView={mainCalendarView == 'day'}>Day</button>
     <button on:click={() => mainCalendarView = 'week'} class:currentView={mainCalendarView == 'week'}>Week</button>
     <button on:click={() => mainCalendarView = 'month'} class:currentView={mainCalendarView == 'month'} class="Calendar_Selection">Month</button>

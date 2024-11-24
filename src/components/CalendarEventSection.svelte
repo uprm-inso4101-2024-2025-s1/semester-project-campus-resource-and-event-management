@@ -1,13 +1,17 @@
 <div class="wrapper">
-    <button class="addEventButton" on:click={addEvent}>+ Add Event</button>
-    
-    <div class="color-circle my-events-circle" style="background-color: {isEventBoxActive ? 'green' : 'grey'};"></div>
-    <button class="myEventsButton" on:click={myEventsBox}>My Events</button>
+    {#if !isCreateEventActive}
+        <button class="addEventButton" on:click={toggleEvent}>+ Add Event</button>
+        
+        <div class="color-circle my-events-circle" style="background-color: {isEventBoxActive ? 'green' : 'grey'};"></div>
+        <button class="myEventsButton" on:click={myEventsBox}>My Events</button>
 
-    <div class="color-circle other-circle" style="background-color: {isOtherBoxActive ? 'green' : 'grey'};"></div>
-    <button class="otherButton" on:click={otherBox}>Other</button>
-    
-    <button class="calendarTextBlock">Calendar</button>
+        <div class="color-circle other-circle" style="background-color: {isOtherBoxActive ? 'green' : 'grey'};"></div>
+        <button class="otherButton" on:click={otherBox}>Other</button>
+        
+        <button class="calendarTextBlock">Calendar</button>
+    {:else}
+        <button class="goBackButton" on:click={toggleEvent}>&lt&lt&lt Go Back</button>
+    {/if}
 </div>
 
 <style>
@@ -19,12 +23,14 @@
         padding: 0 1.2em;
         overflow: hidden;
         display: grid;
-        height: 100%;
-        width: 100%;
-        position: relative;
+        height: 83%;
+        width: 30%;
+        position: absolute;
+        transform: translateY(-45%);
     }
 
     .addEventButton,
+    .goBackButton,
     .calendarTextBlock,
     .myEventsButton,
     .otherButton {
@@ -45,6 +51,10 @@
         top: 10px; 
     }
 
+    .goBackButton {
+        top: 10px; 
+    }
+
     .calendarTextBlock {
         top: 100px; 
         cursor: default;
@@ -61,6 +71,9 @@
     }
 
     .addEventButton:hover {
+        background: rgb(222, 232, 230);
+    }
+    .goBackButton:hover {
         background: rgb(222, 232, 230);
     }
     .myEventsButton:hover {
@@ -93,11 +106,14 @@
 </style>
 
 <script>
+  import App from "../App.svelte";
+
     let isEventBoxActive = true;
     let isOtherBoxActive = false;
+    let isCreateEventActive = false;
 
-    function addEvent() {
-        alert('Button clicked!');
+    function toggleEvent() {
+        isCreateEventActive = !isCreateEventActive;
     }
 
     function myEventsBox() {
