@@ -116,7 +116,7 @@
         </form>
 
         <!-- Added Profile Icon Here. -->
-        <a href="/profile" class="profile-icon">
+        <a href="/profile" class="profile-icon" on:click={handleNavClick}>
           <img
             src={profileIcon}
             alt="Profile"
