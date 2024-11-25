@@ -8,30 +8,27 @@
           <input id="emailinput" type="text">
           <div id="psswd"> Password </div>
           <input id="psswdinput" type="password">
-          <!-- <span class="toggle-password" onclick = "togglePassword()">
-              <i class="fas fa-eye"></i> -->
-          <!-- </span> -->
+          <span class="toggle-password" onclick = "togglePassword()">
+              <i class="fas fa-eye"></i>
+          </span>
           <div id="showpsswd"> Show Password </div>
           <div id="frgotpsswd"> Forgot Password? </div>
           <div id="loginbutton"> Login </div>
           <div id="instead"> Dont have an account? 
-          <a href = "signuplink" id = "signuplink"> Create an account</a> 
+          <a href = "signup" id = "signuplink"> Create an account</a> 
         </div>
       </div>
       <script>
           function togglePassword() {
               const passwordField = document.getElementById('psswdinput');
-              const passwordField2 = document.getElementById('psswddinput');
               const toggleIcon = document.querySelector('.toggle-password i');
   
               if (passwordField.type === 'password') {
                   passwordField.type = 'text';
-                  passwordField2.type = 'text';
                   toggleIcon.classList.remove('fa-eye');
                   toggleIcon.classList.add('fa-eye-slash'); // Change to "eye-slash"
               } else {
                   passwordField.type = 'password';
-                  passwordField2.type = 'password';
                   toggleIcon.classList.remove('fa-eye-slash');
                   toggleIcon.classList.add('fa-eye'); // Change back to "eye"
               }
@@ -126,11 +123,11 @@
           color: rgba(11,93,71,255);
       }
   
-     /* .toggle-password {
+      .toggle-password {
           position: relative;
-          top: 45px;
-          left: -15px;
-      } */
+          top: 77px;
+          left: -300px;
+      } 
   
       #loginbutton {
           position: relative;
@@ -149,8 +146,8 @@
       }
       #showpsswd{
         display: inline-block;
-        margin-top: 45px;
-        margin-left: 20px;
+        margin-top: 50px;
+        margin-left: 35px;
         font-family: 'Roboto', sans-serif;  
         font-size: 10.5px;
         color: rgba(11,93,71,255);
@@ -161,7 +158,7 @@
         top: 45px;
         left: 80px;
         margin-top: 25px;
-        margin-left: 155px;
+        margin-left: 130px;
         font-family: 'Roboto', sans-serif;  
         font-size: 10.5px;
         color: rgba(11,93,71,255);
