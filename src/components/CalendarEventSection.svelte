@@ -77,13 +77,10 @@
         display: flex;
         flex-direction: column;
         margin-bottom: 1rem;
-        top: 70px; /* Adjust vertical position */
-        left: 150px; /* Adjust horizontal position */
-        /* transform: translateX(60%);
-        transform: translateY(400%); */
+        top: 80px;
         color: black; 
-        width: 250px; 
-        height: 40px; 
+        width: 400px; 
+        height: 50px; 
         background: rgb(222, 232, 230);
     }
 

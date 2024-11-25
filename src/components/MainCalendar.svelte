@@ -3,6 +3,7 @@
     import CalendarWeekView from "./CalendarWeekView.svelte";
     import CalendarDailyView from "./CalendarDailyView.svelte";
     export let view = "month";
+    console.log(view)
     
     let currentDate = new Date();
     $: currentMonth = currentDate.getMonth()
@@ -12,16 +13,17 @@
     let calendarTitle
 
     // HARDCODED dummy data for events
-    // const events = {
-    //   2: [{ eventName: 'Event 1', startTime: 0, duration: 3*60 }],
-    //   6: [{ eventName: 'Event 1', startTime: 11*60, duration: 3*60 }, { eventName: 'Event 2', startTime: 12*60, duration: 3*60 }, { eventName: 'Event 3', startTime: 13*60, duration: 3*60 }],
-    //   10: [{ eventName: 'Event 1', startTime: 11*60, duration: 3*60 }],
-    //   17: [{ eventName: 'Event 1', startTime: 11*60, duration: 3*60 }, { eventName: 'Event 2', startTime: 11*60, duration: 3*60, noTagsInCommon: true }],
-    //   28: [{ eventName: 'Event 1', startTime: 11*60, duration: 3*60 }, { eventName: 'Event 2', startTime: 11*60, duration: 3*60 }, { eventName: 'Event 3', startTime: 11*60, duration: 3*60 }, { eventName: 'Event 3', startTime: 11*60, duration: 3*60 }]
-    // }
-    export let events = {
+    const events = {
       2: [{ eventName: 'Event 1', startTime: 0, duration: 3*60 }],
+      6: [{ eventName: 'Event 1', startTime: 11*60, duration: 3*60 }, { eventName: 'Event 2', startTime: 12*60, duration: 3*60 }, { eventName: 'Event 3', startTime: 13*60, duration: 3*60 }],
+      10: [{ eventName: 'Event 1', startTime: 11*60, duration: 3*60 }],
+      17: [{ eventName: 'Event 1', startTime: 11*60, duration: 3*60 }, { eventName: 'Event 2', startTime: 11*60, duration: 3*60, noTagsInCommon: true }],
+      28: [{ eventName: 'Event 1', startTime: 11*60, duration: 3*60 }, { eventName: 'Event 2', startTime: 11*60, duration: 3*60 }, { eventName: 'Event 3', startTime: 11*60, duration: 3*60 }, { eventName: 'Event 3', startTime: 11*60, duration: 3*60 }]
     }
+    // export var events = {
+    //   2: [{ eventName: 'Event 1', startTime: 0, duration: 3*60 }],
+    // }
+
 </script>
 
 <div class="wrapper">
