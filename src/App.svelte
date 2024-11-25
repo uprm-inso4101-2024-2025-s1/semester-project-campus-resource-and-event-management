@@ -10,8 +10,8 @@
   import ResourcesPage from "./components/ResourcesPage.svelte";
   import TagsPage from "./components/TagsPage.svelte";
   import SignUpPage from "./components/SignUpPage.svelte";
-    import SignUpStudent from "./components/SignUpStudent.svelte";
-    import SignUpOrganization from "./components/SignUpOrganization.svelte";
+  import SignUpStudent from "./components/SignUpStudent.svelte";
+  import SignUpOrganization from "./components/SignUpOrganization.svelte";
 
   let currentPage
 </script>
@@ -37,6 +37,8 @@
     <SignUpStudent />
   {:else if currentPage == '/signuporganization'}
     <SignUpOrganization />
+  {:else if currentPage == '/login'}
+    <LoginPage />
   {:else}
     <ExamplePage />
   {/if}
