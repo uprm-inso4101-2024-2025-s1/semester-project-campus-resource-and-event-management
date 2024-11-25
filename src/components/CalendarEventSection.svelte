@@ -11,6 +11,23 @@
         <button class="calendarTextBlock">Calendar</button>
     {:else}
         <button class="goBackButton" on:click={toggleEvent}>&lt&lt&lt Go Back</button>
+        <!-- Event Creation Form -->
+         <form>
+            <input type="text" class="addInput" placeholder="Event Name (e.g., Pizza Sale)">
+            <input type="text" class="addInput" placeholder="Date (e.g., dd/mm/yyyy)">
+            <input type="text" class="addInput" placeholder="Time (e.g., hh:mm)">
+            <input type="text" class="addInput" placeholder="Location (e.g., S-144)">
+            <input type="text" class="addInput" placeholder="Tags (e.g., CIIC, INSO, INME)">
+            <input type="text" class="addInput" placeholder="RSVP (e.g., Yes, No, or Maybe.)">
+            <input type="text" class="addInput" placeholder="Description">
+         </form>
+        <!-- <form on:submit|preventDefault={addEvent}>
+            <label>
+                Title:
+                <input type="text" bind:value={eventData.title} required />
+            </label>
+            <button type="submit">Create Event</button> 
+    </form> -->
     {/if}
 </div>
 
@@ -55,8 +72,23 @@
         top: 10px; 
     }
 
+    .addInput {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        top: 70px; /* Adjust vertical position */
+        left: 150px; /* Adjust horizontal position */
+        /* transform: translateX(60%);
+        transform: translateY(400%); */
+        color: black; 
+        width: 250px; 
+        height: 40px; 
+        background: rgb(222, 232, 230);
+    }
+
     .calendarTextBlock {
-        top: 100px; 
+        top: 150px; 
         cursor: default;
     }
 
@@ -107,6 +139,10 @@
 
 <script>
   import App from "../App.svelte";
+  import CalendarEvent from "./CalendarEvent.svelte";
+  import CalendarEventSection from "./CalendarEventSection.svelte";
+
+  let events = {}
 
     let isEventBoxActive = true;
     let isOtherBoxActive = false;
