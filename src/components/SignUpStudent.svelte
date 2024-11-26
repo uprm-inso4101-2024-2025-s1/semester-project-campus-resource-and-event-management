@@ -28,7 +28,7 @@
               <a href="login" id="loginlink"> Log in instead </a>
           </div>    
           <div id="createbutton">
-              <a href="login" id="homelink"> Create account </a>
+              <a href="home" id="homelink"> Create account </a>
           </div>   
       </div>
       <script>

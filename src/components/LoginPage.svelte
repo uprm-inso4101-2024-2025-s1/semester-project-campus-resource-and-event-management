@@ -13,10 +13,12 @@
           </span>
           <div id="showpsswd"> Show Password </div>
           <div id="frgotpsswd"> Forgot Password? </div>
-          <div id="loginbutton"> Login </div>
+          <div id="loginbutton"> 
+                <a href = "home" id = "homelink"> Login </a> 
+          </div>
           <div id="instead"> Dont have an account? 
-          <a href = "signup" id = "signuplink"> Create an account</a> 
-        </div>
+              <a href = "signup" id = "signuplink"> Create an account</a> 
+          </div>
       </div>
       <script>
           function togglePassword() {
@@ -172,6 +174,14 @@
           font-family: 'Roboto', sans-serif;   
           font-size: 12px;
           color: rgba(11,93,71,255);
-  
+      }
+
+      #homelink {
+        text-decoration: none;
+        color: rgb(255,255,255);
+      }
+
+      #homelink:hover {
+        font-weight: 100; /* Bold */ 
       }
   </style>
