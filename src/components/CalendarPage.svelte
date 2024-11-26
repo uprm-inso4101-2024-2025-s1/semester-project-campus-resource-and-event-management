@@ -2,6 +2,7 @@
     import RibbonComponent from "./RibbonCompenent.svelte";
     import MainCalendar from "./MainCalendar.svelte";
     import EventSection from "./CalendarEventSection.svelte";
+    import MiniCalendar from "./MiniCalendar.svelte";
     let mainCalendarView = 'month'
 </script>
 
@@ -12,7 +13,9 @@
     <div class="eventContainer">
         <EventSection/>
     </div>
-    <div class="miniCalendarContainer"></div>
+    <div class="miniCalendarContainer">
+        <MiniCalendar/>
+    </div>
     <div class="AddEventSectionContainer"></div>
     <div class="mainCalendarContainer">
         <MainCalendar view={mainCalendarView} />
@@ -42,5 +45,10 @@
     .eventContainer {
         grid-column: 3 / 38;
         grid-row: 60 / 119;
+    }
+
+    .miniCalendarContainer {
+        grid-column: 3 / 38;
+        grid-row: 12 / 57;
     }
 </style>

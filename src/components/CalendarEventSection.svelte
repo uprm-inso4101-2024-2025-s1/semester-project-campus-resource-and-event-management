@@ -47,8 +47,7 @@
 
     .calendarTextBlock {
         top: 100px; 
-        cursor: default;
-        background: #ffffff9b;
+        cursor: pointer;
     }
 
     .myEventsButton{
