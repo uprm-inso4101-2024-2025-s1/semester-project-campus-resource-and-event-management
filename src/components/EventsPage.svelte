@@ -20,6 +20,15 @@
 </script>
 
 <div class="container">
+  <div class="page-header">
+    <input
+      type="text"
+      placeholder="Search for resources or events..."
+      class="search-input"
+    />
+    <button class="search-button">Search</button>
+  </div>
+
   <div class="search-by-tag">
     <div class="header">
       <h4>Search by tag</h4>
@@ -154,4 +163,35 @@
     border-top: 1px solid #e0e0e0;
     margin: 16px 0;
   }
+  .page-header {
+  position: relative; 
+  margin-top: -650px;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%; 
+}
+
+.search-input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #f9f9f9;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #f9f9f9;
+}
+
+.search-button {
+  padding: 12px 24px;
+  background-color: #00c48c;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.search-button:hover {
+  background-color: #00a476;
+}
+
 </style>
