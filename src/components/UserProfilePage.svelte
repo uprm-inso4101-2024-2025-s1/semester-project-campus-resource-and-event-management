@@ -12,20 +12,35 @@
         body {
             margin: 0;
             background-color: rgba(225,225,225,255);
-            position: relative;
             height: 100vh;
+            overflow: hidden;
         }
-        
-        p {
-            font-size: 60px;
-            font-weight: 500;
-            color: black
+        .main-container{
+            position: relative;
+            width: 100%;
+            height: 100%;
         }
+        .user-tags{
+            position: absolute;
+            bottom: 30px;
+            right: 20px;
+            width: 842px;
+            height: 450px;
+            border-radius: 20px;
+            background-color: rgba(69,130,116,255);
+
+        }
+        h1{
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+
     </style>
 </head>
 <body>
-    <div class = "body">
-        <p>This is the User Profile Page</p>
+    <div class="main-container">
+        <div class = "user-tags">
+            <h1>YOUR TAGS</h1>
+        </div>
     </div>
-    
 </body>
