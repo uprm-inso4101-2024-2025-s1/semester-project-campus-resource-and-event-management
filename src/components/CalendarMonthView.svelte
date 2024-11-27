@@ -1,18 +1,26 @@
 <script>
     import CalendarDay from "./CalendarDay.svelte";
-    export let prevMonthDays;
-    export let isTodaysMonth;
-    export let daysInMonth;
-    export let dayOffset;
+    import { getDaysInMonth, getMonthName } from "../lib/calendarTools";
+
+    export let currentDate
+    export let currentMonth = currentDate.getMonth()
+    export let currentYear = currentDate.getFullYear()
+    export let events
+
+    $: daysInMonth = getDaysInMonth(currentMonth, currentYear)
+    $: dayOffset = new Date(currentYear, currentMonth, 1).getDay()
+    $: prevMonthDays = getDaysInMonth(currentMonth, currentYear)
+    $: isTodaysMonth = currentMonth == new Date().getMonth()
+    $: isTodaysYear = currentYear == new Date().getFullYear()
     
-    // HARDCODED dummy data for monthly events
-    const monthEvents = {
-      2: [{ eventName: 'Event 1' }],
-      6: [{ eventName: 'Event 1' }, { eventName: 'Event 2' }, { eventName: 'Event 3' }],
-      10: [{ eventName: 'Event 1' }],
-      17: [{ eventName: 'Event 1' }, { eventName: 'Event 2', noTagsInCommon: true }],
-      28: [{ eventName: 'Event 1' }, { eventName: 'Event 2' }, { eventName: 'Event 3' }, { eventName: 'Event 3' }]
-    }
+    export let calendarTitle 
+    $: calendarTitle = `${getMonthName(currentMonth)} ${currentYear}`
+
+    // Scrolling the months
+    export const scrollCalendar = (amt) => {
+        currentDate.setMonth(currentDate.getMonth()+amt)
+        currentDate = currentDate
+    } 
 
     let prevDays = [];
     let days = [];
@@ -55,8 +63,8 @@
         {#each days as day}
             <CalendarDay
                 {day}
-                isCurrentDay={isTodaysMonth && day == todaysDate}
-                events={monthEvents[day]}
+                isCurrentDay={isTodaysYear && isTodaysMonth && day == todaysDate}
+                events={events[day]}
             />
         {/each}
         {#each missingDays as day}

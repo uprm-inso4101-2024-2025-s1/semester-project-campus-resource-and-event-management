@@ -8,11 +8,11 @@ export function getMonthName(month) {
   return [
     "January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
-  ][(month - 1) % 12]; // wrapping around months to prevent errors
+  ][(month) % 12]; // wrapping around months to prevent errors
 }
 
-export function getDayOfTheWeek(day, month, year) {
+export function getDayOfTheWeekName(dayOfWeek) {
   return [
     "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
-  ][new Date(year, month-1, day).getDay()]
+  ][dayOfWeek]
 }

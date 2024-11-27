@@ -1,19 +1,26 @@
 <!-- footer -->
 <script>
+  import specialThanksImage from "/images/sp1.png";
   let facebookLogo = "/images/white-facebook-logo.png";
   let igLogo = "/images/white-insta-logo.png";
   let xLogo = "/images/X_Logo.png";
   let whiteLogo = "/images/eventero-white-logo.png";
-  import { onMount } from "svelte";
   let showContacts = false;
+  let showSpecialThanks = false;
   let dialog;
+  let specialThanksDialog;
   $: if (dialog && showContacts) {
     dialog.showModal();
     dialog.scrollTo(0, 0);
   }
 
-    // Imported "BackToTop" Button Here.
-	import GotoTop from "../components/BackToTop.svelte"
+  $: if (specialThanksDialog && showSpecialThanks) {
+    specialThanksDialog.showModal();
+    specialThanksDialog.scrollTo(0, 0);
+  }
+
+  // Imported "BackToTop" Button Here.
+  import GotoTop from "../components/BackToTop.svelte";
 </script>
 
 <!-- Added this so "BackToTop" button would appear as soon as user scrolls down the page. -->
@@ -94,6 +101,19 @@
         >
       </div>
     </dialog>
+
+    <!-- Special Thanks Pop-up -->
+<dialog
+bind:this={specialThanksDialog}
+on:close={() => (showSpecialThanks = false)}
+>
+<img src={specialThanksImage} alt="Special Thanks Image" class="full-popup-image" />
+<button
+  class="close-button"
+  on:click={() => specialThanksDialog.close()}>X</button>
+</dialog>
+
+
     <div class="footer-page-info">
       <div class="footer-top">
         <h2>Campus Event Life Enhancement</h2>
@@ -143,6 +163,10 @@
     </div>
     <div class="contact-button">
       <button on:click={() => (showContacts = true)}>CONTACT US</button>
+    </div>
+    <div class="special-thanks-button">
+      <button on:click={() => (showSpecialThanks = true)}>SPECIAL THANKS</button
+      >
     </div>
     <div class="quick-links">
       <div class="footer-column">
@@ -225,7 +249,7 @@
   }
 
   .footer-contactUs-categorias p {
-    font-size: 0.92rem; 
+    font-size: 0.92rem;
   }
   dialog::backdrop {
     background: transparent;
@@ -567,6 +591,15 @@
       text-align: center;
     }
 
+    .contact-button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding-top: 1rem;
+      margin-top: 2rem;
+    }
+
     .contact-button button {
       align-self: center;
       margin: 0 auto;
@@ -597,9 +630,9 @@
       padding: 1.3rem;
       background-color: white;
       position: fixed;
-      bottom: 0; 
-      left: 50%; 
-      transform: translateX(-50%); 
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
       z-index: 10;
       overflow: auto;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -619,10 +652,109 @@
       width: auto;
       margin: 0;
     }
-  footer {
-        height: 1200px;
+    footer {
+      height: 1200px;
     }
   }
- 
 
+/* Styling for Special Thanks Pop-up */
+.full-popup-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.special-thanks-popup img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.special-thanks-popup {
+  width: 90%;
+  max-width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close-button {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  color: #17c299;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #138e79;
+}
+
+  /* Button styles for "Contact Us" and "Special Thanks" */
+  .contact-button button {
+    background-color: transparent;
+    border: 2px solid #17c299;
+    color: white;
+    border-radius: 20px;
+    font-weight: bold;
+    padding: 20px 50px;
+    margin: 0.5rem 0;
+    cursor: pointer;
+    outline: none;
+    font-size: 1.2rem;
+    display: block;
+  }
+
+  .special-thanks-button button:hover {
+    background-color: #17c299;
+    color: black;
+  }
+
+  .contact-button,
+  .special-thanks-button {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .special-thanks-button button {
+    position: relative;
+    margin-top: -3rem;
+    padding: 15px 50px;
+    font-size: 1.1rem;
+    border: 2px solid #17c299;
+    background-color: transparent;
+    color: white;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    left: -38.5px;
+  }
+
+  .quick-links {
+    display: flex;
+    gap: 2rem;
+    flex: 1;
+    position: absolute;
+    top: 18rem;
+    left: 77%;
+    transform: translateX(-50%);
+  }
+
+  /* Footer styling */
+  footer {
+    position: relative;
+    font-family: "Roboto", sans-serif;
+    width: 100%;
+    background-color: #053a2d;
+    padding: 10rem 0 7rem 0;
+    color: white;
+    min-height: 400px;
+  }
 </style>

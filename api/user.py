@@ -1,12 +1,14 @@
 class user():
-    def __init__(self, userID, username, email, password, userRole, responsibleRooms, tags):
+    def __init__(self, userID, username, email, password, userRole, isAdmin):
         self.__userID = userID
         self.__username = username
         self.__email = email
         self.__password = password
         self.__userRole = userRole
-        self.__responsibleRooms = responsibleRooms
-        self.__tags = tags
+        self.__isAdmin = isAdmin
+        self.__responsibleRooms = set()
+        self.__tags = set()
+
     
     # Setter Methods
     def setUserID(self, userID):
@@ -29,6 +31,9 @@ class user():
 
     def setTags(self, tags):
         self.__tags = tags
+    
+    def setTags(self, isAdmin):
+        self.__isAdmin = isAdmin
 
     # Getter Methods
     def getUserID(self):
@@ -51,4 +56,35 @@ class user():
 
     def getTags(self):
         return self.__tags
+    
+    def getIsAdmin(self):
+        return self.__isAdmin
+    
+    # Methods
+    # Adds a room to the set of responsible rooms of a user
+    def addResponsibleRooms(self, room):
+        self.__responsibleRooms.add(room)
+
+    # Removes a room from the set of responsible rooms of a user
+    def removeResponsibleRooms(self, room):
+        self.__responsibleRooms.remove(room)
+
+    # Adds a tag to the set of a user
+    def addTag(self, tag):
+        self.__tags.add(tag)
+        self.checkTagRequirement()
+
+    # Adds a tag from the set of a user
+    def removeTag(self, tag):
+        self.__tags.remove(tag)
+        self.checkTagRequirement()
+
+    # New method to check if the user has selected at least 5 tags
+    def checkTagRequirement(self):
+        if len(self.__tags) < 5:
+            print("You must select at least 5 tags (faculty, majors, associations).")
+            return False
+        return True
+
+    
 

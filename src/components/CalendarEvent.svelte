@@ -1,9 +1,10 @@
 <script>
   export let event
+  export let timed
   let { noTagsInCommon, eventName } = event
 </script>
 
-<div class:noTagsInCommon class="eventWrapper">
+<div class:timed class:noTagsInCommon class="eventWrapper" style={`grid-row: ${event.startTime + 1}/${event.startTime + event.duration + 1}`}>
   <span class="plusIcon">+</span>
   <span class="eventName">{eventName}</span>
 </div>
@@ -15,9 +16,15 @@
     margin: 0 auto 0.4em auto;
     border-radius: 2em;
     font-size: 0.8em;
-    max-width: 75%;
     padding: 0.2em;
     color: white;
+    z-index: 1;
+    width: 75%;
+  }
+
+  .timed {
+    border-radius: 0.5em;
+    width: 95%;
   }
   .noTagsInCommon {
     background: rgb(232, 0, 147);
