@@ -79,6 +79,13 @@
       }
       filterItems();
     }
+
+    function toggleRSVP(itemId){
+        items = items.map((item) =>
+            item.id === itemId ? { ...item, rsvp: !item.rsvp } : item
+        );
+        filterItems(); 
+    }
   
     import labelIcon from '../assets/label.png';
   
@@ -128,6 +135,11 @@
                 <span class="tag">{tag}</span>
               {/each}
             </div>
+
+            <button class="rsvp-button" on:click={() => toggleRSVP(item.id)}>
+                {item.rsvp ? "Cancel RSVP" : "RSVP"}
+            </button>
+
           </div>
         {/each}
       {:else if searchQuery.trim() !== ""}
@@ -317,5 +329,29 @@
       border-radius: 8px;
       
     }
+
+    .event-card{
+        margin-bottom: 16px;
+        padding: 16px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .rsvp-button{
+        margin-top: 8px;
+        padding:8px 16px;
+        border: none;
+        border-radius: 4px;
+        background-color: #00c48c;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .rsvp-button:hover{
+        background-color: #007a5e;
+    }
+
   </style>
   
