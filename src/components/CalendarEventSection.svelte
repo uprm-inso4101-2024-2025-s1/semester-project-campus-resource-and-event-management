@@ -6,11 +6,20 @@
 
     <div class="color-circle other-circle" style="background-color: {isOtherBoxActive ? 'green' : 'grey'};"></div>
     <button class="otherButton" on:click={otherBox}>Other</button>
-    
     <button class="calendarTextBlock">Calendar</button>
+    
+    <div class="color-circle my-events-circle2" style="background-color: {isEventBoxActive ? 'green' : 'grey'};"></div>
+    <button class="addEventButton2" on:click={addEvent}> Select Event</button>
+
+   
+
 </div>
 
 <style>
+    .addEventButton2 {
+        top:300px;
+        cursor: pointer;
+    }
     .wrapper {
         box-shadow: 0 0.2em 0.25em rgba(0, 0, 0, 0.8);
         box-sizing: border-rectangle;
@@ -26,8 +35,9 @@
     
     .addEventButton,
     .calendarTextBlock,
+    /* .eventButton, */
     .myEventsButton,
-    .otherButton {
+    .otherButton,.addEventButton2 {
         width: 280px; 
         height: 40px; 
         font-size: 16px;
@@ -40,6 +50,7 @@
         left: 50%; 
         transform: translateX(-50%);
     }
+  
 
     .addEventButton {
         top: 10px; 
@@ -70,6 +81,10 @@
         background: rgb(222, 232, 230);
     }
 
+    .addEventButton2:hover {
+        background: rgb(222, 232, 230);
+    }
+
     /* Circle styles */
     .color-circle {
         width: 20px;
@@ -90,6 +105,13 @@
         top: 210px;
         left: 80px
     }
+
+    .my-events-circle2 {
+        top: 311px; 
+        left: 62px
+        
+    }
+
 </style>
 
 <script>
@@ -108,5 +130,9 @@
     function otherBox() {
         isOtherBoxActive = !isOtherBoxActive; 
         isEventBoxActive = false; 
+    }
+
+    function Event() {
+        alert('Button clicked!');
     }
 </script>
