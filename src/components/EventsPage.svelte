@@ -1,4 +1,5 @@
 <script>
+    import EventsDashboard from "./EventsDashboard.svelte";
 
   let items = [
       {
@@ -99,6 +100,10 @@
       { id: 9, label: "Menu item 3" }
     ];
   </script>
+
+  <div>
+    <EventsDashboard />
+</div>
   
   <div class="container">
     <div class="page-header">
@@ -317,5 +322,5 @@
       border-radius: 8px;
       
     }
-  </style>
+</style>
   
