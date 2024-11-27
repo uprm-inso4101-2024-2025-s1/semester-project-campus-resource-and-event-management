@@ -2,6 +2,7 @@
     let selectedFaculty = "";
     let showassociation = false;
     let pickCount = 5; // Initialize the count to 5
+    let selectedTags = [];
 
     // Dictionary for storing tags according to faculty
     const facultyMajors = {
@@ -41,11 +42,20 @@
         ...(Universal.Universal || [])
     ];
 
-    function handleTagClick() {
-        if (pickCount > 0) {
-            pickCount -= 1; // Decrease the pick count when a tag button is clicked
+
+    // Handle tag click and track selected tags
+    function handleTagClick(tag) {
+        if (selectedTags.includes(tag)) {
+            selectedTags = selectedTags.filter(t => t !== tag); // Deselect if already selected
+            pickCount += 1;
+        } else {
+                selectedTags = [...selectedTags, tag]; // Add the tag to selectedTags
+                pickCount -= 1;
+            }
         }
-    }
+
+    $: isSubmitButton = selectedTags.length >= 5; // If 5 tags are selected or more, show "Submit"
+    
 </script>
 
 <head>
@@ -143,6 +153,10 @@
             background-color: black; 
             border-color: white; 
         }
+        .button.selected {
+            background-color: grey; /* Grey out the button */
+            color: white;
+        }
 
         .pick-button {
             background-color: rgb(8, 94, 73);
@@ -168,7 +182,11 @@
                 <p class="section-header">Majors</p>
                 <ul>
                     {#each facultyMajors[selectedFaculty] as tag}
-                        <button class="button" on:click={() => { handleTagClick(); showassociation = true; }}>{tag}</button>
+                        <button 
+                            class="button {selectedTags.includes(tag) ? 'selected' : ''}" 
+                            on:click={() => { handleTagClick(tag); showassociation = true; }}>
+                            {tag}
+                        </button>
                     {/each}
                 </ul>
             {/if}
@@ -176,13 +194,24 @@
                 <p class="section-header">Associations</p>
                 <ul>
                     {#each combinedAssociations as tag}
-                        <button class="button" on:click={handleTagClick}>{tag}</button>
+                        <button 
+                            class="button {selectedTags.includes(tag) ? 'selected' : ''}" 
+                            on:click={() => handleTagClick(tag)}>
+                            {tag}
+                        </button>
                     {/each}
                 </ul>
             {/if}
         </div>
+        
         <div class="bottom-box">
-            <button class="button pick-button">Pick {pickCount} or more</button>
+            <button class="pick-button">
+                {#if isSubmitButton}
+                    Submit
+                {:else}
+                    Pick {pickCount} or more
+                {/if}
+            </button>
         </div>
     </div>
 </body>
