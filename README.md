@@ -1,9 +1,10 @@
-# Campus Resource and Event Management App
+# [Eventero.org](https://eventero.org)
+Every 5 minutes, the server checks for updates to the main branch. If there are any, it will pull them and make them available immediately after.
 
 ## Documentation
-This shared folder contains the documentation for the project. In it are the instructions and template for writing documentation.
+This github repository link contains the documentation for the project. In it are the instructions and template for writing documentation.
 
-👉  [Documentation](https://sistemaupr-my.sharepoint.com/:f:/g/personal/ojani_figueroa_upr_edu/Eqlo9P4D4UZHg4bHjCxJs90BfMWxwdf-nHmwlT38ll9_Vw?e=xrcjdD)
+👉  [EventeroDocumentation](https://github.com/SaucyRexy/EventeroDocumentation)
 
 ## Setting up the development environment
 
