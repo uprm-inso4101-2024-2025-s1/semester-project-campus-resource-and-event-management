@@ -1,6 +1,8 @@
 <script>
+  import App from "../App.svelte";
   import Footer from "../components/Footer.svelte"
   import Hero from "../components/Hero.svelte"
+  import Pop from "../components/pop-up.svelte"
 </script>
 
 <section class="title-section">
@@ -31,6 +33,11 @@
 
 <div class="footerWrapper">
   <Footer/>
+</div>
+
+<div>
+  <!-- aqui se ve el pop-up de los issue 356 a 359 -->
+  <!-- <Pop/> -->
 </div>
 
 <style>
