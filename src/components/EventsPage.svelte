@@ -7,6 +7,8 @@
         description: "A conference for UPRM computer science engineering students.",
         date: "2024-05-15",
         tags: ["tech", "conference", "AI"],
+        rsvp: false,
+        confirming: false,
       },
       {
         id: 2,
@@ -14,6 +16,8 @@
         description: "Celebrating local art and culture.",
         date: "2024-06-10",
         tags: ["art", "festival"],
+        rsvp:false,
+        confirming: false,
       },
       {
         id: 3,
@@ -21,6 +25,8 @@
         description: "An evening of live music with la centenaria banda colegial.",
         date: "2024-07-05",
         tags: ["music", "concert", "live"],
+        rsvp:false,
+        confirming: false,
       },
       {
         id: 4,
@@ -28,6 +34,8 @@
         description: "Startup pitches.",
         date: "2024-05-20",
         tags: ["startup", "competition", "innovation"],
+        rsvp:false,
+        confirming: false,
       },
       {
         id: 5,
@@ -35,6 +43,8 @@
         description: "Mental wellness.",
         date: "2024-06-15",
         tags: ["health", "wellness"],
+        rsvp:false,
+        confirming: false,
       },
     ];
   
@@ -82,9 +92,23 @@
 
     function toggleRSVP(itemId){
         items = items.map((item) =>
-            item.id === itemId ? { ...item, rsvp: !item.rsvp } : item
+            item.id === itemId ? { ...item, confirming: !item.confirming } : item
         );
         filterItems(); 
+    }
+
+    function confirmRSVP(itemId){
+        items = items.map((item) =>
+            item.id === itemId ? { ...item, rsvp: true, confirming: false } : item
+        );
+        filterItems();
+    }
+
+    function cancelRSVP(itemId){
+        items = items.map((item) =>
+        item.id === itemId ? { ...item, rsvp: false, confirming: false } : item
+    );
+    filterItems();
     }
   
     import labelIcon from '../assets/label.png';
@@ -136,9 +160,15 @@
               {/each}
             </div>
 
-            <button class="rsvp-button" on:click={() => toggleRSVP(item.id)}>
-                {item.rsvp ? "Cancel RSVP" : "RSVP"}
-            </button>
+            {#if item.confirming}
+                <button class="confirm-button" on:click={() => confirmRSVP(item.id)}>Confirm</button>
+                <button class="cancel-button" on:click={() => cancelRSVP(item.id)}>Cancel</button>
+
+            {:else}
+                <button class="rsvp-button" on:click={() => toggleRSVP(item.id)}>
+                  {item.rsvp ? "Cancel RSVP" : "RSVP"}
+                </button>
+            {/if}
 
           </div>
         {/each}
@@ -330,7 +360,7 @@
       
     }
 
-    .event-card{
+    .event-card {
         margin-bottom: 16px;
         padding: 16px;
         background: #fff;
@@ -338,7 +368,9 @@
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
-    .rsvp-button{
+    .rsvp-button,
+    .confirm-button,
+    .cancel-button {
         margin-top: 8px;
         padding:8px 16px;
         border: none;
@@ -349,8 +381,31 @@
         transition: background-color 0.3s ease;
     }
 
+    .rsvp-button {
+        background-color: #00c48c;
+        color: white;
+    }
+
+    .confirm-button {
+        background-color: #4caf50;
+        color: white;
+        margin-right: 8px;
+    }
+
+    .cancel-button {
+        background-color: #f44336;
+        color: white;
+    }
+
     .rsvp-button:hover{
         background-color: #007a5e;
+    }
+
+    .confirm-button:hover {
+        background-color: #388e3c;
+    }
+    .cancel-button:hover {
+        background-color: #d32f2f;
     }
 
   </style>
