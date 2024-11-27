@@ -99,7 +99,7 @@
       { id: 8, label: "Menu item 2" },
       { id: 9, label: "Menu item 3" }
     ];
-  <script/>
+  </script>
 
   <div>
     <EventsDashboard />
@@ -322,5 +322,5 @@
       border-radius: 8px;
       
     }
-  </style>
+</style>
   
