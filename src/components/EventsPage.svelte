@@ -1,4 +1,5 @@
 <script>
+    import EventsDashboard from "./EventsDashboard.svelte";
 
   let items = [
       {
@@ -183,6 +184,10 @@ function displayNotification() {
       { id: 9, label: "Menu item 3" }
     ];
   </script>
+
+  <div>
+    <EventsDashboard />
+</div>
   
   <div class="container">
 
@@ -565,4 +570,6 @@ function displayNotification() {
 
 
   </style>
+
+
   
