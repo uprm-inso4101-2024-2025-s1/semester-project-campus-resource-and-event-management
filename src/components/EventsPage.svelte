@@ -58,6 +58,59 @@
     let allTags = [...new Set(items.flatMap((item) => item.tags))];
   
   
+// Notification messages
+let successMessage = "";
+let errorMessage = "";
+let newEventTitle = "";
+let newEventDescription = "";
+let newEventDate = "";
+let newEventTags = "";
+
+function createEvent(title, description, date, tags) {
+  // Check for missing fields
+  if (!title || !description || !date || tags.length === 0) {
+    errorMessage = "All fields are required to create an event.";
+    successMessage = ""; // Clear success message
+    displayNotification();
+    return;
+  }
+
+  // Add the new event
+  const newEvent = {
+    id: items.length + 1,
+    title,
+    description,
+    date,
+    tags,
+    rsvp: false,
+    confirming: false,
+  };
+
+  items = [...items, newEvent];
+  successMessage = "Event created successfully!";
+  errorMessage = ""; // Clear error message
+  displayNotification();
+
+  // Reset form fields
+  newEventTitle = "";
+  newEventDescription = "";
+  newEventDate = "";
+  newEventTags = "";
+}
+
+// Function to display notifications
+function displayNotification() {
+  const notificationElement = document.querySelector(".notification");
+  if (notificationElement instanceof HTMLElement) {
+    notificationElement.style.display = "block";
+    setTimeout(() => {
+      notificationElement.style.display = "none";
+    }, 3000); // Hide after 3 seconds
+  }
+}
+
+
+
     function filterItems() {
       const query = searchQuery.toLowerCase().trim();
   
@@ -132,6 +185,19 @@
   </script>
   
   <div class="container">
+
+    <div class="event-form">
+      <h3>Create Event</h3>
+      <input type="text" placeholder="Event Title" bind:value={newEventTitle} />
+      <textarea placeholder="Event Description" bind:value={newEventDescription}></textarea>
+      <input type="date" bind:value={newEventDate} />
+      <input type="text" placeholder="Tags (comma separated)" bind:value={newEventTags} />
+      <button on:click={() => createEvent(newEventTitle, newEventDescription, newEventDate, newEventTags.split(","))}>
+        Create Event
+      </button>
+    </div>
+
+
     <div class="page-header">
       <input
         type="text"
@@ -147,6 +213,20 @@
         <input type="date" bind:value={selectedEndDate} on:change={filterItems} />
       </div>
     </div>
+
+    <div class="notification">
+      {#if successMessage}
+        <p class="success-message">{successMessage}</p>
+      {/if}
+      {#if errorMessage}
+        <p class="error-message">{errorMessage}</p>
+      {/if}
+    </div>
+    
+
+    
+
+
     <div class="event-list">
       {#if filteredItems.length > 0}
         {#each filteredItems as item}
@@ -228,6 +308,8 @@
     </div>
   
   </div>
+
+  
   
   <style>
     .container {
@@ -407,6 +489,80 @@
     .cancel-button:hover {
         background-color: #d32f2f;
     }
+
+
+    .notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: none;
+  z-index: 1000;
+}
+
+.success-message {
+  background-color: #4caf50;
+  color: white;
+}
+
+.error-message {
+  background-color: #f44336;
+  color: white;
+}
+
+.event-form {
+  margin-top: 16px;
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-form-container {
+    width: 260px;
+    margin-right: 16px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    font-family: 'Arial', sans-serif;
+  }
+
+  .event-form h3 {
+    margin-bottom: 12px;
+    font-size: 18px;
+    color: black;
+  }
+
+.event-form input,
+.event-form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
+
+.event-form button {
+  padding: 8px 16px;
+  background-color: #00c48c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.event-form button:hover {
+  background-color: #007a5e;
+}
+
+
 
   </style>
   
