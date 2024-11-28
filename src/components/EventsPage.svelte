@@ -8,6 +8,8 @@
         description: "A conference for UPRM computer science engineering students.",
         date: "2024-05-15",
         tags: ["tech", "conference", "AI"],
+        rsvp: false,
+        confirming: false,
       },
       {
         id: 2,
@@ -15,6 +17,8 @@
         description: "Celebrating local art and culture.",
         date: "2024-06-10",
         tags: ["art", "festival"],
+        rsvp:false,
+        confirming: false,
       },
       {
         id: 3,
@@ -22,6 +26,8 @@
         description: "An evening of live music with la centenaria banda colegial.",
         date: "2024-07-05",
         tags: ["music", "concert", "live"],
+        rsvp:false,
+        confirming: false,
       },
       {
         id: 4,
@@ -29,6 +35,8 @@
         description: "Startup pitches.",
         date: "2024-05-20",
         tags: ["startup", "competition", "innovation"],
+        rsvp:false,
+        confirming: false,
       },
       {
         id: 5,
@@ -36,6 +44,8 @@
         description: "Mental wellness.",
         date: "2024-06-15",
         tags: ["health", "wellness"],
+        rsvp:false,
+        confirming: false,
       },
     ];
   
@@ -49,6 +59,59 @@
     let allTags = [...new Set(items.flatMap((item) => item.tags))];
   
   
+// Notification messages
+let successMessage = "";
+let errorMessage = "";
+let newEventTitle = "";
+let newEventDescription = "";
+let newEventDate = "";
+let newEventTags = "";
+
+function createEvent(title, description, date, tags) {
+  // Check for missing fields
+  if (!title || !description || !date || tags.length === 0) {
+    errorMessage = "All fields are required to create an event.";
+    successMessage = ""; // Clear success message
+    displayNotification();
+    return;
+  }
+
+  // Add the new event
+  const newEvent = {
+    id: items.length + 1,
+    title,
+    description,
+    date,
+    tags,
+    rsvp: false,
+    confirming: false,
+  };
+
+  items = [...items, newEvent];
+  successMessage = "Event created successfully!";
+  errorMessage = ""; // Clear error message
+  displayNotification();
+
+  // Reset form fields
+  newEventTitle = "";
+  newEventDescription = "";
+  newEventDate = "";
+  newEventTags = "";
+}
+
+// Function to display notifications
+function displayNotification() {
+  const notificationElement = document.querySelector(".notification");
+  if (notificationElement instanceof HTMLElement) {
+    notificationElement.style.display = "block";
+    setTimeout(() => {
+      notificationElement.style.display = "none";
+    }, 3000); // Hide after 3 seconds
+  }
+}
+
+
+
     function filterItems() {
       const query = searchQuery.toLowerCase().trim();
   
@@ -80,6 +143,27 @@
       }
       filterItems();
     }
+
+    function toggleRSVP(itemId){
+        items = items.map((item) =>
+            item.id === itemId ? { ...item, confirming: !item.confirming } : item
+        );
+        filterItems(); 
+    }
+
+    function confirmRSVP(itemId){
+        items = items.map((item) =>
+            item.id === itemId ? { ...item, rsvp: true, confirming: false } : item
+        );
+        filterItems();
+    }
+
+    function cancelRSVP(itemId){
+        items = items.map((item) =>
+        item.id === itemId ? { ...item, rsvp: false, confirming: false } : item
+    );
+    filterItems();
+    }
   
     import labelIcon from '../assets/label.png';
   
@@ -106,6 +190,19 @@
 </div>
   
   <div class="container">
+
+    <div class="event-form">
+      <h3>Create Event</h3>
+      <input type="text" placeholder="Event Title" bind:value={newEventTitle} />
+      <textarea placeholder="Event Description" bind:value={newEventDescription}></textarea>
+      <input type="date" bind:value={newEventDate} />
+      <input type="text" placeholder="Tags (comma separated)" bind:value={newEventTags} />
+      <button on:click={() => createEvent(newEventTitle, newEventDescription, newEventDate, newEventTags.split(","))}>
+        Create Event
+      </button>
+    </div>
+
+
     <div class="page-header">
       <input
         type="text"
@@ -121,6 +218,20 @@
         <input type="date" bind:value={selectedEndDate} on:change={filterItems} />
       </div>
     </div>
+
+    <div class="notification">
+      {#if successMessage}
+        <p class="success-message">{successMessage}</p>
+      {/if}
+      {#if errorMessage}
+        <p class="error-message">{errorMessage}</p>
+      {/if}
+    </div>
+    
+
+    
+
+
     <div class="event-list">
       {#if filteredItems.length > 0}
         {#each filteredItems as item}
@@ -133,6 +244,17 @@
                 <span class="tag">{tag}</span>
               {/each}
             </div>
+
+            {#if item.confirming}
+                <button class="confirm-button" on:click={() => confirmRSVP(item.id)}>Confirm</button>
+                <button class="cancel-button" on:click={() => cancelRSVP(item.id)}>Cancel</button>
+
+            {:else}
+                <button class="rsvp-button" on:click={() => toggleRSVP(item.id)}>
+                  {item.rsvp ? "Cancel RSVP" : "RSVP"}
+                </button>
+            {/if}
+
           </div>
         {/each}
       {:else if searchQuery.trim() !== ""}
@@ -191,6 +313,8 @@
     </div>
   
   </div>
+
+  
   
   <style>
     .container {
@@ -322,5 +446,130 @@
       border-radius: 8px;
       
     }
-</style>
+
+    .event-card {
+        margin-bottom: 16px;
+        padding: 16px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .rsvp-button,
+    .confirm-button,
+    .cancel-button {
+        margin-top: 8px;
+        padding:8px 16px;
+        border: none;
+        border-radius: 4px;
+        background-color: #00c48c;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .rsvp-button {
+        background-color: #00c48c;
+        color: white;
+    }
+
+    .confirm-button {
+        background-color: #4caf50;
+        color: white;
+        margin-right: 8px;
+    }
+
+    .cancel-button {
+        background-color: #f44336;
+        color: white;
+    }
+
+    .rsvp-button:hover{
+        background-color: #007a5e;
+    }
+
+    .confirm-button:hover {
+        background-color: #388e3c;
+    }
+    .cancel-button:hover {
+        background-color: #d32f2f;
+    }
+
+
+    .notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: none;
+  z-index: 1000;
+}
+
+.success-message {
+  background-color: #4caf50;
+  color: white;
+}
+
+.error-message {
+  background-color: #f44336;
+  color: white;
+}
+
+.event-form {
+  margin-top: 16px;
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-form-container {
+    width: 260px;
+    margin-right: 16px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    font-family: 'Arial', sans-serif;
+  }
+
+  .event-form h3 {
+    margin-bottom: 12px;
+    font-size: 18px;
+    color: black;
+  }
+
+.event-form input,
+.event-form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
+
+.event-form button {
+  padding: 8px 16px;
+  background-color: #00c48c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.event-form button:hover {
+  background-color: #007a5e;
+}
+
+
+
+  </style>
+
+
   
