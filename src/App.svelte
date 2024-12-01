@@ -9,6 +9,7 @@
   import NewsPage from "./components/NewsPage.svelte";
   import ResourcesPage from "./components/ResourcesPage.svelte";
   import TagsPage from "./components/TagsPage.svelte";
+  import UserProfilePage from "./components/UserProfilePage.svelte";
 
   let currentPage
 </script>
@@ -30,6 +31,8 @@
     <ResourcesPage />
   {:else if currentPage == '/tags'}
     <TagsPage />
+  {:else if currentPage == '/profile'}
+    <UserProfilePage />
   {:else}
     <ExamplePage />
   {/if}

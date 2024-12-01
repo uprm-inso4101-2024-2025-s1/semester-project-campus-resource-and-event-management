@@ -2,6 +2,7 @@
     let selectedFaculty = "";
     let showassociation = false;
     let pickCount = 5; // Initialize the count to 5
+    let selectedTags = [];
 
     // Dictionary for storing tags according to faculty
     const facultyMajors = {
@@ -40,12 +41,33 @@
         ...(MajorAsociations[selectedFaculty] || []),
         ...(Universal.Universal || [])
     ];
+    
 
-    function handleTagClick() {
-        if (pickCount > 0) {
-            pickCount -= 1; // Decrease the pick count when a tag button is clicked
+    // Redirects to the specified href and updates the current URL
+    function redirectToPage(href) {
+        window.history.replaceState(null, "", href); // Update the browser URL without reloading
+        window.dispatchEvent(new Event("popstate")); // Notify the app of the navigation change
+    }
+
+    function handleSubmit() {
+        if (isSubmitButton) {
+            redirectToPage("/profile"); // Redirect to the desired page
         }
     }
+
+    // Handle tag click and track selected tags
+    function handleTagClick(tag) {
+        if (selectedTags.includes(tag)) {
+            selectedTags = selectedTags.filter(t => t !== tag); // Deselect if already selected
+            pickCount += 1;
+        } else {
+                selectedTags = [...selectedTags, tag]; // Add the tag to selectedTags
+                pickCount -= 1;
+            }
+        }
+
+    $: isSubmitButton = selectedTags.length >= 5; // If 5 tags are selected or more, show "Submit"
+    
 </script>
 
 <head>
@@ -62,6 +84,12 @@
             height: 100vh;
         }
         
+        .main-container{
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
         .outer-box {
             width: 1700px;
             height: 700px;
@@ -143,6 +171,10 @@
             background-color: black; 
             border-color: white; 
         }
+        .button.selected {
+            background-color: grey; /* Grey out the button */
+            color: white;
+        }
 
         .pick-button {
             background-color: rgb(8, 94, 73);
@@ -154,35 +186,57 @@
 </head>
 
 <body>
-    <div class="outer-box">
-        <div class="inner-box">
-            <h2>What tags would you like to see?</h2>
-            <p>These tags will be the tagged events you'll be recommended.</p>
-            <p class="section-header">Faculties</p>
-            <button class="button" on:click={() => selectedFaculty = "ARTS AND SCIENCES"}>ARTS AND SCIENCES</button>
-            <button class="button" on:click={() => selectedFaculty = "AGRICULTURAL SCIENCES"}>AGRICULTURAL SCIENCES</button>
-            <button class="button" on:click={() => selectedFaculty = "BUSINESS ADMINISTRATION"}>BUSINESS ADMINISTRATION</button>
-            <button class="button" on:click={() => selectedFaculty = "ENGINEERING"}>ENGINEERING</button>
+    <div class="main-container">
+        <div class="outer-box">
+            <div class="inner-box">
+                <h2>What tags would you like to see?</h2>
+                <p>These tags will be the tagged events you'll be recommended.</p>
+                <p class="section-header">Faculties</p>
+                <button class="button" on:click={() => selectedFaculty = "ARTS AND SCIENCES"}>ARTS AND SCIENCES</button>
+                <button class="button" on:click={() => selectedFaculty = "AGRICULTURAL SCIENCES"}>AGRICULTURAL SCIENCES</button>
+                <button class="button" on:click={() => selectedFaculty = "BUSINESS ADMINISTRATION"}>BUSINESS ADMINISTRATION</button>
+                <button class="button" on:click={() => selectedFaculty = "ENGINEERING"}>ENGINEERING</button>
 
-            {#if selectedFaculty}
-                <p class="section-header">Majors</p>
-                <ul>
-                    {#each facultyMajors[selectedFaculty] as tag}
-                        <button class="button" on:click={() => { handleTagClick(); showassociation = true; }}>{tag}</button>
-                    {/each}
-                </ul>
-            {/if}
-            {#if showassociation}
-                <p class="section-header">Associations</p>
-                <ul>
-                    {#each combinedAssociations as tag}
-                        <button class="button" on:click={handleTagClick}>{tag}</button>
-                    {/each}
-                </ul>
-            {/if}
-        </div>
-        <div class="bottom-box">
-            <button class="button pick-button">Pick {pickCount} or more</button>
+                {#if selectedFaculty}
+                    <p class="section-header">Majors</p>
+                    <ul>
+                        {#each facultyMajors[selectedFaculty] as tag}
+                            <button 
+                                class="button {selectedTags.includes(tag) ? 'selected' : ''}" 
+                                on:click={() => { handleTagClick(tag); showassociation = true; }}>
+                                {tag}
+                            </button>
+                        {/each}
+                    </ul>
+                {/if}
+                {#if showassociation}
+                    <p class="section-header">Associations</p>
+                    <ul>
+                        {#each combinedAssociations as tag}
+                            <button 
+                                class="button {selectedTags.includes(tag) ? 'selected' : ''}" 
+                                on:click={() => handleTagClick(tag)}>
+                                {tag}
+                            </button>
+                        {/each}
+                    </ul>
+                {/if}
+            </div>
+            
+            <div class="bottom-box">
+                <button class="pick-button"
+                on:click={() => {
+                    if (isSubmitButton) 
+                        window.location.href = "/profile";}}
+                >
+                    
+                    {#if isSubmitButton}
+                        Submit
+                    {:else}
+                        Pick {pickCount} or more
+                    {/if}
+                </button>
+            </div>
         </div>
     </div>
 </body>
